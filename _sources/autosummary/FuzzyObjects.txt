@@ -1,0 +1,27 @@
+FuzzyObjects
+============
+
+.. automodule:: FuzzyObjects
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      EdgeDefinedObject
+      EdgeDefinedObjectFromValues
+      FObject
+      FuzzyObject
+      VertexDefinedObject
+      VertexDefinedObjectFromValues
+   
+   
+
+   
+   
+   

@@ -1,0 +1,24 @@
+_distributions
+==============
+
+.. automodule:: _distributions
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      generateNormal
+      generateTruncatedNormal
+      generateUniform
+   
+   
+
+   
+   
+   
+
+   
+   
+   

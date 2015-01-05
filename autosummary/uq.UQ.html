@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>uq.UQ &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="UQ" href="../uq.html"/>
+        <link rel="next" title="SA" href="../sa.html"/>
+        <link rel="prev" title="uq" href="uq.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../uq.html"><strong>UQ</strong></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uq.html">uq</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../uq.html"><strong>UQ</strong></a> &raquo;</li>
+      
+    <li>uq.UQ</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/autosummary/uq.UQ.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="uq-uq">
+<h1>uq.UQ<a class="headerlink" href="#uq-uq" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="uq.UQ">
+<em class="property">class </em><tt class="descclassname">uq.</tt><tt class="descname">UQ</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>n_prob=None</em>, <em>n_fuzzy=None</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em><big>)</big><a class="headerlink" href="#uq.UQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manages a UQ run in a simplified way.</p>
+<ul>
+<li><p class="first"><em>testProgScriptFile</em>: The model (e.g., .py script) to evaluate. This script must be able to
+take as input a command line argument</p>
+<blockquote>
+<div><p>&#8211;paramsFile xxx &#8211;baseShapes yyy</p>
+</div></blockquote>
+<p>where xxx is a file name consising of name-value pairs (one per line). All of the
+parameters (object and non-object) given in <em>objMgr, probVars, fuzzyVars, consts</em> are
+passed in xxx. The actual values of xxx and yyy are constructed by UQ automatically.</p>
+<p>The yyy value is the file name contains the base shapes. Use <a class="reference internal" href="../objectmanager.html#objectmanager.ObjectManager.isShapeParam" title="objectmanager.ObjectManager.isShapeParam"><tt class="xref py py-func docutils literal"><span class="pre">objectmanager.ObjectManager.isShapeParam()</span></tt></a>,
+<a class="reference internal" href="../objectmanager.html#objectmanager.ObjectManager.puq2Shapes" title="objectmanager.ObjectManager.puq2Shapes"><tt class="xref py py-func docutils literal"><span class="pre">objectmanager.ObjectManager.puq2Shapes()</span></tt></a> and <a class="reference internal" href="../utilities.html#utilities.puqParams_fromFile" title="utilities.puqParams_fromFile"><tt class="xref py py-func docutils literal"><span class="pre">utilities.puqParams_fromFile()</span></tt></a> inside
+of the <em>testProgScriptFile</em> to read the baseshapes.</p>
+<p>If testProgScriptFile is relative path, the current python
+<em>workingDir</em> is used as a base.</p>
+</li>
+<li><p class="first"><em>testProgFunc</em>: A python function. Instead of passing a script file in <em>testProgScriptFile</em>,
+a Python function may be passed instead, giving significantly better performance for fast
+running models. Either this parameter or <em>testProgScriptFile</em> must be specified, but not both.</p>
+<p>The function must exist at the module level (not inside a class). The function must
+take two named arguments, args and jobinfo, and return the jobinfo argument without modifying
+it.  E.g., if the function is named f,:</p>
+<div class="highlight-python"><div class="highlight"><pre>def f(args=None, jobinfo=None):
+    &lt;evaluate your model here&gt;
+    return jobinfo
+</pre></div>
+</div>
+<p>The args parameter is a list of strings that can be parsed by the optparse module. It contains
+at least two arguments: &#8216;paramsFile&#8217; and &#8216;baseshapes&#8217; which are described above in the
+<em>testProgScriptFile</em> parameter. Additional arguments, along with their values may be
+specifed in the <em>args</em> parameter of this method.</p>
+</li>
+<li><p class="first"><em>args</em>: extra arguments to pass to <em>testProgScriptFile</em> or <em>testProgFunc</em>.</p>
+</li>
+<li><p class="first"><em>workingDir</em>: the working directory where all scripts are located and where input and output
+files will be read/written.
+By default, its the current python working dir.</p>
+</li>
+<li><p class="first"><em>objMgr</em>: An ObjectManager instance.</p>
+</li>
+<li><p class="first"><em>baseShapesName</em>: The name (without path) of the base shapes file.
+See <tt class="xref py py-func docutils literal"><span class="pre">Objectmanager.crispObjects2PuqParams()</span></tt>.</p>
+</li>
+<li><p class="first"><em>probVars</em>: additional scalar probabilistic variables. This is a dictionary with the structure</p>
+<blockquote>
+<div><p>{$varName$:{&#8216;dist&#8217;:string, &#8216;desc&#8217;:string, &#8216;kwargs&#8217;:{$pname$:float, ... } }, ...  }</p>
+</div></blockquote>
+<p>The keys are the variable name. The value is a dictionaries which specifies the rest of the parameter.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Key &#8216;dist&#8217;: a string corresponding to some of the Parameter distribution types supported by puq.
+Valid values are: &#8216;uniform&#8217;, &#8216;normal&#8217;, &#8216;triangular&#8217;.</li>
+<li>Key &#8216;desc&#8217;: a string description of the variable.</li>
+<li>Key &#8216;kwargs&#8217; is a dictionary specifying the parameters of the distribution selected in &#8216;dist&#8217;.
+See the puq reference for the Parameters class for the names of the kwargs for each distribution.</li>
+</ul>
+</div></blockquote>
+<p>E.g., to
+specify a NormalParameter, set dist to &#8216;normal&#8217;, and for the kwargs dictionary, set it to
+{&#8216;mean&#8217;:the mean, &#8216;dev&#8217;:the standard dev}.</p>
+</li>
+<li><p class="first"><em>fuzzyVars</em>: additional scalar fuzzy variables.</p>
+<blockquote>
+<div><p>{$varName$:{desc:string, kl:float, ku:float, sl:float, su:float}, ...}</p>
+</div></blockquote>
+<p>kl and ku are the lower and upper values of the kernel of the fuzzy number (can be the same value).
+sl and su are the lower and upper values of the support.</p>
+</li>
+<li><p class="first"><em>fuzzyVarsACuts</em>: A list of float indicating the alpha cuts at which the fuzzy variables are
+to be evaluated. If <em>objMgr</em> was specified, the alphacuts are taken from there and this parameter
+is ignored.
+If there are no fuzzy objects in <em>objMgr</em> then this paramter must be specified.</p>
+</li>
+<li><p class="first"><em>consts</em>: any additional constants to consider in the analysis.</p>
+<blockquote>
+<div><p>{$constName$:{desc:string, value:float}, ...}</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>args</em>: additional command line arguments to pass to the test script. This is a list with
+the following format:</p>
+<blockquote>
+<div><p>[&#8216;&#8211;param1=value1&#8217;,&#8217;&#8211;param2=value2&#8217;, ...]</p>
+</div></blockquote>
+</li>
+<li><p class="first"><em>n_prob</em>: the number of realizations to use when calculating the effect of the
+probabilistic variables. If there are probabilistic objects in <em>objMgr</em>, this parameter
+is obtained from the number of realizations of those objects instead.</p>
+</li>
+<li><p class="first"><em>n_fuzzy</em>: the number of realizations to use when calculating the effect of the fuzzy
+variables. If there are fuzzy objects in <em>objMgr</em>, this parameter
+overrides the number of realizations of those objects. If there are too few realizations
+for the objects in <em>objMgr</em> existing realizations are replicated.</p>
+</li>
+<li><p class="first"><em>seed</em>: initialize random seed to an integer.</p>
+</li>
+<li><p class="first"><em>sweep_cb</em>: a callback which is called after every puq run. I.e., after an hdf5 file
+is generated, this function is called. It must take two arguments. The first argument
+is the puq sweep object which generated the hdf5. The second is a handle to the hdf5 file.
+The return value must be True or False. If True, the sweep is over. See the puq documentation
+for more information about the callback.</p>
+<p>Note: since the callback is called after every sweep, for fuzzy and mixed runs, it will
+be called multiple times. Ie. after each hdf5 file is generated.</p>
+</li>
+<li><p class="first"><em>outfiles</em>: a list of files outut by the testProgram which will be copied to the hdf5 file.</p>
+</li>
+</ul>
+<dl class="method">
+<dt id="uq.UQ.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>n_prob=None</em>, <em>n_fuzzy=None</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em><big>)</big><a class="headerlink" href="#uq.UQ.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#uq.UQ.__init__" title="uq.UQ.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>([testProgScriptFile,&nbsp;testProgFunc,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../uq.html#uq.UQ.find_all_hdf5" title="uq.UQ.find_all_hdf5"><tt class="xref py py-obj docutils literal"><span class="pre">find_all_hdf5</span></tt></a>(basename[,&nbsp;path])</td>
+<td>Used for the <a class="reference internal" href="../uq.html#uq.UQ.plot" title="uq.UQ.plot"><tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt></a> function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../uq.html#uq.UQ.get_results" title="uq.UQ.get_results"><tt class="xref py py-obj docutils literal"><span class="pre">get_results</span></tt></a>(hdf5[,&nbsp;baseshapes_file])</td>
+<td>Returns the results of the run in varying formats, without plotting.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../uq.html#uq.UQ.plot" title="uq.UQ.plot"><tt class="xref py py-obj docutils literal"><span class="pre">plot</span></tt></a>(hdf5[,&nbsp;baseshapes_file])</td>
+<td>Plots results, and also returns them in varying formats.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../uq.html#uq.UQ.run" title="uq.UQ.run"><tt class="xref py py-obj docutils literal"><span class="pre">run</span></tt></a>([plot,&nbsp;dryrun,&nbsp;keep_files,&nbsp;parallel_jobs])</td>
+<td>Executes the UQ run.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../uq.html#uq.UQ.basename" title="uq.UQ.basename"><tt class="xref py py-obj docutils literal"><span class="pre">basename</span></tt></a></td>
+<td>Returns the basename of the folder/files</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sa.html" class="btn btn-neutral float-right" title="SA">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="uq.html" class="btn btn-neutral" title="uq"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+objectmanager.ObjectManager
+===========================
+
+.. currentmodule:: objectmanager
+
+.. autoclass:: ObjectManager
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ObjectManager.__init__
+      ~ObjectManager.addObject
+      ~ObjectManager.crispObjects2PuqParams
+      ~ObjectManager.fuzzyObjects2PuqParams
+      ~ObjectManager.getBaseShapes
+      ~ObjectManager.isShapeParam
+      ~ObjectManager.isShapeParamLegacy
+      ~ObjectManager.puq2Shapes
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ObjectManager.fuzzyObjects
+      ~ObjectManager.objects
+      ~ObjectManager.probabilisticObjects
+   
+   

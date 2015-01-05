@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FuzzyObjects.VertexDefinedObject &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="FuzzyObjects" href="../fuzzyobjects.html"/>
+        <link rel="next" title="ObjectManager" href="../objectmanager.html"/>
+        <link rel="prev" title="FuzzyObjects.EdgeDefinedObject" href="FuzzyObjects.EdgeDefinedObject.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a> &raquo;</li>
+      
+    <li>FuzzyObjects.VertexDefinedObject</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/autosummary/FuzzyObjects.VertexDefinedObject.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="fuzzyobjects-vertexdefinedobject">
+<h1>FuzzyObjects.VertexDefinedObject<a class="headerlink" href="#fuzzyobjects-vertexdefinedobject" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="FuzzyObjects.VertexDefinedObject">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">VertexDefinedObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>fuzzyVertices_x</em>, <em>fuzzyVertices_y</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a vertex-defined fuzzy object. The x and y coordinates of each vertex are
+treated as an individual fuzzy variable.</p>
+<ul>
+<li><p class="first"><em>x,y</em>: numpy arrays of coordinates of the vertices of the object, each of size N</p>
+</li>
+<li><p class="first"><em>fuzzyVertices_x:</em> a list of fuzzpy TrapezoidalFuzzyNumbers corresponding to the fuzzy membership
+function of the x coordinate of each vertex.  The i&#8217;th fuzzy number in this list represents
+the i&#8217;th number in <em>x</em>.</p>
+<p>The membership function is in the form of an offset with respect to the i&#8217;th element in <em>x</em>.
+The fuzzy number should be centered at zero to avoid confusion but this is not required.</p>
+</li>
+<li><p class="first"><em>fuzzyVertices_y:</em> same as <em>fuzzyVertices_x</em>.</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whether to consider the object as having an open or closed boundary</p>
+</li>
+</ul>
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObject.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>x</em>, <em>y</em>, <em>fuzzyVertices_x</em>, <em>fuzzyVertices_y</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#FuzzyObjects.VertexDefinedObject.__init__" title="FuzzyObjects.VertexDefinedObject.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(x,&nbsp;y,&nbsp;fuzzyVertices_x,&nbsp;fuzzyVertices_y)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.generateRealizations" title="FuzzyObjects.VertexDefinedObject.generateRealizations"><tt class="xref py py-obj docutils literal"><span class="pre">generateRealizations</span></tt></a>(n,&nbsp;alphaCuts,&nbsp;method)</td>
+<td>Generates random samples of each coordinate of each fuzzy vertex.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.getRealizations4Sim" title="FuzzyObjects.VertexDefinedObject.getRealizations4Sim"><tt class="xref py py-obj docutils literal"><span class="pre">getRealizations4Sim</span></tt></a>(acut)</td>
+<td>Returns all realizations at alpha level <em>acut</em>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.plot" title="FuzzyObjects.VertexDefinedObject.plot"><tt class="xref py py-obj docutils literal"><span class="pre">plot</span></tt></a>([fignum,&nbsp;alphaCuts,&nbsp;meanLine,&nbsp;color])</td>
+<td>Plots the generated shapes.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.plotFuzzyNumbers" title="FuzzyObjects.VertexDefinedObject.plotFuzzyNumbers"><tt class="xref py py-obj docutils literal"><span class="pre">plotFuzzyNumbers</span></tt></a>([n,&nbsp;showAlphaCuts,&nbsp;...])</td>
+<td>Plots each fuzzy number corresponding to a vertex coordinate.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.coords" title="FuzzyObjects.VertexDefinedObject.coords"><tt class="xref py py-obj docutils literal"><span class="pre">coords</span></tt></a></td>
+<td>Returns 2 arrays x,y containing the x and y coordinates of the vertices</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.isClosed" title="FuzzyObjects.VertexDefinedObject.isClosed"><tt class="xref py py-obj docutils literal"><span class="pre">isClosed</span></tt></a></td>
+<td>Does the object have a closed or open boundary?</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.polygon" title="FuzzyObjects.VertexDefinedObject.polygon"><tt class="xref py py-obj docutils literal"><span class="pre">polygon</span></tt></a></td>
+<td>Returns a Shapely polygon representing the original shape.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.realizations" title="FuzzyObjects.VertexDefinedObject.realizations"><tt class="xref py py-obj docutils literal"><span class="pre">realizations</span></tt></a></td>
+<td>Returns all realizations.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.realizationsPolygons" title="FuzzyObjects.VertexDefinedObject.realizationsPolygons"><tt class="xref py py-obj docutils literal"><span class="pre">realizationsPolygons</span></tt></a></td>
+<td>Returns a dictionary with keys equal to alpha cuts and values equal to list of shapes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject.uncertainVertices" title="FuzzyObjects.VertexDefinedObject.uncertainVertices"><tt class="xref py py-obj docutils literal"><span class="pre">uncertainVertices</span></tt></a></td>
+<td>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../objectmanager.html" class="btn btn-neutral float-right" title="ObjectManager">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FuzzyObjects.EdgeDefinedObject.html" class="btn btn-neutral" title="FuzzyObjects.EdgeDefinedObject"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

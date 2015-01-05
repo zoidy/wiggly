@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SA &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="sa" href="autosummary/sa.html"/>
+        <link rel="prev" title="uq.UQ" href="autosummary/uq.UQ.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><strong>SA</strong></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/sa.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="sa">
+<h1><strong>SA</strong><a class="headerlink" href="#sa" title="Permalink to this headline">¶</a></h1>
+<p>All public functions and classes in module sa.py</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-sa" title="sa"><tt class="xref py py-obj docutils literal"><span class="pre">sa</span></tt></a></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#sa.SA" title="sa.SA"><tt class="xref py py-obj docutils literal"><span class="pre">sa.SA</span></tt></a>([testProgScriptFile,&nbsp;testProgFunc,&nbsp;...])</td>
+<td>Manages a SA run in a simplified way.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Complete Listing:</strong></p>
+<span class="target" id="module-sa"></span><dl class="class">
+<dt id="sa.SA">
+<em class="property">class </em><tt class="descclassname">sa.</tt><tt class="descname">SA</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>num_trajectories=10</em>, <em>num_levels=5</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em><big>)</big><a class="headerlink" href="#sa.SA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="uq.html#uq.UQ" title="uq.UQ"><tt class="xref py py-class docutils literal"><span class="pre">uq.UQ</span></tt></a></p>
+<p>Manages a SA run in a simplified way.</p>
+<p>Parameters are the same as <tt class="xref py py-class docutils literal"><span class="pre">UQ.uq</span></tt> except for num_trajectories and num_levels.</p>
+<dl class="attribute">
+<dt id="sa.SA.basename">
+<tt class="descname">basename</tt><a class="headerlink" href="#sa.SA.basename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the basename of the folder/files</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="sa.SA.find_all_hdf5">
+<em class="property">static </em><tt class="descname">find_all_hdf5</tt><big>(</big><em>basename</em>, <em>path=None</em><big>)</big><a class="headerlink" href="#sa.SA.find_all_hdf5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for the <tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt> function. Returns a string or dictionary with the
+hdf5 files (without path) found in <em>path</em> which begin with <em>basename</em>.
+See <tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt> for more details regaring the possible return types.</p>
+<ul>
+<li><p class="first"><em>basename</em>: the filename of the hdf5 file(s) to process. Basename includes the
+name up to the first &#64; symbol, if any. File extension is not included. E.g., the
+basename in the file name below is indiccated</p>
+<blockquote>
+<div><p>$basename$ &#64;x#y.hdf5</p>
+</div></blockquote>
+<p>where x is the alpha cut (0.0 to 1.0) and y is the run number for alpha cut x.</p>
+</li>
+<li><p class="first"><em>path</em>: the location to look for the files begining with <em>basename</em>. If
+not specified, the current python working directory is used.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="sa.SA.get_results">
+<em class="property">static </em><tt class="descname">get_results</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em><big>)</big><a class="headerlink" href="#sa.SA.get_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the results of the run in varying formats, without plotting.</p>
+<p>Parameters are the same as <tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt> (plotting-related parameters are excepted of course).</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="sa.SA.plot">
+<em class="property">static </em><tt class="descname">plot</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#sa.SA.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots results, and also returns them in varying formats. See table below.</p>
+<ul>
+<li><p class="first"><em>hdf5</em>: The hdf5 files to plot.</p>
+</li>
+<li><p class="first"><em>baseshapes_file</em>: The full path of the json file containing the
+baseshapes . If no path is specified, it will be taken from the <em>hdf5</em> parameter.
+If that contains no path, then the current working directory is used.</p>
+<p>If this parameter is set to None, any shapes will be ignored. This can be used
+in cases where the model contains no shapes.</p>
+</li>
+<li><p class="first"><em>kwargs</em>: Keyword arguments. Depend on plot type, see table below.</p>
+</li>
+</ul>
+<p>Returns the data used to generate each plot. This data can be used for
+generating custom plots or perform additional analyses.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">type(hdf5)</th>
+<th class="head">plot type</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>string</td>
+<td><p class="first">Probabilistic.
+Single plot of sigma vs mu*</p>
+<p>hdf5: is the hdf5 file to process.</p>
+<p>Valid kwargs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>title_append</em>: a string to append to any plots generated.</li>
+<li><em>labels</em>: Boolean. If True (default), plots data labels
+to identify the points.</li>
+<li><em>labels_top</em>: only displays the top n data labels, sorted by
+the sensitivity index. Default is 20.</li>
+<li><em>labels_bbox_hgt, labels_bbox_wdt</em>: The bounding box for labels
+isn&#8217;t automatically calculated. These numbers are the
+proportion of the axis limits which to make the bounding boxes.
+Default values are 0.05, 0.04 respectively.</li>
+</ul>
+</div></blockquote>
+<p>Returns: a dictionary. The &#8216;shapesdata&#8217; key contains all
+the shapely shapes generated in this run in the form of a list,
+[shpdata].</p>
+<blockquote class="last">
+<div>{$outputName$:r_[samples (float)], ..., &#8216;shapesdata&#8217;:[shpdata] }</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td>dict of str</td>
+<td><p class="first">Fuzzy.
+Plot of sigma vs mu* for each alpha cut. Also a plot of top 16
+variables, sorted descending according to mu* of highest alpha
+cut.</p>
+<p>hdf5: Each
+str is a file name corresponding to the
+results at a particular alpha cut,
+given by the key of the dict.</p>
+<p>Valid kwargs:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><em>alphacuts</em>: process only the alpha cuts given
+in this list. If not specified. All alpha cuts
+are processed.</li>
+<li><em>alphacut_orderby</em>: the alpha level to order the final results
+by. Must be a value contained in the <em>alphacuts</em> list. Defaults
+to the lowest available alpha level.</li>
+<li><em>print_alpha_rank</em>: prints the Morris indices at each alpha
+level to the console.</li>
+<li><em>title_append</em>: a string to append to any plots generated.</li>
+<li><em>labels</em>: If True (default), plots data labels
+to identify the points.</li>
+<li><em>labels_top</em>: only displays the top n data labels, sorted by
+the sensitivity index. Default is 20.</li>
+<li><em>labels_bbox_hgt, labels_bbox_wdt</em>: The bounding box for labels
+isn&#8217;t automatically calculated. These numbers are the
+proportion of the axis limits which to make the bounding boxes.
+Default values are 0.05, 0.04 respectively.</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-even"><td>dict of list</td>
+<td><p class="first">Probabilistic-fuzzy.
+The results are the same as the fuzzy case. The probabilistic and
+fuzzy variables are plotted together.</p>
+<p class="last">Parameters are the same as the Fuzzy case.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sa.SA.run">
+<tt class="descname">run</tt><big>(</big><em>plot=True</em>, <em>dryrun=False</em>, <em>keep_files=False</em>, <em>parallel_jobs=0</em><big>)</big><a class="headerlink" href="#sa.SA.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the SA run.</p>
+<ul class="simple">
+<li><em>plot</em>: Automatically plots the results when the run is complete.</li>
+<li><em>dryrun</em>: Conducts a run without actually executing the TestProgram.</li>
+<li><em>keep_files</em>: Keeps the individual input/output files generated by the run.</li>
+<li><em>parallel_jobs</em>: The number of jobs which will be run in parallel. Default is
+to set this number equal to the number of cpus on the machine.</li>
+</ul>
+<p>Returns a variable suitable for the <em>hdf5</em> parameter of <tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt>.</p>
+<p>Note: depending on your model, setting this number to be higher
+than the number of cpus may yield speed improvements. As a starting
+point, try making this number double the number of cpus and do
+a couple test runs.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/sa.html" class="btn btn-neutral float-right" title="sa">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="autosummary/uq.UQ.html" class="btn btn-neutral" title="uq.UQ"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

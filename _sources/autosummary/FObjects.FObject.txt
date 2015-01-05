@@ -1,0 +1,31 @@
+FObjects.FObject
+================
+
+.. currentmodule:: FObjects
+
+.. autoclass:: FObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FObject.__init__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FObject.coords
+      ~FObject.isClosed
+      ~FObject.polygon
+      ~FObject.realizations
+   
+   

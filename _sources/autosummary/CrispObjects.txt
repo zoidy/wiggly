@@ -1,0 +1,26 @@
+CrispObjects
+============
+
+.. automodule:: CrispObjects
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      CrispObject
+      DeformableObject
+      DeformableObjectFromValues
+      RigidObject
+      RigidObjectFromValues
+   
+   
+
+   
+   
+   

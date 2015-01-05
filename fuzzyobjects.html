@@ -1,0 +1,1276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FuzzyObjects &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="FuzzyObjects" href="autosummary/FuzzyObjects.html"/>
+        <link rel="prev" title="CrispObjects.DeformableObject" href="autosummary/CrispObjects.DeformableObject.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><strong>FuzzyObjects</strong></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/fuzzyobjects.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="fuzzyobjects">
+<h1><strong>FuzzyObjects</strong><a class="headerlink" href="#fuzzyobjects" title="Permalink to this headline">¶</a></h1>
+<p>All public functions and classes in module FuzzyObjects.py</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-FuzzyObjects" title="FuzzyObjects"><tt class="xref py py-obj docutils literal"><span class="pre">FuzzyObjects</span></tt></a></td>
+<td>This module contains all classes related to non-crisp objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-obj docutils literal"><span class="pre">FuzzyObjects.FuzzyObject</span></tt></a>(x,&nbsp;y,&nbsp;...)</td>
+<td>Base class for all fuzzy objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#FuzzyObjects.EdgeDefinedObject" title="FuzzyObjects.EdgeDefinedObject"><tt class="xref py py-obj docutils literal"><span class="pre">FuzzyObjects.EdgeDefinedObject</span></tt></a>(x,&nbsp;y,&nbsp;fuzzyEdges)</td>
+<td>Represents an Edge-defined fuzzy object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#FuzzyObjects.VertexDefinedObject" title="FuzzyObjects.VertexDefinedObject"><tt class="xref py py-obj docutils literal"><span class="pre">FuzzyObjects.VertexDefinedObject</span></tt></a>(x,&nbsp;y,&nbsp;...)</td>
+<td>Represents a vertex-defined fuzzy object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Complete Listing:</strong></p>
+<span class="target" id="module-FuzzyObjects"></span><p>This module contains all classes related to non-crisp objects.</p>
+<dl class="class">
+<dt id="FuzzyObjects.EdgeDefinedObject">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">EdgeDefinedObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>fuzzyEdges</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObjects.FuzzyObject</span></tt></a></p>
+<p>Represents an Edge-defined fuzzy object. Each fuzzy edge is treated as a separate
+fuzzy variable.</p>
+<ul class="simple">
+<li><em>x,y</em>: numpy arrays of coordinates of the vertices of the object, each of size N</li>
+<li><em>fuzzyEdges:</em> a list of fuzzpy TrapezoidalFuzzyNumbers corresponding to the fuzzy membership
+function of each edge. A fuzzy number represents the offset of the edge, e, formed
+by the i&#8217;th and (i+1)th vertices of the arrays <em>x,y</em>. The length of the list must be N if
+<em>isClosed</em> is true or N-1 if it is false.</li>
+<li><em>isClosed</em>: whether to consider the object as having an open or closed boundary</li>
+</ul>
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObject.generateRealizations">
+<tt class="descname">generateRealizations</tt><big>(</big><em>n</em>, <em>alphaCuts</em>, <em>method</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.generateRealizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates random samples of each coordinate of each fuzzy vertex. See
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObject.getRealizations4Sim">
+<tt class="descname">getRealizations4Sim</tt><big>(</big><em>acut</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.getRealizations4Sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations at alpha level <em>acut</em>.</p>
+<p>Returns a 2D numpy array where the rows are realizations and columns are the
+fuzzy variables. The order of the columns are in the same order as the <em>fuzzyVariables</em>
+parameter in the <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObject</span></tt></a> constructor. The number of rows is equal to the
+fuzzy number with the most samples at level <em>acut</em> and it depends not only on <em>acut</em>
+but also on the shape of the fuzzy numbers.</p>
+<p>Unlike
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.realizations" title="FuzzyObjects.FuzzyObject.realizations"><tt class="xref py py-attr docutils literal"><span class="pre">FuzzyObject.realizations</span></tt></a> which returns all
+realizations in a raw form (each fuzzy variable may have a different number of
+realizations at a particular alpha-cut), this function returns realizations for a particular
+alpha cut in a form that is directly usable for generating polygons (all fuzzy variables
+are made to have the same number of realizations as the fuzzy variable with the most
+realizations).</p>
+<ul class="simple">
+<li><em>acut</em>: the alpha cut at which to return the realization. The value values of acut
+can be determined by realizations.keys().</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>alphaCuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>meanLine=True</em>, <em>color=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the generated shapes.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure number to plot into. If fignum&lt;1, plots into a new figure</li>
+<li><em>alphaCuts</em>: a list of alpha cuts to plot. All the values in this list must have a
+match in the <em>alphaCuts</em> parameter from
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.
+If this parameter isn&#8217;t specified, plots all alpha-cuts</li>
+<li><em>meanLine</em>: plots the undistorted shape.</li>
+<li><em>color</em>: If True, plots in color, if False, greyscale is used. If set to &#8216;fixed&#8217;
+a single shade of grey is used for all membership values.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObject.plotFuzzyNumbers">
+<tt class="descname">plotFuzzyNumbers</tt><big>(</big><em>n=-1</em>, <em>fuzzyNumbersLabels=</em>, <span class="optional">[</span><span class="optional">]</span><em>showAlphaCuts=True</em>, <em>showAcutRealizations=</em>, <span class="optional">[</span><span class="optional">]</span><em>rlzColors=False</em>, <em>showMembFcn=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.plotFuzzyNumbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots each fuzzy number in <em>fuzzyVariables</em>. <em>fuzzyVarialbes</em> is defined in the constructor.</p>
+<ul id="fuzzyobjects-plotfuzzynumbers">
+<li><p class="first"><em>n</em>: Plots the first <em>n</em> fuzzy numbers into new figures. If n&lt;1,
+all fuzzy numbers are plotted.</p>
+</li>
+<li><p class="first"><em>labels</em>: list of labels to show in the plot, one for each fuzzy number.</p>
+</li>
+<li><p class="first"><em>showAlphaCuts</em>: Shows the alphaCut levels as specified in
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.</p>
+</li>
+<li><p class="first"><em>showAcutRealizations</em>: A list containing alphaCuts to shows the realizations of.</p>
+<p>-If set to None, no realizations are shown.
+-If not specified, the realizations of all alphaCuts are shown.</p>
+</li>
+<li><p class="first"><em>showMembFcn</em>: plots the membership function of each fuzzy number.</p>
+</li>
+</ul>
+<p>Note: if <em>showAlphaCuts</em> is True and <em>showAcutRealizations</em>!=None, then
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a> must have been
+previously called.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations.</p>
+<p id="fuzzyobjects-realizations">Returns the realizations of the <em>fuzzyVariables</em> (defined in the class constructor)
+at all alpha cuts given in
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>  in the form of
+a dictionary with the keys set to alpha cuts. Each key has an associated value
+which is a list of numpy arrays.</p>
+<p>The lists each have length N where N is the number of fuzzy numbers in <em>fuzzyVariables</em>.
+The order of arrays in the list corresponds to the same order specified in
+<em>fuzzyVariables</em>.</p>
+<p>Each array contains samples of an individual <em>fuzzyVariable</em> which fall within the
+given alpha cut. The length of each array varies depending on how many realizations of the
+<em>fuzzyVariable</em> a particular alpha cut contains. The length of each array is determined
+by <em>n</em> from <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a></p>
+<p>For example, consider an EdgeDefinedObject with
+three fuzzy uncertain edges, and the fuzzy numbers corresponding to each edge are discretized
+into two alpha cuts (0.1 and 0.9).</p>
+<p>In this case the return value of this properity is a dictionary with two entries.
+Taking the first entry of the dictionary (alpha-cut=0.1), it consists of a list (of
+length 3, one for each fuzzy edge) of numpy arrays. The first entry in the list corresponds
+to the samples of the first fuzzy edge which are contained in the 0.1 alpha-cut.</p>
+<p>In table form, this looks like shown below:
+For each table, the sequence of column headers is a list. Each list element (ie. the
+columns in the table) is a numpy array</p>
+<p>DICTIONARY:</p>
+<dl class="docutils">
+<dt>Key={alphacut=0.1}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.2</td>
+<td>3.4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>-0.2</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr class="row-even"><td>4.1</td>
+<td>0.6</td>
+<td>1.7</td>
+</tr>
+<tr class="row-odd"><td>5.0</td>
+<td>4.0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Key={alphacut=0.9}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.1</td>
+<td>3.4</td>
+<td>0.4</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>2.0</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>Note that for alphacut=0.9, some edges have fewer samples than others. This can happen
+due to different shapes of fuzzy numbers (ie. ones that are narrower at the top).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with keys equal to alpha cuts and values equal to list of shapes.</p>
+<p>See <a class="reference internal" href="#fuzzyobjects-realizationspolygons"><em>realizationsPolygons</em></a> in the parent class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</p>
+<p>The array contains a 1 at indices corresponding to vertices/edges which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">EdgeDefinedObjectFromValues</tt><big>(</big><em>x</em>, <em>y</em>, <em>isClosed</em>, <em>samples_edges_dict</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#FuzzyObjects.EdgeDefinedObject" title="FuzzyObjects.EdgeDefinedObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObjects.EdgeDefinedObject</span></tt></a></p>
+<p>An Edge-defined object, constructed from previously generated values.</p>
+<ul>
+<li><p class="first"><em>x</em>: A numpy array of x coordinates, length N</p>
+</li>
+<li><p class="first"><em>y</em>: A numpy array of y coordinates, length N</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whether the object will be treated as having a closed boundary.</p>
+</li>
+<li><p class="first"><em>samples_edges_dict</em>: a dictionary with samples of the fuzzy edges</p>
+<blockquote>
+<div><blockquote>
+<div><p>{&lt;alpha-cut&gt;:numpy array of length N (closed object) or N-1 (open object), ...}</p>
+</div></blockquote>
+<p>Only 1 sample of each edge is allowed per alpha cut.</p>
+</div></blockquote>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.getRealizations4Sim">
+<tt class="descname">getRealizations4Sim</tt><big>(</big><em>acut</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.getRealizations4Sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations at alpha level <em>acut</em>.</p>
+<p>Returns a 2D numpy array where the rows are realizations and columns are the
+fuzzy variables. The order of the columns are in the same order as the <em>fuzzyVariables</em>
+parameter in the <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObject</span></tt></a> constructor. The number of rows is equal to the
+fuzzy number with the most samples at level <em>acut</em> and it depends not only on <em>acut</em>
+but also on the shape of the fuzzy numbers.</p>
+<p>Unlike
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.realizations" title="FuzzyObjects.FuzzyObject.realizations"><tt class="xref py py-attr docutils literal"><span class="pre">FuzzyObject.realizations</span></tt></a> which returns all
+realizations in a raw form (each fuzzy variable may have a different number of
+realizations at a particular alpha-cut), this function returns realizations for a particular
+alpha cut in a form that is directly usable for generating polygons (all fuzzy variables
+are made to have the same number of realizations as the fuzzy variable with the most
+realizations).</p>
+<ul class="simple">
+<li><em>acut</em>: the alpha cut at which to return the realization. The value values of acut
+can be determined by realizations.keys().</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>alphaCuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>meanLine=True</em>, <em>color=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the generated shapes.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure number to plot into. If fignum&lt;1, plots into a new figure</li>
+<li><em>alphaCuts</em>: a list of alpha cuts to plot. All the values in this list must have a
+match in the <em>alphaCuts</em> parameter from
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.
+If this parameter isn&#8217;t specified, plots all alpha-cuts</li>
+<li><em>meanLine</em>: plots the undistorted shape.</li>
+<li><em>color</em>: If True, plots in color, if False, greyscale is used. If set to &#8216;fixed&#8217;
+a single shade of grey is used for all membership values.</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations.</p>
+<p id="id1">Returns the realizations of the <em>fuzzyVariables</em> (defined in the class constructor)
+at all alpha cuts given in
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>  in the form of
+a dictionary with the keys set to alpha cuts. Each key has an associated value
+which is a list of numpy arrays.</p>
+<p>The lists each have length N where N is the number of fuzzy numbers in <em>fuzzyVariables</em>.
+The order of arrays in the list corresponds to the same order specified in
+<em>fuzzyVariables</em>.</p>
+<p>Each array contains samples of an individual <em>fuzzyVariable</em> which fall within the
+given alpha cut. The length of each array varies depending on how many realizations of the
+<em>fuzzyVariable</em> a particular alpha cut contains. The length of each array is determined
+by <em>n</em> from <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a></p>
+<p>For example, consider an EdgeDefinedObject with
+three fuzzy uncertain edges, and the fuzzy numbers corresponding to each edge are discretized
+into two alpha cuts (0.1 and 0.9).</p>
+<p>In this case the return value of this properity is a dictionary with two entries.
+Taking the first entry of the dictionary (alpha-cut=0.1), it consists of a list (of
+length 3, one for each fuzzy edge) of numpy arrays. The first entry in the list corresponds
+to the samples of the first fuzzy edge which are contained in the 0.1 alpha-cut.</p>
+<p>In table form, this looks like shown below:
+For each table, the sequence of column headers is a list. Each list element (ie. the
+columns in the table) is a numpy array</p>
+<p>DICTIONARY:</p>
+<dl class="docutils">
+<dt>Key={alphacut=0.1}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.2</td>
+<td>3.4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>-0.2</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr class="row-even"><td>4.1</td>
+<td>0.6</td>
+<td>1.7</td>
+</tr>
+<tr class="row-odd"><td>5.0</td>
+<td>4.0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Key={alphacut=0.9}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.1</td>
+<td>3.4</td>
+<td>0.4</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>2.0</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>Note that for alphacut=0.9, some edges have fewer samples than others. This can happen
+due to different shapes of fuzzy numbers (ie. ones that are narrower at the top).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with keys equal to alpha cuts and values equal to list of shapes.</p>
+<p>See <a class="reference internal" href="#fuzzyobjects-realizationspolygons"><em>realizationsPolygons</em></a> in the parent class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.EdgeDefinedObjectFromValues.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#FuzzyObjects.EdgeDefinedObjectFromValues.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</p>
+<p>The array contains a 1 at indices corresponding to vertices/edges which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FuzzyObjects.FuzzyObject">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">FuzzyObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>fuzzyVariables</em>, <em>isClosed</em><big>)</big><a class="headerlink" href="#FuzzyObjects.FuzzyObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fobjects.html#FObjects.FObject" title="FObjects.FObject"><tt class="xref py py-class docutils literal"><span class="pre">FObjects.FObject</span></tt></a></p>
+<p>Base class for all fuzzy objects. Non instantiable.</p>
+<ul class="simple">
+<li><em>x,y</em>: numpy arrays of coordinates of the vertices of the object, each of size N.</li>
+<li><em>isClosed</em>: whether to consider the object as having an open or closed boundary.</li>
+<li><em>fuzzyVariables</em>: a list of TrapezoidalFuzzyNumbers corresponding to vertex coordinate
+offsets or edge offsets. See derived classes.</li>
+</ul>
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.FuzzyObject.generateRealizations">
+<tt class="descname">generateRealizations</tt><big>(</big><em>n</em>, <em>alphaCuts</em>, <em>method</em>, <em>shuffle=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.FuzzyObject.generateRealizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates random samples of the fuzzy numbers given in <em>fuzzyVariables</em> (defined in
+the constructor) at a given membership level.</p>
+<p id="fuzzyobjects-generaterealizations">It is guaranteed that at least one sample will be generated for each
+<em>fuzzyVariable</em> at each alpha level.  Use the realizations property to get the results.</p>
+<ul>
+<li><p class="first"><em>n</em>: the total number of samples to generate at the LOWEST alpha
+level of each fuzzy number and must be &gt;=2. These same samples will be used for the higher alpha
+levels in the following fashion:</p>
+<p>For a particular alpha level higher than the lowest, select samples from
+the lowest level which fall in the alpha cut interval of the particular level. This ensures
+that as the alpha level increases, the number of realizations in the associated interval
+decrease while maintaining randomness.</p>
+<p>This parameter is only used when <em>method</em> is &#8216;random&#8217;, &#8216;linspace&#8217; or
+&#8216;reducedtransformation-subset&#8217;.</p>
+</li>
+<li><p class="first"><em>alphaCuts</em>: a numpy array containing the alpha cuts at which samples will be genrated.</p>
+</li>
+<li><p class="first"><em>method</em>: one of various methods to use. Can be &#8216;random&#8217;, &#8216;linspace&#8217;, &#8216;reducedtransformation&#8217;.</p>
+<ul class="simple">
+<li>random: randomly selects values at the lowest alpha level. Interval enpoints are included.
+A realization
+is generated by randomly matching values of all fuzzy variables at a particular alpha cut.</li>
+<li>linspace: selects values based on equal spacing. Interval endpoints are included. A realization
+is generated by randomly matching values of all fuzzy variables at a particular alpha cut.</li>
+<li>reducedtransformation: uses the reduced transformation method. Only interval endpoints
+are selected. Realizations are generated by a full factorial design (all possible
+combinations are considered) and the value of <em>n</em> is ignored</li>
+<li>&#8216;reducedtransformation-subset&#8217;: same as &#8216;reducedtransformation&#8217; except n is used to
+limit the total number of realizations to a random subset.</li>
+</ul>
+</li>
+<li><p class="first"><em>shuffle</em>: Boolean which indicates whether to shuffle the generated realizations
+(&#8216;linspace&#8217; method only). Without shuffling, when building a shape out of the realizations
+all low values of the sampled fuzzy numbers will be matched to all low values and all
+high values are matched with all high values. This results in a poor coverage of the
+sample space. If not specified, it defaults to True.
+Setting it to false may be desirable
+for EdgeDefinedObjects in order to generate object whose fuzzy region is evenly spaced.
+For VertexDefinedObjects, this should</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.FuzzyObject.getRealizations4Sim">
+<tt class="descname">getRealizations4Sim</tt><big>(</big><em>acut</em><big>)</big><a class="headerlink" href="#FuzzyObjects.FuzzyObject.getRealizations4Sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations at alpha level <em>acut</em>.</p>
+<p>Returns a 2D numpy array where the rows are realizations and columns are the
+fuzzy variables. The order of the columns are in the same order as the <em>fuzzyVariables</em>
+parameter in the <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObject</span></tt></a> constructor. The number of rows is equal to the
+fuzzy number with the most samples at level <em>acut</em> and it depends not only on <em>acut</em>
+but also on the shape of the fuzzy numbers.</p>
+<p>Unlike
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.realizations" title="FuzzyObjects.FuzzyObject.realizations"><tt class="xref py py-attr docutils literal"><span class="pre">FuzzyObject.realizations</span></tt></a> which returns all
+realizations in a raw form (each fuzzy variable may have a different number of
+realizations at a particular alpha-cut), this function returns realizations for a particular
+alpha cut in a form that is directly usable for generating polygons (all fuzzy variables
+are made to have the same number of realizations as the fuzzy variable with the most
+realizations).</p>
+<ul class="simple">
+<li><em>acut</em>: the alpha cut at which to return the realization. The value values of acut
+can be determined by realizations.keys().</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.FuzzyObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>alphaCuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>meanLine=True</em>, <em>color=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.FuzzyObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the generated shapes.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure number to plot into. If fignum&lt;1, plots into a new figure</li>
+<li><em>alphaCuts</em>: a list of alpha cuts to plot. All the values in this list must have a
+match in the <em>alphaCuts</em> parameter from
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.
+If this parameter isn&#8217;t specified, plots all alpha-cuts</li>
+<li><em>meanLine</em>: plots the undistorted shape.</li>
+<li><em>color</em>: If True, plots in color, if False, greyscale is used. If set to &#8216;fixed&#8217;
+a single shade of grey is used for all membership values.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.FuzzyObject.plotFuzzyNumbers">
+<tt class="descname">plotFuzzyNumbers</tt><big>(</big><em>n=-1</em>, <em>fuzzyNumbersLabels=</em>, <span class="optional">[</span><span class="optional">]</span><em>showAlphaCuts=True</em>, <em>showAcutRealizations=</em>, <span class="optional">[</span><span class="optional">]</span><em>rlzColors=False</em>, <em>showMembFcn=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.FuzzyObject.plotFuzzyNumbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots each fuzzy number in <em>fuzzyVariables</em>. <em>fuzzyVarialbes</em> is defined in the constructor.</p>
+<ul id="id2">
+<li><p class="first"><em>n</em>: Plots the first <em>n</em> fuzzy numbers into new figures. If n&lt;1,
+all fuzzy numbers are plotted.</p>
+</li>
+<li><p class="first"><em>labels</em>: list of labels to show in the plot, one for each fuzzy number.</p>
+</li>
+<li><p class="first"><em>showAlphaCuts</em>: Shows the alphaCut levels as specified in
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.</p>
+</li>
+<li><p class="first"><em>showAcutRealizations</em>: A list containing alphaCuts to shows the realizations of.</p>
+<p>-If set to None, no realizations are shown.
+-If not specified, the realizations of all alphaCuts are shown.</p>
+</li>
+<li><p class="first"><em>showMembFcn</em>: plots the membership function of each fuzzy number.</p>
+</li>
+</ul>
+<p>Note: if <em>showAlphaCuts</em> is True and <em>showAcutRealizations</em>!=None, then
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a> must have been
+previously called.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations.</p>
+<p id="id3">Returns the realizations of the <em>fuzzyVariables</em> (defined in the class constructor)
+at all alpha cuts given in
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>  in the form of
+a dictionary with the keys set to alpha cuts. Each key has an associated value
+which is a list of numpy arrays.</p>
+<p>The lists each have length N where N is the number of fuzzy numbers in <em>fuzzyVariables</em>.
+The order of arrays in the list corresponds to the same order specified in
+<em>fuzzyVariables</em>.</p>
+<p>Each array contains samples of an individual <em>fuzzyVariable</em> which fall within the
+given alpha cut. The length of each array varies depending on how many realizations of the
+<em>fuzzyVariable</em> a particular alpha cut contains. The length of each array is determined
+by <em>n</em> from <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a></p>
+<p>For example, consider an EdgeDefinedObject with
+three fuzzy uncertain edges, and the fuzzy numbers corresponding to each edge are discretized
+into two alpha cuts (0.1 and 0.9).</p>
+<p>In this case the return value of this properity is a dictionary with two entries.
+Taking the first entry of the dictionary (alpha-cut=0.1), it consists of a list (of
+length 3, one for each fuzzy edge) of numpy arrays. The first entry in the list corresponds
+to the samples of the first fuzzy edge which are contained in the 0.1 alpha-cut.</p>
+<p>In table form, this looks like shown below:
+For each table, the sequence of column headers is a list. Each list element (ie. the
+columns in the table) is a numpy array</p>
+<p>DICTIONARY:</p>
+<dl class="docutils">
+<dt>Key={alphacut=0.1}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.2</td>
+<td>3.4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>-0.2</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr class="row-even"><td>4.1</td>
+<td>0.6</td>
+<td>1.7</td>
+</tr>
+<tr class="row-odd"><td>5.0</td>
+<td>4.0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Key={alphacut=0.9}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.1</td>
+<td>3.4</td>
+<td>0.4</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>2.0</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>Note that for alphacut=0.9, some edges have fewer samples than others. This can happen
+due to different shapes of fuzzy numbers (ie. ones that are narrower at the top).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract property: Returns the shapes of all realizations at all alpha cuts.</p>
+<p id="fuzzyobjects-realizationspolygons">Returns a dictionary with keys equal to alpha cuts and values consisting all the
+realizations of the object belonging to that alpha cut in the form
+of Shapely shapes.</p>
+<p>Each dictionary entry has a key equal to one of the alpha cuts given
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>. The value associated
+with each key is a list of Shapely shapes (Polygons, Points, LineStrings )
+which are the realizations corresponding to that particular alpha cut level.</p>
+<p>The generation of shapes from the samples of the individual fuzzy numbers, as given in
+<em>fuzzyVariables</em> in the constructor, proceeds as follows:</p>
+<ol class="arabic simple">
+<li>pick an alpha-cut, <em>ac</em></li>
+<li>From all fuzzy numbers at level <em>ac</em>, find the one with the largest number of samples within
+<em>ac</em>. Call this number <em>nmax_ac</em>.</li>
+<li>Build a realization of the object at level <em>ac</em> by first selecting a sample from each fuzzy
+number at level <em>ac</em>. Then with the chosen set of samples, construct a Shapely shape.</li>
+<li>Repeat step 3 <em>nmax_ac</em>  times.</li>
+<li>Store the generated shapes (there are <em>nmax_ac</em>  of them) in a list.</li>
+<li>Add the list from step 5 to a dictionary <em>d</em> and set the key equal to <em>ac</em></li>
+<li>Return to step 1, choosing a different alpha-cut</li>
+<li>When all alpha-cuts have been picked, return <em>d</em></li>
+</ol>
+<p>Note: since the algorithm generates <em>nmax_ac</em>  shapes for each alpha-cut,
+the total number of shapes generated will be greater than the value of <em>n</em> specified
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>. The exact number
+depends on <em>n</em>, the number of alpha-cut levels, and the shape of the fuzzy numbers.`
+For each fuzzy edge. The upper bound for the number of shapes generated is
+<em>n x number-of-alphaCuts</em> although in reality, the number will be much less than that.</p>
+<p>Note 2: for the smallest alpha-cut value in <em>alphaCuts</em> specified in
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>, the number of shapes
+generated is always exactly equal to <em>n</em>, since in this case, <em>nmax_ac</em> = <em>n</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.FuzzyObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#FuzzyObjects.FuzzyObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</p>
+<p>The array contains a 1 at indices corresponding to vertices/edges which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FuzzyObjects.VertexDefinedObject">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">VertexDefinedObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>fuzzyVertices_x</em>, <em>fuzzyVertices_y</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObjects.FuzzyObject</span></tt></a></p>
+<p>Represents a vertex-defined fuzzy object. The x and y coordinates of each vertex are
+treated as an individual fuzzy variable.</p>
+<ul>
+<li><p class="first"><em>x,y</em>: numpy arrays of coordinates of the vertices of the object, each of size N</p>
+</li>
+<li><p class="first"><em>fuzzyVertices_x:</em> a list of fuzzpy TrapezoidalFuzzyNumbers corresponding to the fuzzy membership
+function of the x coordinate of each vertex.  The i&#8217;th fuzzy number in this list represents
+the i&#8217;th number in <em>x</em>.</p>
+<p>The membership function is in the form of an offset with respect to the i&#8217;th element in <em>x</em>.
+The fuzzy number should be centered at zero to avoid confusion but this is not required.</p>
+</li>
+<li><p class="first"><em>fuzzyVertices_y:</em> same as <em>fuzzyVertices_x</em>.</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whether to consider the object as having an open or closed boundary</p>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObject.generateRealizations">
+<tt class="descname">generateRealizations</tt><big>(</big><em>n</em>, <em>alphaCuts</em>, <em>method</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.generateRealizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates random samples of each coordinate of each fuzzy vertex. See
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObject.getRealizations4Sim">
+<tt class="descname">getRealizations4Sim</tt><big>(</big><em>acut</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.getRealizations4Sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations at alpha level <em>acut</em>.</p>
+<p>Returns a 2D numpy array where the rows are realizations and columns are the
+fuzzy variables. The order of the columns are in the same order as the <em>fuzzyVariables</em>
+parameter in the <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObject</span></tt></a> constructor. The number of rows is equal to the
+fuzzy number with the most samples at level <em>acut</em> and it depends not only on <em>acut</em>
+but also on the shape of the fuzzy numbers.</p>
+<p>Unlike
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.realizations" title="FuzzyObjects.FuzzyObject.realizations"><tt class="xref py py-attr docutils literal"><span class="pre">FuzzyObject.realizations</span></tt></a> which returns all
+realizations in a raw form (each fuzzy variable may have a different number of
+realizations at a particular alpha-cut), this function returns realizations for a particular
+alpha cut in a form that is directly usable for generating polygons (all fuzzy variables
+are made to have the same number of realizations as the fuzzy variable with the most
+realizations).</p>
+<ul class="simple">
+<li><em>acut</em>: the alpha cut at which to return the realization. The value values of acut
+can be determined by realizations.keys().</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>alphaCuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>meanLine=True</em>, <em>color=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the generated shapes.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure number to plot into. If fignum&lt;1, plots into a new figure</li>
+<li><em>alphaCuts</em>: a list of alpha cuts to plot. All the values in this list must have a
+match in the <em>alphaCuts</em> parameter from
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.
+If this parameter isn&#8217;t specified, plots all alpha-cuts</li>
+<li><em>meanLine</em>: plots the undistorted shape.</li>
+<li><em>color</em>: If True, plots in color, if False, greyscale is used. If set to &#8216;fixed&#8217;
+a single shade of grey is used for all membership values.</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObject.plotFuzzyNumbers">
+<tt class="descname">plotFuzzyNumbers</tt><big>(</big><em>n=-1</em>, <em>showAlphaCuts=True</em>, <em>showAcutRealizations=</em>, <span class="optional">[</span><span class="optional">]</span><em>rlzColors=False</em>, <em>showMembFcn=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.plotFuzzyNumbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots each fuzzy number corresponding to a vertex coordinate. See
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.plotFuzzyNumbers" title="FuzzyObjects.FuzzyObject.plotFuzzyNumbers"><tt class="xref py py-func docutils literal"><span class="pre">FuzzyObject.plotFuzzyNumbers()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations.</p>
+<p id="id4">Returns the realizations of the <em>fuzzyVariables</em> (defined in the class constructor)
+at all alpha cuts given in
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>  in the form of
+a dictionary with the keys set to alpha cuts. Each key has an associated value
+which is a list of numpy arrays.</p>
+<p>The lists each have length N where N is the number of fuzzy numbers in <em>fuzzyVariables</em>.
+The order of arrays in the list corresponds to the same order specified in
+<em>fuzzyVariables</em>.</p>
+<p>Each array contains samples of an individual <em>fuzzyVariable</em> which fall within the
+given alpha cut. The length of each array varies depending on how many realizations of the
+<em>fuzzyVariable</em> a particular alpha cut contains. The length of each array is determined
+by <em>n</em> from <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a></p>
+<p>For example, consider an EdgeDefinedObject with
+three fuzzy uncertain edges, and the fuzzy numbers corresponding to each edge are discretized
+into two alpha cuts (0.1 and 0.9).</p>
+<p>In this case the return value of this properity is a dictionary with two entries.
+Taking the first entry of the dictionary (alpha-cut=0.1), it consists of a list (of
+length 3, one for each fuzzy edge) of numpy arrays. The first entry in the list corresponds
+to the samples of the first fuzzy edge which are contained in the 0.1 alpha-cut.</p>
+<p>In table form, this looks like shown below:
+For each table, the sequence of column headers is a list. Each list element (ie. the
+columns in the table) is a numpy array</p>
+<p>DICTIONARY:</p>
+<dl class="docutils">
+<dt>Key={alphacut=0.1}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.2</td>
+<td>3.4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>-0.2</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr class="row-even"><td>4.1</td>
+<td>0.6</td>
+<td>1.7</td>
+</tr>
+<tr class="row-odd"><td>5.0</td>
+<td>4.0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Key={alphacut=0.9}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.1</td>
+<td>3.4</td>
+<td>0.4</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>2.0</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>Note that for alphacut=0.9, some edges have fewer samples than others. This can happen
+due to different shapes of fuzzy numbers (ie. ones that are narrower at the top).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with keys equal to alpha cuts and values equal to list of shapes.</p>
+<p>See <a class="reference internal" href="#fuzzyobjects-realizationspolygons"><em>realizationsPolygons</em></a> in the parent class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</p>
+<p>The array contains a 1 at indices corresponding to vertices/edges which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues">
+<em class="property">class </em><tt class="descclassname">FuzzyObjects.</tt><tt class="descname">VertexDefinedObjectFromValues</tt><big>(</big><em>x</em>, <em>y</em>, <em>isClosed</em>, <em>samples_vertices_dict</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#FuzzyObjects.VertexDefinedObject" title="FuzzyObjects.VertexDefinedObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObjects.VertexDefinedObject</span></tt></a></p>
+<p>A vertex-defined object, constructed from previously generated values.</p>
+<ul>
+<li><p class="first"><em>x</em>: A numpy array of x coordinates, length N</p>
+</li>
+<li><p class="first"><em>y</em>: A numpy array of y coordinates, length N</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whether the object will be treated as having a closed boundary.</p>
+</li>
+<li><p class="first"><em>samples_vertices_dict</em>: a dictionary holding samples of the fuzzy vertices.
+The first half of the array are the x vertex values and the other half the y.</p>
+<blockquote>
+<div><p>{&lt;alpha-cut&gt;:numpy array of length 2N, ...}</p>
+</div></blockquote>
+<p>Only 1 sample of each vertex is allowed per alpha cut.</p>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.getRealizations4Sim">
+<tt class="descname">getRealizations4Sim</tt><big>(</big><em>acut</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.getRealizations4Sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations at alpha level <em>acut</em>.</p>
+<p>Returns a 2D numpy array where the rows are realizations and columns are the
+fuzzy variables. The order of the columns are in the same order as the <em>fuzzyVariables</em>
+parameter in the <a class="reference internal" href="#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-class docutils literal"><span class="pre">FuzzyObject</span></tt></a> constructor. The number of rows is equal to the
+fuzzy number with the most samples at level <em>acut</em> and it depends not only on <em>acut</em>
+but also on the shape of the fuzzy numbers.</p>
+<p>Unlike
+<a class="reference internal" href="#FuzzyObjects.FuzzyObject.realizations" title="FuzzyObjects.FuzzyObject.realizations"><tt class="xref py py-attr docutils literal"><span class="pre">FuzzyObject.realizations</span></tt></a> which returns all
+realizations in a raw form (each fuzzy variable may have a different number of
+realizations at a particular alpha-cut), this function returns realizations for a particular
+alpha cut in a form that is directly usable for generating polygons (all fuzzy variables
+are made to have the same number of realizations as the fuzzy variable with the most
+realizations).</p>
+<ul class="simple">
+<li><em>acut</em>: the alpha cut at which to return the realization. The value values of acut
+can be determined by realizations.keys().</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>alphaCuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>meanLine=True</em>, <em>color=True</em><big>)</big><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the generated shapes.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure number to plot into. If fignum&lt;1, plots into a new figure</li>
+<li><em>alphaCuts</em>: a list of alpha cuts to plot. All the values in this list must have a
+match in the <em>alphaCuts</em> parameter from
+<a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>.
+If this parameter isn&#8217;t specified, plots all alpha-cuts</li>
+<li><em>meanLine</em>: plots the undistorted shape.</li>
+<li><em>color</em>: If True, plots in color, if False, greyscale is used. If set to &#8216;fixed&#8217;
+a single shade of grey is used for all membership values.</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all realizations.</p>
+<p id="id5">Returns the realizations of the <em>fuzzyVariables</em> (defined in the class constructor)
+at all alpha cuts given in
+in <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a>  in the form of
+a dictionary with the keys set to alpha cuts. Each key has an associated value
+which is a list of numpy arrays.</p>
+<p>The lists each have length N where N is the number of fuzzy numbers in <em>fuzzyVariables</em>.
+The order of arrays in the list corresponds to the same order specified in
+<em>fuzzyVariables</em>.</p>
+<p>Each array contains samples of an individual <em>fuzzyVariable</em> which fall within the
+given alpha cut. The length of each array varies depending on how many realizations of the
+<em>fuzzyVariable</em> a particular alpha cut contains. The length of each array is determined
+by <em>n</em> from <a class="reference internal" href="#fuzzyobjects-generaterealizations"><em>generateRealizations</em></a></p>
+<p>For example, consider an EdgeDefinedObject with
+three fuzzy uncertain edges, and the fuzzy numbers corresponding to each edge are discretized
+into two alpha cuts (0.1 and 0.9).</p>
+<p>In this case the return value of this properity is a dictionary with two entries.
+Taking the first entry of the dictionary (alpha-cut=0.1), it consists of a list (of
+length 3, one for each fuzzy edge) of numpy arrays. The first entry in the list corresponds
+to the samples of the first fuzzy edge which are contained in the 0.1 alpha-cut.</p>
+<p>In table form, this looks like shown below:
+For each table, the sequence of column headers is a list. Each list element (ie. the
+columns in the table) is a numpy array</p>
+<p>DICTIONARY:</p>
+<dl class="docutils">
+<dt>Key={alphacut=0.1}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.2</td>
+<td>3.4</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td>-0.2</td>
+<td>2.0</td>
+<td>0.4</td>
+</tr>
+<tr class="row-even"><td>4.1</td>
+<td>0.6</td>
+<td>1.7</td>
+</tr>
+<tr class="row-odd"><td>5.0</td>
+<td>4.0</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Key={alphacut=0.9}</dt>
+<dd><table border="1" class="first last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">FuzzyEdge1</th>
+<th class="head">FuzzyEdge2</th>
+<th class="head">FuzzyEdge3</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>4.1</td>
+<td>3.4</td>
+<td>0.4</td>
+</tr>
+<tr class="row-odd"><td>&#8211;</td>
+<td>2.0</td>
+<td>&#8211;</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p>Note that for alphacut=0.9, some edges have fewer samples than others. This can happen
+due to different shapes of fuzzy numbers (ie. ones that are narrower at the top).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with keys equal to alpha cuts and values equal to list of shapes.</p>
+<p>See <a class="reference internal" href="#fuzzyobjects-realizationspolygons"><em>realizationsPolygons</em></a> in the parent class.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="FuzzyObjects.VertexDefinedObjectFromValues.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#FuzzyObjects.VertexDefinedObjectFromValues.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices (vertex defined object) or edges (edge defined obj).</p>
+<p>The array contains a 1 at indices corresponding to vertices/edges which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/FuzzyObjects.html" class="btn btn-neutral float-right" title="FuzzyObjects">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="autosummary/CrispObjects.DeformableObject.html" class="btn btn-neutral" title="CrispObjects.DeformableObject"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

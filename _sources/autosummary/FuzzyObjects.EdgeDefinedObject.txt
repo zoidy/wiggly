@@ -1,0 +1,37 @@
+FuzzyObjects.EdgeDefinedObject
+==============================
+
+.. currentmodule:: FuzzyObjects
+
+.. autoclass:: EdgeDefinedObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~EdgeDefinedObject.__init__
+      ~EdgeDefinedObject.generateRealizations
+      ~EdgeDefinedObject.getRealizations4Sim
+      ~EdgeDefinedObject.plot
+      ~EdgeDefinedObject.plotFuzzyNumbers
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~EdgeDefinedObject.coords
+      ~EdgeDefinedObject.isClosed
+      ~EdgeDefinedObject.polygon
+      ~EdgeDefinedObject.realizations
+      ~EdgeDefinedObject.realizationsPolygons
+      ~EdgeDefinedObject.uncertainVertices
+   
+   

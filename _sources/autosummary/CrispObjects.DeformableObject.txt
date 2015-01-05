@@ -1,0 +1,38 @@
+CrispObjects.DeformableObject
+=============================
+
+.. currentmodule:: CrispObjects
+
+.. autoclass:: DeformableObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DeformableObject.__init__
+      ~DeformableObject.generateLastUsed
+      ~DeformableObject.generateNormal
+      ~DeformableObject.generateUniform
+      ~DeformableObject.plot
+      ~DeformableObject.plotStats
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DeformableObject.coords
+      ~DeformableObject.isClosed
+      ~DeformableObject.polygon
+      ~DeformableObject.realizations
+      ~DeformableObject.realizationsPolygons
+      ~DeformableObject.uncertainVertices
+   
+   

@@ -1,0 +1,32 @@
+uq.UQ
+=====
+
+.. currentmodule:: uq
+
+.. autoclass:: UQ
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~UQ.__init__
+      ~UQ.find_all_hdf5
+      ~UQ.get_results
+      ~UQ.plot
+      ~UQ.run
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~UQ.basename
+   
+   

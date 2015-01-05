@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CrispObjects.CrispObject &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Crisp Objects" href="../crispobjects.html"/>
+        <link rel="next" title="CrispObjects.RigidObject" href="CrispObjects.RigidObject.html"/>
+        <link rel="prev" title="CrispObjects" href="CrispObjects.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../crispobjects.html"><strong>Crisp Objects</strong></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../crispobjects.html"><strong>Crisp Objects</strong></a> &raquo;</li>
+      
+    <li>CrispObjects.CrispObject</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/autosummary/CrispObjects.CrispObject.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="crispobjects-crispobject">
+<h1>CrispObjects.CrispObject<a class="headerlink" href="#crispobjects-crispobject" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="CrispObjects.CrispObject">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">CrispObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>cov</em>, <em>unc_pts</em>, <em>isClosed</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all crisp objects. Not instantiable</p>
+<ul>
+<li><p class="first"><em>x,y</em>: Numpy arrays of x and y coordinates, each of length N</p>
+</li>
+<li><p class="first"><em>cov</em>: A numpy 2n-by-2n matrix containing the variances and co-variances within and
+between points where n is the number of points. The rows and columns correspond
+to the x and y covariances in sequence. E.g., for 2 points x0, y0, x1, y1, the
+covariance  matrix&#8217;s rows and columns are</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">x0</th>
+<th class="head">x1</th>
+<th class="head">y0</th>
+<th class="head">y1</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>x1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>y0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>y1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><em>unc_pts</em>: numpy array of length &gt;= N. if the i&#8217;th position is 0, it indicates that the
+i&#8217;th in the x,y arrays has no uncertainty.</p>
+</li>
+<li><p class="first"><em>isClosed</em>: Boolean indicating whether the object will be treated as having a closed boundary.</p>
+</li>
+</ul>
+<dl class="method">
+<dt id="CrispObjects.CrispObject.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>x</em>, <em>y</em>, <em>cov</em>, <em>unc_pts</em>, <em>isClosed</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#CrispObjects.CrispObject.__init__" title="CrispObjects.CrispObject.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(x,&nbsp;y,&nbsp;cov,&nbsp;unc_pts,&nbsp;isClosed)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.generateLastUsed" title="CrispObjects.CrispObject.generateLastUsed"><tt class="xref py py-obj docutils literal"><span class="pre">generateLastUsed</span></tt></a>(n)</td>
+<td>Abstract method which generates a set of realizations for a CrispObject using the last used distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.generateNormal" title="CrispObjects.CrispObject.generateNormal"><tt class="xref py py-obj docutils literal"><span class="pre">generateNormal</span></tt></a>(n)</td>
+<td>Abstract method which generates a set of realizations for a CrispObject using a multivariate normal.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.generateUniform" title="CrispObjects.CrispObject.generateUniform"><tt class="xref py py-obj docutils literal"><span class="pre">generateUniform</span></tt></a>(n)</td>
+<td>Abstract method which generates a set of realizations for a CrispObject using a multivariate uniform distribution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.plot" title="CrispObjects.CrispObject.plot"><tt class="xref py py-obj docutils literal"><span class="pre">plot</span></tt></a>([fignum,&nbsp;meanLine,&nbsp;lines,&nbsp;points,&nbsp;n])</td>
+<td>Plots this object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.plotStats" title="CrispObjects.CrispObject.plotStats"><tt class="xref py py-obj docutils literal"><span class="pre">plotStats</span></tt></a>([fignum,&nbsp;labels])</td>
+<td>Outputs  statistics for the first 3 variables.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.coords" title="CrispObjects.CrispObject.coords"><tt class="xref py py-obj docutils literal"><span class="pre">coords</span></tt></a></td>
+<td>Returns 2 arrays x,y containing the x and y coordinates of the vertices</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.isClosed" title="CrispObjects.CrispObject.isClosed"><tt class="xref py py-obj docutils literal"><span class="pre">isClosed</span></tt></a></td>
+<td>Does the object have a closed or open boundary?</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.polygon" title="CrispObjects.CrispObject.polygon"><tt class="xref py py-obj docutils literal"><span class="pre">polygon</span></tt></a></td>
+<td>Returns a Shapely polygon representing the original shape.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.realizations" title="CrispObjects.CrispObject.realizations"><tt class="xref py py-obj docutils literal"><span class="pre">realizations</span></tt></a></td>
+<td>Returns the vertices of the distorted object in two 2D numpy arrays x,y.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.realizationsPolygons" title="CrispObjects.CrispObject.realizationsPolygons"><tt class="xref py py-obj docutils literal"><span class="pre">realizationsPolygons</span></tt></a></td>
+<td>Returns a list of Shapely shapes.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../crispobjects.html#CrispObjects.CrispObject.uncertainVertices" title="CrispObjects.CrispObject.uncertainVertices"><tt class="xref py py-obj docutils literal"><span class="pre">uncertainVertices</span></tt></a></td>
+<td>Returns the array of uncertain vertices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CrispObjects.RigidObject.html" class="btn btn-neutral float-right" title="CrispObjects.RigidObject">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="CrispObjects.html" class="btn btn-neutral" title="CrispObjects"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

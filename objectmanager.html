@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ObjectManager &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="objectmanager" href="autosummary/objectmanager.html"/>
+        <link rel="prev" title="FuzzyObjects.VertexDefinedObject" href="autosummary/FuzzyObjects.VertexDefinedObject.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><strong>ObjectManager</strong></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/objectmanager.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="objectmanager">
+<h1><strong>ObjectManager</strong><a class="headerlink" href="#objectmanager" title="Permalink to this headline">¶</a></h1>
+<p>All public functions and classes in module ObjectManager.py</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-objectmanager" title="objectmanager"><tt class="xref py py-obj docutils literal"><span class="pre">objectmanager</span></tt></a></td>
+<td>Contains functionality relate to interfacing wiggly and puq</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#objectmanager.ObjectManager" title="objectmanager.ObjectManager"><tt class="xref py py-obj docutils literal"><span class="pre">objectmanager.ObjectManager</span></tt></a>()</td>
+<td>Manages Wiggly objects.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Complete Listing:</strong></p>
+<span class="target" id="module-objectmanager"></span><p>Contains functionality relate to interfacing wiggly and puq</p>
+<dl class="class">
+<dt id="objectmanager.ObjectManager">
+<em class="property">class </em><tt class="descclassname">objectmanager.</tt><tt class="descname">ObjectManager</tt><a class="headerlink" href="#objectmanager.ObjectManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Manages Wiggly objects.</p>
+<dl class="method">
+<dt id="objectmanager.ObjectManager.addObject">
+<tt class="descname">addObject</tt><big>(</big><em>obj</em>, <em>name=None</em>, <em>data=None</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.addObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a CrispObject or FuzzyObject to the manager.</p>
+<ul class="simple">
+<li><em>obj</em>: The object to add. The object must have been previously initialized
+and realizations generated.</li>
+<li><em>name</em>: A string which identifies the object. Must consist of letters and numbers
+ONLY. Allowed names follow the restrictions for valid Python variable names.
+If not specified, a name will be
+generated automatically. If specified, it must be unique else, an error will
+be generated.</li>
+<li><em>data</em>: Any optional extra data to be stored with the object.</li>
+</ul>
+<p>When adding multiple fuzzy objects (by subsequent calls to this function), all
+objects must have the same alpha cuts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="objectmanager.ObjectManager.crispObjects2PuqParams">
+<tt class="descname">crispObjects2PuqParams</tt><big>(</big><em>shapesFileName='shapes.json'</em>, <em>use_samples=True</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.crispObjects2PuqParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts crisp (probabilistic) objects into puq Parameter objects.</p>
+<ul class="simple">
+<li><em>shapesFileName</em>: a file name which holds the base shapes.</li>
+<li><em>use_samples</em>: If True, uses the FObject&#8217;s previously generated realizations (default).
+If the object element (ie, vertex, edge etc) is not a constant, a puq CustomParameter
+object is returned with it&#8217;s values property set to the realizations.
+If False, an appropriate puq Parameter object is returned, with its values property set
+to an empty list. E.g., for a normally distributed DeformableObject, NormalParameter
+objects are returned. Unlike the CustomParameters generated if this flag is False,
+these Parameter objects will be sampled by puq.</li>
+</ul>
+<p>Returns: a list of puq CustomParameter or ConstantParameter objects.</p>
+<p>The name of each Parameter is based on the name given to the associated
+object when it was added in addObject. For example, for an object named
+&#8216;house&#8217;, the x-coordinate of
+the third vertex of the object is encoded using the following convention:</p>
+<blockquote>
+<div>wXY__house__x__2</div></blockquote>
+<p>All parameters constructed with this function are identified by the first 5 characters:
+&#8216;wXY__&#8217;</p>
+<p>The total number of Parameters contributed to the returned list can
+be determined from the table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object Type</th>
+<th class="head">Num. Parameters
+contributed</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DeformableObject</td>
+<td>2N - one for each of
+the x,y coordinate
+pairs for the N
+vertices.</td>
+</tr>
+<tr class="row-odd"><td>RigidObject</td>
+<td>3 - x, y, and theta</td>
+</tr>
+</tbody>
+</table>
+<p>For example, if the ObjectManager contains a single RigidObject, calling
+this function will return a list of 3 custom parameters and the base shape
+of the rigid object will be written to <em>shapesFileName</em></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="objectmanager.ObjectManager.fuzzyObjects">
+<tt class="descname">fuzzyObjects</tt><a class="headerlink" href="#objectmanager.ObjectManager.fuzzyObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all the FuzzyObjects that have been added via <a class="reference internal" href="#objectmanager.ObjectManager.addObject" title="objectmanager.ObjectManager.addObject"><tt class="xref py py-func docutils literal"><span class="pre">addObject()</span></tt></a>.</p>
+<p>To get the object&#8217;s extra data use <a class="reference internal" href="#objectmanager.ObjectManager.objects" title="objectmanager.ObjectManager.objects"><tt class="xref py py-attr docutils literal"><span class="pre">objects</span></tt></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="objectmanager.ObjectManager.fuzzyObjects2PuqParams">
+<tt class="descname">fuzzyObjects2PuqParams</tt><big>(</big><em>shapesFileName='shapes.json'</em>, <em>use_samples=True</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.fuzzyObjects2PuqParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts fuzzy objects into puq Parameter objects.</p>
+<ul class="simple">
+<li><em>shapesFileName</em>: a file name to which the base shapes will be written.</li>
+<li><em>use_samples</em>: If True, uses the FObject&#8217;s previously generated realizations (default).
+If the object element (ie, vertex, edge etc) is not a constant, a puq CustomParameter
+object is returned with it&#8217;s values property set to the realizations.
+If False, an appropriate puq Parameter object is returned, with its values property set
+to an empty list. E.g., for a normally distributed DeformableObject, NormalParameter
+objects are returned. Unlike the CustomParameters generated if this flag is False,
+these Parameter objects will be sampled by puq.</li>
+</ul>
+<p>Returns a dictionary with keys equal to alpha cuts of the objects. The values
+are dictionaries with keys &#8216;params&#8217;, &#8216;num_realizations&#8217;</p>
+<blockquote>
+<div>{ $a-cut$:{&#8216;params&#8217;:[object], &#8216;num_realizations&#8217;:integer}, ...}</div></blockquote>
+<p>&#8216;params&#8217; is a list of puq CustomParameter or ConstantParameter objects each containing
+samples of vertex coordinates or edges at that
+particular alpha cut. <strong>All non-constant parameters at a given a-cut are guaranteed to have
+the same number of realizations.</strong> This number is the maximum number of realizzations of
+all objects at that alpha cut and is given in the
+&#8216;num_realizations&#8217; entry. If a parameter is a constant, it will have 1 realization.</p>
+<p>For example at alpha-cut 0.2, O1 has 10 realizations and O2 has 8.
+The generated puq parameters for O1 will all have 10 realizations. For O2, the number of
+realizations will be increased to 10 by repeating the first two samples. If O2 is a constant
+instead, the number of realizations in the puq parameter is 1.</p>
+<p>All fuzzy objects are guaranteed to have the same alpha cuts.</p>
+<p>The name of each Parameter is based on the name given to the associated
+object when it was added in addObject. For example, for an object named
+&#8216;house&#8217;, the x-coordinate of
+the third vertex of the object  at alpha cut 1 is encoded using the following convention:</p>
+<blockquote>
+<div>wXY__house__x__2__10</div></blockquote>
+<p>For an edge defined object, third edge alpha cut 0.8,</p>
+<blockquote>
+<div>wXY__house__e__2__8</div></blockquote>
+<p>All parameters constructed with this function are identified by the first 5 characters
+&#8216;wXY__&#8217;.</p>
+<p>The total number of Parameters contributed to the returned dictionary for a single alpha-cut
+can be determined from the table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="48%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object Type</th>
+<th class="head">Num. Parameters
+contributed</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>VertexDefinedObject</td>
+<td>2N - one for each of
+the x,y coordiate
+pairs for the N
+vertices.</td>
+</tr>
+<tr class="row-odd"><td>EdgeDefinedObject</td>
+<td>N - one for each of
+the N edges of the
+object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="objectmanager.ObjectManager.getBaseShapes">
+<em class="property">static </em><tt class="descname">getBaseShapes</tt><big>(</big><em>shapesFileName='shapes.json'</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.getBaseShapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs shapely shapes out of a previously saved shapes file generated by
+<a class="reference internal" href="#objectmanager.ObjectManager.crispObjects2PuqParams" title="objectmanager.ObjectManager.crispObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">ObjectManager.crispObjects2PuqParams()</span></tt></a> or <a class="reference internal" href="#objectmanager.ObjectManager.fuzzyObjects2PuqParams" title="objectmanager.ObjectManager.fuzzyObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">ObjectManager.fuzzyObjects2PuqParams()</span></tt></a>.</p>
+<p>Returns a dictionary in the same format as <a class="reference internal" href="#objectmanager.ObjectManager.puq2Shapes" title="objectmanager.ObjectManager.puq2Shapes"><tt class="xref py py-func docutils literal"><span class="pre">ObjectManager.puq2Shapes()</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="objectmanager.ObjectManager.isShapeParam">
+<em class="property">static </em><tt class="descname">isShapeParam</tt><big>(</big><em>paramname</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.isShapeParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a parameter name, checks whether this parameter indicates that it belongs
+to a shape.</p>
+<ul class="simple">
+<li><em>paramname</em>: a string indicating the parameter name to check</li>
+</ul>
+<p>Returns: true if this parameter name indicates that it is part of a shape</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="objectmanager.ObjectManager.isShapeParamLegacy">
+<em class="property">static </em><tt class="descname">isShapeParamLegacy</tt><big>(</big><em>paramname</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.isShapeParamLegacy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a legacy parameter name, checks whether this parameter indicates that it belongs
+to a shape.</p>
+<ul class="simple">
+<li><em>paramname</em>: a string indicating the parameter name to check</li>
+</ul>
+<p>Returns: true if this parameter name indicates that it is part of a shape.</p>
+<p>After changing the wiggly parameter separator to __ instead of _, this
+function is needed to check whether the separators should be __ instead of _
+when parsing the parameters into shapes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="objectmanager.ObjectManager.objects">
+<tt class="descname">objects</tt><a class="headerlink" href="#objectmanager.ObjectManager.objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the objects currently managed by ObjectManager.</p>
+<p>Objects are returned in the form of a dictionary with keys equal to the
+object names and values containing dictionaries with keys &#8216;obj&#8217; (the Wiggly
+object being managed), &#8216;class&#8217; (the group assigned to obj), and &#8216;data&#8217;.</p>
+<blockquote>
+<div>{$name$:{&#8216;obj&#8217;:&lt;shapely shape&gt;}, &#8216;class&#8217;:&lt;string&gt;, &#8216;data&#8217;:&lt;object&gt;}</div></blockquote>
+<p>&#8216;class&#8217; can be &#8216;probabilistic&#8217; or &#8216;fuzzy&#8217;.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="objectmanager.ObjectManager.probabilisticObjects">
+<tt class="descname">probabilisticObjects</tt><a class="headerlink" href="#objectmanager.ObjectManager.probabilisticObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all the CrispObjects that have been added via <a class="reference internal" href="#objectmanager.ObjectManager.addObject" title="objectmanager.ObjectManager.addObject"><tt class="xref py py-func docutils literal"><span class="pre">addObject()</span></tt></a>.</p>
+<p>To get the object&#8217;s extra data use <a class="reference internal" href="#objectmanager.ObjectManager.objects" title="objectmanager.ObjectManager.objects"><tt class="xref py py-attr docutils literal"><span class="pre">objects</span></tt></a></p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="objectmanager.ObjectManager.puq2Shapes">
+<em class="property">static </em><tt class="descname">puq2Shapes</tt><big>(</big><em>shapesFileName='shapes.json'</em>, <em>params=None</em>, <em>paramsFileName=None</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.puq2Shapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs distorted shapes out of a puq parameters, using a set of base shapes.</p>
+<ul>
+<li><p class="first"><em>shapesFileName</em>: a file name containing the base shapes. See <a class="reference internal" href="#objectmanager.ObjectManager.crispObjects2PuqParams" title="objectmanager.ObjectManager.crispObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">crispObjects2PuqParams()</span></tt></a>
+for more information.</p>
+</li>
+<li><p class="first"><em>params</em>: a list of dictionaries. Each dictionary contains the keys &#8216;name&#8217;,
+&#8216;desc&#8217;, &#8216;value&#8217;. Key &#8216;name&#8217; is the puq param name constructed using the *2puqParams methods.
+&#8216;desc&#8217; (may be None) is the description and &#8216;value&#8217; is a single value
+of the parameter.</p>
+<blockquote>
+<div><p>[ {&#8216;name&#8217;:&lt;string&gt;, &#8216;desc&#8217;:&lt;string&gt;, &#8216;value&#8217;:&lt;float&gt;}, ... ]</p>
+</div></blockquote>
+<p>See <a class="reference internal" href="#objectmanager.ObjectManager.crispObjects2PuqParams" title="objectmanager.ObjectManager.crispObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">crispObjects2PuqParams()</span></tt></a> for details on the convention for &#8216;name&#8217;.</p>
+</li>
+<li><p class="first"><em>paramsFileName</em>: If set, <em>params</em> is read from file. See the paramsByFile option of
+the puq TestProgram documentation.</p>
+</li>
+</ul>
+<p>Returns: a dictionary with keys equal to the parameter name. The parameter name is the
+original name, extracted from the name generated by *2puqParams. Values are dictionaries
+with the following key:value pairs &#8211; &#8216;shp&#8217;:Shapely shape &#8216;desc&#8217;:description.</p>
+<blockquote>
+<div>{&lt;paramName string&gt;, {&#8216;shp&#8217;:&lt;Shapely object&gt;, &#8216;desc&#8217;:&lt;string&gt;,
+&#8216;type&#8217;:&lt;string&gt;} &#8216;alphacut&#8217;:&lt;float or None&gt;, ...}</div></blockquote>
+<p>&#8216;type&#8217; is the type of object: &#8216;D&#8217;=deformable, &#8216;R&#8217;=rigid, &#8216;V&#8217;=vertex-defined, &#8216;E&#8217;=edge-defined.
+Any parameters which weren&#8217;t constructed with <a class="reference internal" href="#objectmanager.ObjectManager.crispObjects2PuqParams" title="objectmanager.ObjectManager.crispObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">crispObjects2PuqParams()</span></tt></a> or
+<a class="reference internal" href="#objectmanager.ObjectManager.fuzzyObjects2PuqParams" title="objectmanager.ObjectManager.fuzzyObjects2PuqParams"><tt class="xref py py-func docutils literal"><span class="pre">fuzzyObjects2PuqParams()</span></tt></a> are ignored.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/objectmanager.html" class="btn btn-neutral float-right" title="objectmanager">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="autosummary/FuzzyObjects.VertexDefinedObject.html" class="btn btn-neutral" title="FuzzyObjects.VertexDefinedObject"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

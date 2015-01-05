@@ -1,0 +1,32 @@
+gband.GBand
+===========
+
+.. currentmodule:: gband
+
+.. autoclass:: GBand
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~GBand.__init__
+      ~GBand.generateGBand
+      ~GBand.plot
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~GBand.ellipses
+      ~GBand.polygon
+      ~GBand.polygonPoints
+   
+   

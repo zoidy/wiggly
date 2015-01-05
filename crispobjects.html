@@ -1,0 +1,959 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Crisp Objects &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="CrispObjects" href="autosummary/CrispObjects.html"/>
+        <link rel="prev" title="F-Objects" href="fobjects.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html"><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><strong>Crisp Objects</strong></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/crispobjects.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="crisp-objects">
+<h1><strong>Crisp Objects</strong><a class="headerlink" href="#crisp-objects" title="Permalink to this headline">¶</a></h1>
+<p>All public functions and classes in module CrispObjects.py</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-CrispObjects" title="CrispObjects"><tt class="xref py py-obj docutils literal"><span class="pre">CrispObjects</span></tt></a></td>
+<td>This module contains all classes related to crisp objects.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#CrispObjects.CrispObject" title="CrispObjects.CrispObject"><tt class="xref py py-obj docutils literal"><span class="pre">CrispObjects.CrispObject</span></tt></a>(x,&nbsp;y,&nbsp;cov,&nbsp;unc_pts,&nbsp;...)</td>
+<td>Base class for all crisp objects.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#CrispObjects.RigidObject" title="CrispObjects.RigidObject"><tt class="xref py py-obj docutils literal"><span class="pre">CrispObjects.RigidObject</span></tt></a>(x,&nbsp;y,&nbsp;origin_x,&nbsp;...)</td>
+<td>Represents a crisp, rigid object.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#CrispObjects.DeformableObject" title="CrispObjects.DeformableObject"><tt class="xref py py-obj docutils literal"><span class="pre">CrispObjects.DeformableObject</span></tt></a>(x,&nbsp;y,&nbsp;cov,&nbsp;unc_pts)</td>
+<td>Represents a crisp, deformable object.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Complete Listing:</strong></p>
+<span class="target" id="module-CrispObjects"></span><p>This module contains all classes related to crisp objects.</p>
+<dl class="class">
+<dt id="CrispObjects.CrispObject">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">CrispObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>cov</em>, <em>unc_pts</em>, <em>isClosed</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="fobjects.html#FObjects.FObject" title="FObjects.FObject"><tt class="xref py py-class docutils literal"><span class="pre">FObjects.FObject</span></tt></a></p>
+<p>Base class for all crisp objects. Not instantiable</p>
+<ul>
+<li><p class="first"><em>x,y</em>: Numpy arrays of x and y coordinates, each of length N</p>
+</li>
+<li><p class="first"><em>cov</em>: A numpy 2n-by-2n matrix containing the variances and co-variances within and
+between points where n is the number of points. The rows and columns correspond
+to the x and y covariances in sequence. E.g., for 2 points x0, y0, x1, y1, the
+covariance  matrix&#8217;s rows and columns are</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">x0</th>
+<th class="head">x1</th>
+<th class="head">y0</th>
+<th class="head">y1</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>x1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>y0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>y1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><em>unc_pts</em>: numpy array of length &gt;= N. if the i&#8217;th position is 0, it indicates that the
+i&#8217;th in the x,y arrays has no uncertainty.</p>
+</li>
+<li><p class="first"><em>isClosed</em>: Boolean indicating whether the object will be treated as having a closed boundary.</p>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#CrispObjects.CrispObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.CrispObject.generateLastUsed">
+<tt class="descname">generateLastUsed</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.generateLastUsed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+the last used distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.CrispObject.generateNormal">
+<tt class="descname">generateNormal</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.generateNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+a multivariate normal. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.CrispObject.generateUniform">
+<tt class="descname">generateUniform</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.generateUniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+a multivariate uniform distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#CrispObjects.CrispObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.CrispObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>meanLine=True</em>, <em>lines=True</em>, <em>points=False</em>, <em>n=-1</em><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots this object.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure to plot into</li>
+<li><em>meanLine</em>: plots the mean line</li>
+<li><em>lines</em>: If true connects each point with lines</li>
+<li><em>points</em>: If drue draws the generated points</li>
+<li><em>n</em>: the number of realizations (starting from the first one) to plot. If &lt;1 plots all</li>
+</ul>
+<p>Plots into the given figure but doesn&#8217;t show it until until matplotlib show() is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.CrispObject.plotStats">
+<tt class="descname">plotStats</tt><big>(</big><em>fignum=None</em>, <em>labels=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CrispObjects.CrispObject.plotStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs  statistics for the first 3 variables. The plot is not shown
+until matplotlib show() is called</p>
+<ul class="simple">
+<li>fignum: the figure in which to plot the stats. If &lt;0 plots into a new figure</li>
+<li>labels: a list of length &lt;=3 with labels to use for the statsOfPoints plot</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#CrispObjects.CrispObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#CrispObjects.CrispObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vertices of the distorted object in two 2D numpy arrays x,y.
+The columns are the x or y coordinates for all vertices and the rows are the realizations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#CrispObjects.CrispObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Shapely shapes.
+(LineStrings if the shape is open, Point if it&#8217;s a point).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.CrispObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#CrispObjects.CrispObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices.</p>
+<p>The array contains a 1 at indices corresponding to vertices which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CrispObjects.DeformableObject">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">DeformableObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>cov</em>, <em>unc_pts</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CrispObjects.CrispObject" title="CrispObjects.CrispObject"><tt class="xref py py-class docutils literal"><span class="pre">CrispObjects.CrispObject</span></tt></a></p>
+<p>Represents a crisp, deformable object.</p>
+<ul>
+<li><p class="first"><em>x</em>: A numpy array of x coordinates, length N</p>
+</li>
+<li><p class="first"><em>y</em>: A numpy array of y coordinates, length N</p>
+</li>
+<li><p class="first"><em>cov</em>: A numpy 2n-by-2n matrix containing the variances and co-variances within and
+between points where n is the number of points. The rows and columns correspond
+to the x and y covariances in sequence. E.g., for 2 points x0, y0, x1, y1, the
+covariance  matrix&#8217;s rows and columns are</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">x0</th>
+<th class="head">x1</th>
+<th class="head">y0</th>
+<th class="head">y1</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>x1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>y0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>y1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><em>unc_pts</em>: numpy array of length &gt;= N. if the i&#8217;th position is 0, it indicates that point in the x,y arrays should not be considered uncertain.</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whether the object will be treated as having a closed boundary</p>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#CrispObjects.DeformableObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObject.generateLastUsed">
+<tt class="descname">generateLastUsed</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject.generateLastUsed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+the last used distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObject.generateNormal">
+<tt class="descname">generateNormal</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject.generateNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a set of realizations for a deformable object using a multivariate normal.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObject.generateUniform">
+<tt class="descname">generateUniform</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject.generateUniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a set of realizations using a multivariate uniform.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+<dl class="docutils">
+<dt>Note on the covariance matrix.</dt>
+<dd>This matrix is specified in the same way
+as for normally distributed variables.
+The covariances are used to calculate the correlation coefficient, which
+here, is interpreted as Spearman&#8217;s (rank) correlation. Therefore, the outputs
+will be rank correlated.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#CrispObjects.DeformableObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>meanLine=True</em>, <em>lines=True</em>, <em>points=False</em>, <em>n=-1</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots this object.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure to plot into</li>
+<li><em>meanLine</em>: plots the mean line</li>
+<li><em>lines</em>: If true connects each point with lines</li>
+<li><em>points</em>: If drue draws the generated points</li>
+<li><em>n</em>: the number of realizations (starting from the first one) to plot. If &lt;1 plots all</li>
+</ul>
+<p>Plots into the given figure but doesn&#8217;t show it until until matplotlib show() is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObject.plotStats">
+<tt class="descname">plotStats</tt><big>(</big><em>fignum=None</em>, <em>labels=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObject.plotStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs  statistics for the first 3 variables. The plot is not shown
+until matplotlib show() is called</p>
+<ul class="simple">
+<li>fignum: the figure in which to plot the stats. If &lt;0 plots into a new figure</li>
+<li>labels: a list of length &lt;=3 with labels to use for the statsOfPoints plot</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#CrispObjects.DeformableObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#CrispObjects.DeformableObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vertices of the distorted object in two 2D numpy arrays x,y.
+The columns are the x or y coordinates for all vertices and the rows are the realizations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#CrispObjects.DeformableObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Shapely shapes.
+(LineStrings if the shape is open, Point if it&#8217;s a point).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#CrispObjects.DeformableObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices.</p>
+<p>The array contains a 1 at indices corresponding to vertices which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CrispObjects.DeformableObjectFromValues">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">DeformableObjectFromValues</tt><big>(</big><em>x</em>, <em>y</em>, <em>unc_pts</em>, <em>isClosed</em>, <em>samples_x</em>, <em>samples_y</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CrispObjects.DeformableObject" title="CrispObjects.DeformableObject"><tt class="xref py py-class docutils literal"><span class="pre">CrispObjects.DeformableObject</span></tt></a></p>
+<p>Represents a crisp, deformable object constructed from previously generated values.</p>
+<ul class="simple">
+<li><em>x</em>: A numpy array of x coordinates, length N</li>
+<li><em>y</em>: A numpy array of y coordinates, length N</li>
+<li><em>unc_pts</em>: numpy array of length &gt;= N. if the i&#8217;th position is 0, it indicates that point in the x,y arrays should not be considered uncertain.</li>
+<li><em>isClosed</em>: whether the object will be treated as having a closed boundary.</li>
+<li><em>samples_x,samples_y</em>: numpy arrays containing samples of the x,y coords.</li>
+</ul>
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObjectFromValues.generateLastUsed">
+<tt class="descname">generateLastUsed</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.generateLastUsed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+the last used distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObjectFromValues.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>meanLine=True</em>, <em>lines=True</em>, <em>points=False</em>, <em>n=-1</em><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots this object.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure to plot into</li>
+<li><em>meanLine</em>: plots the mean line</li>
+<li><em>lines</em>: If true connects each point with lines</li>
+<li><em>points</em>: If drue draws the generated points</li>
+<li><em>n</em>: the number of realizations (starting from the first one) to plot. If &lt;1 plots all</li>
+</ul>
+<p>Plots into the given figure but doesn&#8217;t show it until until matplotlib show() is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.DeformableObjectFromValues.plotStats">
+<tt class="descname">plotStats</tt><big>(</big><em>fignum=None</em>, <em>labels=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.plotStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs  statistics for the first 3 variables. The plot is not shown
+until matplotlib show() is called</p>
+<ul class="simple">
+<li>fignum: the figure in which to plot the stats. If &lt;0 plots into a new figure</li>
+<li>labels: a list of length &lt;=3 with labels to use for the statsOfPoints plot</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vertices of the distorted object in two 2D numpy arrays x,y.
+The columns are the x or y coordinates for all vertices and the rows are the realizations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Shapely shapes.
+(LineStrings if the shape is open, Point if it&#8217;s a point).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.DeformableObjectFromValues.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#CrispObjects.DeformableObjectFromValues.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices.</p>
+<p>The array contains a 1 at indices corresponding to vertices which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CrispObjects.RigidObject">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">RigidObject</tt><big>(</big><em>x</em>, <em>y</em>, <em>origin_x</em>, <em>origin_y</em>, <em>theta</em>, <em>cov</em>, <em>unc_pts</em>, <em>isClosed=True</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CrispObjects.CrispObject" title="CrispObjects.CrispObject"><tt class="xref py py-class docutils literal"><span class="pre">CrispObjects.CrispObject</span></tt></a></p>
+<p>Represents a crisp, rigid object.</p>
+<ul>
+<li><p class="first"><em>x, y</em>: numpy arrays of coordinate values</p>
+</li>
+<li><p class="first"><em>origin_x, origin_y</em>: the x,y coords of the rotation/translation origin</p>
+</li>
+<li><p class="first"><em>theta</em>: the mean of the rotation angle in degrees</p>
+</li>
+<li><p class="first"><em>cov</em>: A numpy 3-by-3 matrix containing the variances and co-variances of the center of
+rotation and translation</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="14%" />
+<col width="14%" />
+<col width="36%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"></th>
+<th class="head">x0</th>
+<th class="head">y0</th>
+<th class="head">theta</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>y0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>theta</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first"><em>unc_pts</em>: numpy array of 0 or 1 of length N indicating whether point i is to be considered
+uncertain or not. 1=uncertain</p>
+</li>
+<li><p class="first"><em>isClosed</em>: whther the object has a closed boundary</p>
+</li>
+</ul>
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#CrispObjects.RigidObject.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObject.generateLastUsed">
+<tt class="descname">generateLastUsed</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject.generateLastUsed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+the last used distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObject.generateNormal">
+<tt class="descname">generateNormal</tt><big>(</big><em>n</em>, <em>translate=True</em>, <em>rotate=True</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject.generateNormal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a set of realizations for a rigid object using a multivariate normal.</p>
+<ul class="simple" id="crispobjects-rigidobject-generatenormal">
+<li>n: the number of realizations to generate</li>
+<li>translate: enable translational uncertainty. If false, the x and y entries in the covariance matrix will be ignored.</li>
+<li>rotate: enable rotational uncertainty. If false, the theta entries in the covariance matrix will be ignored</li>
+</ul>
+<p>Note: If there has been a previous call to any of the generate* functions, if translate or
+rotate is false, the previously generated values will be used. This means that
+upon subsequent calls, the genrated values won&#8217;t be correlated with the values from the
+previous run.
+If there have been no previously generated values, the mean values will be used.
+E.g.,</p>
+<ul>
+<li><dl class="first docutils">
+<dt>1st run: translate=True, rotate=False</dt>
+<dd><p class="first last">The x and y values of translation are correlated according to the cov matrix.
+All realizations of the rotation angle are equal to the mean value</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>2nd run: translate=False, rotate=True</dt>
+<dd><p class="first last">The x and y values from run 1 are used and randomly generated values of theta
+are used according to the variance of theta specified in cov. x,y are correlated
+but are uncorrelated with theta, regardless of what is in the cov matrix.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The advantage to doing things this way is that we can have different distributions for
+translation and rotation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObject.generateUniform">
+<tt class="descname">generateUniform</tt><big>(</big><em>n</em>, <em>translate=True</em>, <em>rotate=True</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject.generateUniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a set of realizations using a multivariate uniform.</p>
+<ul class="simple">
+<li>n: the number of realizations to generate</li>
+<li>translate: enable translational uncertainty. If false, the x and y entries in the covariance matrix will be ignored.</li>
+<li>rotate: enable rotational uncertainty. If false, the theta entries in the covariance matrix will be ignored.</li>
+</ul>
+<dl class="docutils">
+<dt>Note on the covariance matrix:</dt>
+<dd>This matrix is specified in the same way
+as for normally distributed variables.
+The covariances are used to calculate the correlation coefficient, which
+here, is interpreted as Spearman&#8217;s (rank) correlation. Therefore, the outputs
+will be rank correlated.</dd>
+</dl>
+<p>See <a class="reference internal" href="#crispobjects-rigidobject-generatenormal"><em>generateNormal</em></a> for a note about
+subsequent calls.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#CrispObjects.RigidObject.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.origin">
+<tt class="descname">origin</tt><a class="headerlink" href="#CrispObjects.RigidObject.origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the origin of this rigid object as a tuple (origin_x, origin_y).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObject.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>meanLine=True</em>, <em>lines=True</em>, <em>points=False</em>, <em>n=-1</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots this object.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure to plot into</li>
+<li><em>meanLine</em>: plots the mean line</li>
+<li><em>lines</em>: If true connects each point with lines</li>
+<li><em>points</em>: If drue draws the generated points</li>
+<li><em>n</em>: the number of realizations (starting from the first one) to plot. If &lt;1 plots all</li>
+</ul>
+<p>Plots into the given figure but doesn&#8217;t show it until until matplotlib show() is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObject.plotStats">
+<tt class="descname">plotStats</tt><big>(</big><em>fignum=None</em>, <em>statsOfPoints=False</em>, <em>labels=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CrispObjects.RigidObject.plotStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs some statistics for the 3 generated parameters. The plot is not shown
+until matplotlib show() is called</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure in which to plot the stats. If &lt;0 plots into a new figure</li>
+<li><em>statsOfPoints</em>: Generates a plot with the statisistics of the first 3 points
+instead of origin_x, origin_y, and theta.</li>
+<li><em>labels</em>: a list of length &lt;=3 with labels to use for the statsOfPoints plot</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#CrispObjects.RigidObject.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#CrispObjects.RigidObject.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vertices of the distorted object in two 2D numpy arrays x,y.
+The columns are the x or y coordinates for all vertices and the rows are the realizations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.realizationsParams">
+<tt class="descname">realizationsParams</tt><a class="headerlink" href="#CrispObjects.RigidObject.realizationsParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the realizations of the rigid object&#8217;s parameters.</p>
+<p>Unlike <a class="reference internal" href="#CrispObjects.CrispObject.realizations" title="CrispObjects.CrispObject.realizations"><tt class="xref py py-func docutils literal"><span class="pre">CrispObject.realizations()</span></tt></a> which returns the realizations
+of the x and y coordinates of each vertex, <em>realizationsParams</em> returns
+the rigid object&#8217;s x, y, and theta realizations which apply to all vertiecs
+in the object.</p>
+<p>The return value are 3 numpy arrays, x, y, and theta. The values in
+each array are the realizations for that variable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#CrispObjects.RigidObject.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Shapely shapes.
+(LineStrings if the shape is open, Point if it&#8217;s a point).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObject.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#CrispObjects.RigidObject.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices.</p>
+<p>The array contains a 1 at indices corresponding to vertices which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="CrispObjects.RigidObjectFromValues">
+<em class="property">class </em><tt class="descclassname">CrispObjects.</tt><tt class="descname">RigidObjectFromValues</tt><big>(</big><em>x</em>, <em>y</em>, <em>origin_x</em>, <em>origin_y</em>, <em>unc_pts</em>, <em>isClosed</em>, <em>samples_x</em>, <em>samples_y</em>, <em>samples_t</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObjectFromValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#CrispObjects.RigidObject" title="CrispObjects.RigidObject"><tt class="xref py py-class docutils literal"><span class="pre">CrispObjects.RigidObject</span></tt></a></p>
+<p>A rigid object constructed out of a previously generated set of realizations of
+x,y, and theta.</p>
+<ul class="simple">
+<li><em>x, y</em>: numpy arrays of coordinate values of the original shape.</li>
+<li><em>origin_x, origin_y</em>: the x,y coords of the rotation/translation origin.</li>
+<li><em>theta</em>: the mean of the rotation angle in degrees.</li>
+<li><em>unc_pts</em>: numpy array of 0 or 1 of length N indicating whether point i is to be considered
+uncertain or not. 1=uncertain.</li>
+<li><em>isClosed</em>: whther the object has a closed boundary</li>
+<li><em>samples_x,samples_y,samples_t</em>: numpy arrays containing samples of the x,y coords and
+rotation angle theta, of the origin.</li>
+</ul>
+<p>This class is used by <tt class="xref py py-class docutils literal"><span class="pre">ObjectManager</span></tt>.</p>
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.coords">
+<tt class="descname">coords</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 arrays x,y containing the x and y coordinates of the vertices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObjectFromValues.generateLastUsed">
+<tt class="descname">generateLastUsed</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.generateLastUsed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method which generates a set of realizations for a CrispObject using
+the last used distribution. Derived classes may have addtional parameters.</p>
+<ul class="simple">
+<li><em>n</em>: the number of realizations to generate</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.isClosed">
+<tt class="descname">isClosed</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the object have a closed or open boundary?</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.origin">
+<tt class="descname">origin</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the origin of this rigid object as a tuple (origin_x, origin_y).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObjectFromValues.plot">
+<tt class="descname">plot</tt><big>(</big><em>fignum=-1</em>, <em>meanLine=True</em>, <em>lines=True</em>, <em>points=False</em>, <em>n=-1</em><big>)</big><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots this object.</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure to plot into</li>
+<li><em>meanLine</em>: plots the mean line</li>
+<li><em>lines</em>: If true connects each point with lines</li>
+<li><em>points</em>: If drue draws the generated points</li>
+<li><em>n</em>: the number of realizations (starting from the first one) to plot. If &lt;1 plots all</li>
+</ul>
+<p>Plots into the given figure but doesn&#8217;t show it until until matplotlib show() is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="CrispObjects.RigidObjectFromValues.plotStats">
+<tt class="descname">plotStats</tt><big>(</big><em>fignum=None</em>, <em>statsOfPoints=False</em>, <em>labels=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.plotStats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Outputs some statistics for the 3 generated parameters. The plot is not shown
+until matplotlib show() is called</p>
+<ul class="simple">
+<li><em>fignum</em>: the figure in which to plot the stats. If &lt;0 plots into a new figure</li>
+<li><em>statsOfPoints</em>: Generates a plot with the statisistics of the first 3 points
+instead of origin_x, origin_y, and theta.</li>
+<li><em>labels</em>: a list of length &lt;=3 with labels to use for the statsOfPoints plot</li>
+</ul>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.polygon">
+<tt class="descname">polygon</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Shapely polygon representing the original shape.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.realizations">
+<tt class="descname">realizations</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.realizations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vertices of the distorted object in two 2D numpy arrays x,y.
+The columns are the x or y coordinates for all vertices and the rows are the realizations.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.realizationsParams">
+<tt class="descname">realizationsParams</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.realizationsParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the realizations of the rigid object&#8217;s parameters.</p>
+<p>Unlike <a class="reference internal" href="#CrispObjects.CrispObject.realizations" title="CrispObjects.CrispObject.realizations"><tt class="xref py py-func docutils literal"><span class="pre">CrispObject.realizations()</span></tt></a> which returns the realizations
+of the x and y coordinates of each vertex, <em>realizationsParams</em> returns
+the rigid object&#8217;s x, y, and theta realizations which apply to all vertiecs
+in the object.</p>
+<p>The return value are 3 numpy arrays, x, y, and theta. The values in
+each array are the realizations for that variable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.realizationsPolygons">
+<tt class="descname">realizationsPolygons</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.realizationsPolygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of Shapely shapes.
+(LineStrings if the shape is open, Point if it&#8217;s a point).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CrispObjects.RigidObjectFromValues.uncertainVertices">
+<tt class="descname">uncertainVertices</tt><a class="headerlink" href="#CrispObjects.RigidObjectFromValues.uncertainVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the array of uncertain vertices.</p>
+<p>The array contains a 1 at indices corresponding to vertices which are uncertain.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/CrispObjects.html" class="btn btn-neutral float-right" title="CrispObjects">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fobjects.html" class="btn btn-neutral" title="F-Objects"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

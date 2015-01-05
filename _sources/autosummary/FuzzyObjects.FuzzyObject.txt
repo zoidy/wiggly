@@ -1,0 +1,37 @@
+FuzzyObjects.FuzzyObject
+========================
+
+.. currentmodule:: FuzzyObjects
+
+.. autoclass:: FuzzyObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~FuzzyObject.__init__
+      ~FuzzyObject.generateRealizations
+      ~FuzzyObject.getRealizations4Sim
+      ~FuzzyObject.plot
+      ~FuzzyObject.plotFuzzyNumbers
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~FuzzyObject.coords
+      ~FuzzyObject.isClosed
+      ~FuzzyObject.polygon
+      ~FuzzyObject.realizations
+      ~FuzzyObject.realizationsPolygons
+      ~FuzzyObject.uncertainVertices
+   
+   

@@ -1,0 +1,40 @@
+CrispObjects.RigidObject
+========================
+
+.. currentmodule:: CrispObjects
+
+.. autoclass:: RigidObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~RigidObject.__init__
+      ~RigidObject.generateLastUsed
+      ~RigidObject.generateNormal
+      ~RigidObject.generateUniform
+      ~RigidObject.plot
+      ~RigidObject.plotStats
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~RigidObject.coords
+      ~RigidObject.isClosed
+      ~RigidObject.origin
+      ~RigidObject.polygon
+      ~RigidObject.realizations
+      ~RigidObject.realizationsParams
+      ~RigidObject.realizationsPolygons
+      ~RigidObject.uncertainVertices
+   
+   

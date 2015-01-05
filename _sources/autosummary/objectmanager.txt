@@ -1,0 +1,31 @@
+objectmanager
+=============
+
+.. automodule:: objectmanager
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      test_addCrispObjects
+      test_addFuzzyObjects
+      test_crispObjectsFromPuq
+      test_fuzzyObjectsFromPuq
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      ObjectManager
+   
+   
+
+   
+   
+   

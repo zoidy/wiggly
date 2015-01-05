@@ -1,0 +1,32 @@
+sa.SA
+=====
+
+.. currentmodule:: sa
+
+.. autoclass:: SA
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SA.__init__
+      ~SA.find_all_hdf5
+      ~SA.get_results
+      ~SA.plot
+      ~SA.run
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SA.basename
+   
+   

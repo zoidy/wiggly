@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Utilities &mdash; Wiggly 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="utilities" href="autosummary/utilities.html"/>
+        <link rel="prev" title="gband.GBand" href="autosummary/gband.GBand.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Wiggly</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="crispobjects.html"><strong>Crisp Objects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.CrispObject.html">CrispObjects.CrispObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.RigidObject.html">CrispObjects.RigidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.html">FuzzyObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objectmanager.html"><strong>ObjectManager</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.html">objectmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/objectmanager.ObjectManager.html">objectmanager.ObjectManager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uq.html"><strong>UQ</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.html">uq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/uq.UQ.html">uq.UQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sa.html"><strong>SA</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.html">sa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gband.html"><strong>GBand</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/gband.GBand.html">gband.GBand</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>Utilities</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/utilities.html">utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="_distributions.html"><strong>Distributions</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autosummary/_distributions.html">_distributions</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Wiggly</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li><strong>Utilities</strong></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/utilities.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="utilities">
+<h1><strong>Utilities</strong><a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<p>Modules and classes:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-utilities" title="utilities"><tt class="xref py py-obj docutils literal"><span class="pre">utilities</span></tt></a></td>
+<td>Serves as a collection of general purpose utilites</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-utilities"></span><p>Serves as a collection of general purpose utilites</p>
+<dl class="function">
+<dt id="utilities.DOE_ff2l">
+<tt class="descclassname">utilities.</tt><tt class="descname">DOE_ff2l</tt><big>(</big><em>levels_lower</em>, <em>levels_upper</em><big>)</big><a class="headerlink" href="#utilities.DOE_ff2l" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a 2-level full factorial design with k variables.</p>
+<ul class="simple">
+<li><em>levels_lower</em>: A numpy array specifying the lower level for each variable</li>
+<li><em>levels_upper</em>: A numpy array specifying the upper level for each variable</li>
+</ul>
+<p>Returns a numpy array of dimension 2^k-by-k where each row is a unique combination
+of the input variables. In the full factorial design, all possible combinations are
+generated (there are 2^k of them).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="utilities.MESSAGE_LEVEL">
+<tt class="descclassname">utilities.</tt><tt class="descname">MESSAGE_LEVEL</tt><em class="property"> = 3</em><a class="headerlink" href="#utilities.MESSAGE_LEVEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the level at which messages are printed to the console.
+Level 5 (debug level) prints the most messages while 1 (error level)
+prints only critical errors.</p>
+<p>5=error, 4=warning, 3=information (default), 2=verbose, 1=debug</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.clearall">
+<tt class="descclassname">utilities.</tt><tt class="descname">clearall</tt><big>(</big><big>)</big><a class="headerlink" href="#utilities.clearall" title="Permalink to this definition">¶</a></dt>
+<dd><p>clear all globals.</p>
+<p>IMPORTANT: If you put this function in another script, comment it out until you need it.
+To use it, uncomment, run once, and comment out again. If you don&#8217;t comment out,
+it will clear out libraries that have just been loaded.</p>
+<p>Call this any time you need to clear all globals from the python environment.
+Use whenever testing so that old definitions are cleared out for sure.
+From <a class="reference external" href="http://blog.datasingularity.com/?p=134">http://blog.datasingularity.com/?p=134</a></p>
+<p>I recently took a class on scripting ArcGIS with python. We were doing exercises in
+PythonWin and were constantly running and rerunning scripts into the same interpreter.
+So any variables from the last script would still be set in the interpreter&#8217;s globals().
+Most would get overwritten, but some actually caused the programs to act weird. To remedy this,
+they had us use &#8216;del&#8217; statements on our variables at the end of each script. This seemed like
+a waste of time and got really old fast. I looked around for a function that clears all global
+variables but was met with posts telling me that python garbage collection takes care of it,
+well, not in this situation. This was the remedy I came up with on my down time.
+if you put this in a script and run it once, or directly into the interpreter, you can call the
+clearall() function from anywhere. It also makes sure not to delete itself. It&#8217;s not perfect
+but works well in most situations.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.cor2cov">
+<tt class="descclassname">utilities.</tt><tt class="descname">cor2cov</tt><big>(</big><em>correlation</em>, <em>variances</em><big>)</big><a class="headerlink" href="#utilities.cor2cov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the covariance matrix from a correlation matrix and the variances.</p>
+<ul class="simple">
+<li><em>correlation</em>: an N-by-N correlation matrix (numpy)</li>
+<li><em>variances</em>: a numpy matrix/array of length N containing the variances. The i&#8217;th element of this
+array corresponds to the i&#8217;th column in the correlation matrix</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.cov2cor">
+<tt class="descclassname">utilities.</tt><tt class="descname">cov2cor</tt><big>(</big><em>covariance</em><big>)</big><a class="headerlink" href="#utilities.cov2cor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the correlation matrix from the covariance matrix.</p>
+<ul class="simple">
+<li><em>covariance</em>: a numpy matrix/array containing the variances/covariances.</li>
+</ul>
+<p>From the package OTB
+<a class="reference external" href="https://bitbucket.org/forieux/otb/src/73e68868eaacd7a644ed59ab8499c331a3b7015b/otb/utils.py?at=default">https://bitbucket.org/forieux/otb/src/73e68868eaacd7a644ed59ab8499c331a3b7015b/otb/utils.py?at=default</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.erf">
+<tt class="descclassname">utilities.</tt><tt class="descname">erf</tt><big>(</big><em>z</em><big>)</big><a class="headerlink" href="#utilities.erf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the error function.</p>
+<ul class="simple">
+<li><em>z</em>: The argument to the error function. If it is a numpy array, it calculates the error
+function for all its elements</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.fuzzyCalcResultToXY">
+<tt class="descclassname">utilities.</tt><tt class="descname">fuzzyCalcResultToXY</tt><big>(</big><em>fuzzyResultString</em><big>)</big><a class="headerlink" href="#utilities.fuzzyCalcResultToXY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a string representation of a discrete fuzzy number to numpy arrays.</p>
+<p>The string represetation must be in the format output by
+the fuzzy calculator from the Fuzzy Webtools located at
+<a class="reference external" href="https://ffem.mech.kuleuven.be/fuzzy/html/calculator.html">https://ffem.mech.kuleuven.be/fuzzy/html/calculator.html</a>.</p>
+<ul class="simple">
+<li><em>fuzzyResultString</em>: a string representation of a discrete fuzzy number. Copy and
+paste it from the fuzzy calculator website.</li>
+</ul>
+<p>Returns x, y which are numpy arrays containing the x and y coordinates of the
+membership function of the <em>fuzzyResultString</em> which can be passed directly to
+the matplotlib plot function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.fuzzyOffset2Absolute">
+<tt class="descclassname">utilities.</tt><tt class="descname">fuzzyOffset2Absolute</tt><big>(</big><em>fuzzyNumbers</em>, <em>referenceNumbers</em><big>)</big><a class="headerlink" href="#utilities.fuzzyOffset2Absolute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of TrapezoidalFuzzyNumbers from offsets relative to some number to absolute fuzzy  numbers.</p>
+<ul class="simple">
+<li><em>fuzzyNumbers</em>: a list of TrapezoidalFuzzyNumbers which represent offsets with
+respect to the numbers in <em>referenceNumbers</em></li>
+<li><em>referenceNumbers</em>: a list  or numpy array of numbers which serve as the reference
+point for each element in <em>fuzzyNumbers</em></li>
+</ul>
+<p>returns a list of TrapezoidalFuzzyNumbers which now are expressed in absolute terms
+with respect to <em>referenceNUmbers</em></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isCrispObject">
+<tt class="descclassname">utilities.</tt><tt class="descname">isCrispObject</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isCrispObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if <em>obj</em> is a CrispObject</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isFuzzyObject">
+<tt class="descclassname">utilities.</tt><tt class="descname">isFuzzyObject</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isFuzzyObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns true if <em>obj</em> is a FuzzyObject</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isShapelyGeometryCollection">
+<tt class="descclassname">utilities.</tt><tt class="descname">isShapelyGeometryCollection</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isShapelyGeometryCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether <em>obj</em> is a GeometryCollection object of the Shapely library.
+Returns True if it is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isShapelyLineString">
+<tt class="descclassname">utilities.</tt><tt class="descname">isShapelyLineString</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isShapelyLineString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether <em>obj</em> is a LineString object of the Shapely library.
+Returns True if it is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isShapelyMultiPolygon">
+<tt class="descclassname">utilities.</tt><tt class="descname">isShapelyMultiPolygon</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isShapelyMultiPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether <em>obj</em> is a MultiPolygon object of the Shapely library.
+Returns True if it is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isShapelyPoint">
+<tt class="descclassname">utilities.</tt><tt class="descname">isShapelyPoint</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isShapelyPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether <em>obj</em> is a Point object of the Shapely library.
+Returns True if it is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.isShapelyPolygon">
+<tt class="descclassname">utilities.</tt><tt class="descname">isShapelyPolygon</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#utilities.isShapelyPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determines whether <em>obj</em> is a Polygon object of the Shapely library.
+Returns True if it is.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.makeSymmetric">
+<tt class="descclassname">utilities.</tt><tt class="descname">makeSymmetric</tt><big>(</big><em>m</em>, <em>lower2upper=True</em><big>)</big><a class="headerlink" href="#utilities.makeSymmetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes the square matrix m symmetric along the diagonal.</p>
+<ul class="simple">
+<li><em>m</em>: the matrix to make symmetrical</li>
+<li><em>lower2upper</em>: uses the elements in the lower triangular part of the matrix. If false
+usees the elements in the upper triangular part</li>
+</ul>
+<p>Returns the symmetric matrix</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.msg">
+<tt class="descclassname">utilities.</tt><tt class="descname">msg</tt><big>(</big><em>string</em>, <em>level='i'</em>, <em>indent=0</em>, <em>timelevel=True</em><big>)</big><a class="headerlink" href="#utilities.msg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints a message.</p>
+<ul>
+<li><p class="first"><em>indent</em>: set a particular indent level.</p>
+</li>
+<li><p class="first"><em>level</em>: the level of the message. can be</p>
+</li>
+<li><p class="first"><em>timelevel</em>: include a timestamp and log level indicator in the message.</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>e</td>
+<td>error 1</td>
+</tr>
+<tr class="row-even"><td>w</td>
+<td>warning 2</td>
+</tr>
+<tr class="row-odd"><td>i</td>
+<td>information 3</td>
+</tr>
+<tr class="row-even"><td>v</td>
+<td>verbose 4</td>
+</tr>
+<tr class="row-odd"><td>d</td>
+<td>debug 5</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>From top to bottom means lowest number to highest number of message output.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.pairs">
+<tt class="descclassname">utilities.</tt><tt class="descname">pairs</tt><big>(</big><em>data</em>, <em>labels=None</em>, <em>figurenum=None</em>, <em>rankcorr=False</em><big>)</big><a class="headerlink" href="#utilities.pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate something similar to R <cite>pairs</cite>.</p>
+<ul class="simple">
+<li><em>data</em>: the data to plot. Variables are arranged column-wise. This is a numpy array</li>
+<li><em>labels</em>: a vector of labels</li>
+<li><em>fignum</em>: The figure is plotted into figurenum but is not shown. If &lt;0, it plots into a new fig.</li>
+<li><em>rankcorr</em>: computes Spearman&#8217;s rank correlation instead of Pearson&#8217;s rho.</li>
+</ul>
+<p>The numbers in each plot give the following information:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Location</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Left-upper</td>
+<td>Variance/covariance</td>
+</tr>
+<tr class="row-odd"><td>Right-upper</td>
+<td>Correlation coef.</td>
+</tr>
+<tr class="row-even"><td>Left-lower</td>
+<td>Mean</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.plot_datalabels">
+<tt class="descclassname">utilities.</tt><tt class="descname">plot_datalabels</tt><big>(</big><em>x_data</em>, <em>y_data</em>, <em>axis</em>, <em>labels=None</em>, <em>bbox_height=0.03</em>, <em>bbox_width=0.02</em>, <em>size=None</em>, <em>labelsbg=None</em><big>)</big><a class="headerlink" href="#utilities.plot_datalabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds data labels to the specified axis.</p>
+<ul class="simple">
+<li><em>x_data, y_data</em>: The data that was previously plotted (arrays).</li>
+<li><em>axis</em>: The axis into which the data was plotted</li>
+<li><em>labels</em>: The label to set for each data point (list). If None, the value of <em>y</em> is used.
+If a particular label is an empty string, the label and arrow won&#8217;t be plotted.</li>
+<li><em>labelsbg</em>: a color specifying the background color of the labels. Can
+be any matplotlib color e.g., &#8216;white&#8217; or and RGBA tuple (1,1,1,0.5) etc.</li>
+<li><em>size</em>: font size in points to use. If None use the default.</li>
+<li><em>bbox_height,bbox_width</em>: bounding boxes for text are not automatically computed. These
+numbers multiply the axis xrange (width) and yrange (height) which are used to define
+the fixed text bboxes. If the plot labels are still colliding, tweak these numbers.</li>
+</ul>
+<p>Note: inverted x-axis is supported but it must axes.invert_xaxis must be called
+before plotting the data.</p>
+<p>Note2: if two points are exactly coincident, then their labels will overlap.</p>
+<p>Based on <a class="reference external" href="http://stackoverflow.com/a/10739207">http://stackoverflow.com/a/10739207</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.plot_setFont">
+<tt class="descclassname">utilities.</tt><tt class="descname">plot_setFont</tt><big>(</big><em>ax, size=20, items=['title', 'xlabel', 'ylabel', 'xtick', 'ytick']</em><big>)</big><a class="headerlink" href="#utilities.plot_setFont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the font size of the given items to the given value for the given axis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.pointslist2Shape">
+<tt class="descclassname">utilities.</tt><tt class="descname">pointslist2Shape</tt><big>(</big><em>pts_x</em>, <em>pts_y</em>, <em>isClosed</em><big>)</big><a class="headerlink" href="#utilities.pointslist2Shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given point arrays, converts them to an appropriate Shapely shape.</p>
+<ul class="simple">
+<li><em>pts_x, pts_y</em>: Numpy arrays of x and y coordinates</li>
+<li><em>isClosed</em>: Boolean indicating whether the geometry is to be considered closed. If True,
+then the length of pts_x and pts_y must be 3 or greater.</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.puqParams_fromFile">
+<tt class="descclassname">utilities.</tt><tt class="descname">puqParams_fromFile</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#utilities.puqParams_fromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts the file written by puq when paramsByFile is True for TestProgram.</p>
+<p>This function is useful in the puq TestProgram script to parse the
+parameters file.</p>
+<ul class="simple">
+<li><em>filename</em>: The file to convert. The file must have three columns with data
+types string, float, string. These columns correspond to parameter names, values
+and description respectively.</li>
+</ul>
+<p>Returns: a dictionary</p>
+<blockquote>
+<div>{$paramName$:{&#8216;value&#8217;:float, &#8216;desc&#8217;:string}, ... }</div></blockquote>
+<p>&#8216;desc&#8217;, &#8216;value&#8217; are the parameter name description and value respectively.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.saveAllFigures">
+<tt class="descclassname">utilities.</tt><tt class="descname">saveAllFigures</tt><big>(</big><em>fmt='png'</em>, <em>appendtxt=''</em>, <em>fignum=None</em>, <em>dpi=125</em>, <em>outdir=None</em><big>)</big><a class="headerlink" href="#utilities.saveAllFigures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves all currently opened figures to the specified format.</p>
+<p>The figures are named fig &lt;n&gt;.&lt;fmt&gt; where n is the figure number. If the figure
+has a label (e.g., set by the figure(&#8216;some label&#8217;) command), the label is used instead
+of the number.</p>
+<ul class="simple">
+<li><em>fmt</em>: The file extension of the format to use. Any format supported by Matplotlib works.</li>
+<li><em>appendtxt</em>: Appends this text to the name of the figure.</li>
+<li><em>fignum</em>: if specified, saves only the figure given by the number or label (can be a list).</li>
+<li><em>dpi</em>: The output dpi (non-vector figures only).</li>
+<li><em>outdir</em>: The directory in which the files will be saved. If not specified, the
+current working directory is used</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.shape2Points">
+<tt class="descclassname">utilities.</tt><tt class="descname">shape2Points</tt><big>(</big><em>shp</em><big>)</big><a class="headerlink" href="#utilities.shape2Points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a shapely shape, converts it to numpy arrays.</p>
+<p>Returns two numpy arrays x, y containing the coordinates of the vertices. For polygons, only the
+exterior vertices are returned</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.tickLabels_keepEvery">
+<tt class="descclassname">utilities.</tt><tt class="descname">tickLabels_keepEvery</tt><big>(</big><em>axis</em>, <em>xy</em>, <em>n</em>, <em>keep_endpoints=False</em><big>)</big><a class="headerlink" href="#utilities.tickLabels_keepEvery" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given axis, keeps every nth tick label.</p>
+<ul class="simple">
+<li><em>axis</em>: a matplotlib axis object</li>
+<li><em>xy</em>: &#8216;x&#8217;=Operate on the x axis. &#8216;y&#8217;=operate on the y axis.</li>
+<li><em>n</em>: keep every nth</li>
+<li><em>keep_endpoints</em>: always include the endpoints of the axis range</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.transformPoints">
+<tt class="descclassname">utilities.</tt><tt class="descname">transformPoints</tt><big>(</big><em>x</em>, <em>y</em>, <em>new_x</em>, <em>new_y</em>, <em>theta</em>, <em>origin_x=0</em>, <em>origin_y=0</em><big>)</big><a class="headerlink" href="#utilities.transformPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs an affine transformation (translation &amp; rotation only) of x,y.</p>
+<ul class="simple">
+<li><em>x, y</em>: points to transform. <em>x</em> and <em>y</em> may be arrays where each x[i],y[i] pair
+is a point. They may also be 2D matrices produced by the meshgrid command.</li>
+<li><em>new_x, new_y, theta</em>: Move all <em>x,y</em> to a new location given by scalars <em>new_x, new_y</em>.</li>
+<li><em>origin_x, origin_y</em>: scalar values indicating the origin of rotation and translation.</li>
+</ul>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>if <em>x,y</em> were arrays, a matrix containing the displaced points. The first row is the x coords
+and the second is the y.</li>
+<li>If <em>x,y</em> were matrices, returns, <em>xx,yy</em>, which are two matrices with the same shape as
+<em>x,y</em>.</li>
+</ul>
+</dd>
+</dl>
+<p>In essence, this function</p>
+<blockquote>
+<div><ul class="simple">
+<li>First, rotates all points <em>x,y</em> by an angle <em>theta</em> with respect to <em>origin_x,origin_y</em>.</li>
+<li>Transforms the origin of all points from <em>origin_x, origin_y</em> to <em>new_x, new_y</em>.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.unique_rows">
+<tt class="descclassname">utilities.</tt><tt class="descname">unique_rows</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#utilities.unique_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a numpy array containing the unique rows of <em>a</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.varianceToIntervalUniform">
+<tt class="descclassname">utilities.</tt><tt class="descname">varianceToIntervalUniform</tt><big>(</big><em>means</em>, <em>variances</em><big>)</big><a class="headerlink" href="#utilities.varianceToIntervalUniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a variance, returns the lower and upper bound of the associated interval
+for a uniform distribution. Returns the lower and upper bound as a tuple of
+numpy arrays</p>
+<ul class="simple">
+<li><em>means</em>: a numpy array of means</li>
+<li><em>var</em>: a numpy array of variances.</li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/utilities.html" class="btn btn-neutral float-right" title="utilities">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="autosummary/gband.GBand.html" class="btn btn-neutral" title="gband.GBand"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, J. Fernando Rios.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

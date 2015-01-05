@@ -1,0 +1,37 @@
+FuzzyObjects.VertexDefinedObject
+================================
+
+.. currentmodule:: FuzzyObjects
+
+.. autoclass:: VertexDefinedObject
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~VertexDefinedObject.__init__
+      ~VertexDefinedObject.generateRealizations
+      ~VertexDefinedObject.getRealizations4Sim
+      ~VertexDefinedObject.plot
+      ~VertexDefinedObject.plotFuzzyNumbers
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~VertexDefinedObject.coords
+      ~VertexDefinedObject.isClosed
+      ~VertexDefinedObject.polygon
+      ~VertexDefinedObject.realizations
+      ~VertexDefinedObject.realizationsPolygons
+      ~VertexDefinedObject.uncertainVertices
+   
+   

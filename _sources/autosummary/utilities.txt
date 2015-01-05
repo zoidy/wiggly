@@ -1,0 +1,53 @@
+utilities
+=========
+
+.. automodule:: utilities
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      DOE_ff2l
+      clearall
+      cor2cov
+      cov2cor
+      erf
+      fuzzyCalcResultToXY
+      fuzzyOffset2Absolute
+      isCrispObject
+      isDeformableObject
+      isEdgeDefinedObject
+      isFuzzyObject
+      isRigidObject
+      isShapelyGeometryCollection
+      isShapelyLineString
+      isShapelyMultiPolygon
+      isShapelyPoint
+      isShapelyPolygon
+      isVertexDefinedObject
+      makeSymmetric
+      msg
+      natural_keys
+      pairs
+      plot_datalabels
+      plot_setFont
+      pointslist2Shape
+      puqParams_fromFile
+      saveAllFigures
+      shape2Points
+      tickLabels_keepEvery
+      transformPoints
+      unique_rows
+      varianceToIntervalUniform
+   
+   
+
+   
+   
+   
+
+   
+   
+   
