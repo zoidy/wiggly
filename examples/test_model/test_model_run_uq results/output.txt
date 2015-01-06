@@ -1,0 +1,2005 @@
+DO perim:122.726935987  area:595.0
+RO perim:54.0408997291  area:0.0
+EDO perim:122.726935987  area:595.0
+VDO perim:54.0408997291  area:0.0
+12:59:11[i]: overwrote given n_prob value (100) with one from objMgr (100)
+12:59:11[w]: ignoring fuzzyVarACuts. Taking the ones from objMgr instead
+Fuzzy var OFE had n=8 realiz. at a-cut 0.5. Adjusted to n=10
+Fuzzy var OFE had n=9 realiz. at a-cut 0.2. Adjusted to n=10
+Fuzzy var OFE had n=9 realiz. at a-cut 0.4. Adjusted to n=10
+Fuzzy var OFE had n=7 realiz. at a-cut 1.0. Adjusted to n=9
+Fuzzy var OFE had n=7 realiz. at a-cut 0.8. Adjusted to n=9
+Fuzzy var OFE had n=7 realiz. at a-cut 0.6. Adjusted to n=10
+Fuzzy var OFE had n=9 realiz. at a-cut 0.3. Adjusted to n=10
+Fuzzy var OFE had n=7 realiz. at a-cut 0.9. Adjusted to n=9
+Fuzzy var OFE had n=7 realiz. at a-cut 0.7. Adjusted to n=9
+12:59:11[w]: n_fuzzy specified. Ignoring n_fuzzy specified for the objects in objMgr
+12:59:11[i]: Starting a probabilistic-fuzzy run
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:11[i]: Puq run 1 of 110 (alpha-cut 1.0, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#0.hdf5
+Start: Tue Jan  6 12:59:12 2015
+13/100 14/100 15/100 16/100 17/100 18/100 19/100 20/100 21/100 22/100 23/100 24/100 60/100 99/100 100/100
+End: Tue Jan  6 12:59:26 2015	Elapsed: 0:00:13.941000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1376.47225002
+StdDev = 189.072682633
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 15634.4924959
+StdDev = 23790.4424182
+
+12:59:27[i]: Puq run 1 of 110 (alpha-cut 1.0, run 1)...Done
+12:59:27[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:27[i]: Puq run 2 of 110 (alpha-cut 1.0, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#1.hdf5
+Start: Tue Jan  6 12:59:28 2015
+39/100 83/100 100/100
+End: Tue Jan  6 12:59:30 2015	Elapsed: 0:00:01.830000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1122.78573048
+StdDev = 133.036383365
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14174.8567543
+StdDev = 23217.5943523
+
+12:59:31[i]: Puq run 2 of 110 (alpha-cut 1.0, run 2)...Done
+12:59:31[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:31[i]: Puq run 3 of 110 (alpha-cut 1.0, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#2.hdf5
+Start: Tue Jan  6 12:59:32 2015
+50/100 90/100 100/100
+End: Tue Jan  6 12:59:33 2015	Elapsed: 0:00:01.815000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1247.65347218
+StdDev = 145.613072245
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14036.6194776
+StdDev = 16136.9120537
+
+12:59:34[i]: Puq run 3 of 110 (alpha-cut 1.0, run 3)...Done
+12:59:34[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:34[i]: Puq run 4 of 110 (alpha-cut 1.0, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#3.hdf5
+Start: Tue Jan  6 12:59:35 2015
+44/100 89/100 100/100
+End: Tue Jan  6 12:59:37 2015	Elapsed: 0:00:01.742000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1243.81549304
+StdDev = 165.977784803
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12188.4077003
+StdDev = 14276.7600958
+
+12:59:38[i]: Puq run 4 of 110 (alpha-cut 1.0, run 4)...Done
+12:59:38[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:38[i]: Puq run 5 of 110 (alpha-cut 1.0, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#4.hdf5
+Start: Tue Jan  6 12:59:38 2015
+47/100 93/100 100/100
+End: Tue Jan  6 12:59:40 2015	Elapsed: 0:00:01.694000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1208.32939831
+StdDev = 157.048480281
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10674.9303158
+StdDev = 12355.027292
+
+12:59:41[i]: Puq run 5 of 110 (alpha-cut 1.0, run 5)...Done
+12:59:41[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:41[i]: Puq run 6 of 110 (alpha-cut 1.0, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#5.hdf5
+Start: Tue Jan  6 12:59:42 2015
+44/100 80/100 100/100
+End: Tue Jan  6 12:59:44 2015	Elapsed: 0:00:01.825000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1213.75434911
+StdDev = 175.162577826
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12883.5943843
+StdDev = 19816.3025377
+
+12:59:45[i]: Puq run 6 of 110 (alpha-cut 1.0, run 6)...Done
+12:59:45[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:45[i]: Puq run 7 of 110 (alpha-cut 1.0, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#6.hdf5
+Start: Tue Jan  6 12:59:45 2015
+45/100 84/100 100/100
+End: Tue Jan  6 12:59:47 2015	Elapsed: 0:00:01.919000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1229.25901668
+StdDev = 153.744476837
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10435.3320004
+StdDev = 14780.950273
+
+12:59:48[i]: Puq run 7 of 110 (alpha-cut 1.0, run 7)...Done
+12:59:48[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:48[i]: Puq run 8 of 110 (alpha-cut 1.0, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#7.hdf5
+Start: Tue Jan  6 12:59:49 2015
+48/100 92/100 100/100
+End: Tue Jan  6 12:59:51 2015	Elapsed: 0:00:01.706000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1296.31165888
+StdDev = 160.13061419
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13958.8566024
+StdDev = 19465.4887204
+
+12:59:52[i]: Puq run 8 of 110 (alpha-cut 1.0, run 8)...Done
+12:59:52[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:52[i]: Puq run 9 of 110 (alpha-cut 1.0, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#8.hdf5
+Start: Tue Jan  6 12:59:53 2015
+47/100 86/100 100/100
+End: Tue Jan  6 12:59:54 2015	Elapsed: 0:00:01.783000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1177.73430342
+StdDev = 148.711872237
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14825.832848
+StdDev = 21158.590485
+
+12:59:55[i]: Puq run 9 of 110 (alpha-cut 1.0, run 9)...Done
+12:59:55[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:55[i]: Puq run 10 of 110 (alpha-cut 1.0, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @1.0#9.hdf5
+Start: Tue Jan  6 12:59:56 2015
+41/100 83/100 100/100
+End: Tue Jan  6 12:59:58 2015	Elapsed: 0:00:01.775000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1304.57058455
+StdDev = 139.624025973
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13718.6606982
+StdDev = 17087.5501036
+
+12:59:59[i]: Puq run 10 of 110 (alpha-cut 1.0, run 10)...Done
+12:59:59[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+12:59:59[i]: Puq run 11 of 110 (alpha-cut 0.9, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#0.hdf5
+Start: Tue Jan  6 13:00:00 2015
+50/100 92/100 100/100
+End: Tue Jan  6 13:00:01 2015	Elapsed: 0:00:01.752000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1303.0837056
+StdDev = 153.465188988
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14038.4354963
+StdDev = 20387.1789609
+
+13:00:02[i]: Puq run 11 of 110 (alpha-cut 0.9, run 1)...Done
+13:00:02[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:02[i]: Puq run 12 of 110 (alpha-cut 0.9, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#1.hdf5
+Start: Tue Jan  6 13:00:03 2015
+49/100 93/100 100/100
+End: Tue Jan  6 13:00:05 2015	Elapsed: 0:00:01.706000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1136.80989933
+StdDev = 167.100704858
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11402.1940567
+StdDev = 17180.3275936
+
+13:00:06[i]: Puq run 12 of 110 (alpha-cut 0.9, run 2)...Done
+13:00:06[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:06[i]: Puq run 13 of 110 (alpha-cut 0.9, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#2.hdf5
+Start: Tue Jan  6 13:00:07 2015
+44/100 90/100 100/100
+End: Tue Jan  6 13:00:08 2015	Elapsed: 0:00:01.750000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1238.28605221
+StdDev = 137.311104835
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13924.7570058
+StdDev = 17859.2674984
+
+13:00:09[i]: Puq run 13 of 110 (alpha-cut 0.9, run 3)...Done
+13:00:09[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:09[i]: Puq run 14 of 110 (alpha-cut 0.9, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#3.hdf5
+Start: Tue Jan  6 13:00:10 2015
+40/100 80/100 100/100
+End: Tue Jan  6 13:00:12 2015	Elapsed: 0:00:01.835000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1270.94151012
+StdDev = 152.605713489
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13654.0615692
+StdDev = 16640.371915
+
+13:00:13[i]: Puq run 14 of 110 (alpha-cut 0.9, run 4)...Done
+13:00:13[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:13[i]: Puq run 15 of 110 (alpha-cut 0.9, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#4.hdf5
+Start: Tue Jan  6 13:00:14 2015
+49/100 92/100 100/100
+End: Tue Jan  6 13:00:15 2015	Elapsed: 0:00:01.696000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1251.71444319
+StdDev = 184.954003594
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11627.0508403
+StdDev = 14892.0318953
+
+13:00:16[i]: Puq run 15 of 110 (alpha-cut 0.9, run 5)...Done
+13:00:16[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:16[i]: Puq run 16 of 110 (alpha-cut 0.9, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#5.hdf5
+Start: Tue Jan  6 13:00:17 2015
+45/100 90/100 100/100
+End: Tue Jan  6 13:00:19 2015	Elapsed: 0:00:01.723000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1158.95664402
+StdDev = 163.585651614
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10962.6192115
+StdDev = 13466.6452651
+
+13:00:20[i]: Puq run 16 of 110 (alpha-cut 0.9, run 6)...Done
+13:00:20[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:20[i]: Puq run 17 of 110 (alpha-cut 0.9, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#6.hdf5
+Start: Tue Jan  6 13:00:21 2015
+42/100 82/100 100/100
+End: Tue Jan  6 13:00:22 2015	Elapsed: 0:00:01.818000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1299.33003815
+StdDev = 143.593073277
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13041.9415092
+StdDev = 19820.2042613
+
+13:00:23[i]: Puq run 17 of 110 (alpha-cut 0.9, run 7)...Done
+13:00:23[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:23[i]: Puq run 18 of 110 (alpha-cut 0.9, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#7.hdf5
+Start: Tue Jan  6 13:00:24 2015
+40/100 85/100 100/100
+End: Tue Jan  6 13:00:26 2015	Elapsed: 0:00:01.795000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1262.91550188
+StdDev = 168.974816411
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14545.1494529
+StdDev = 21323.3173253
+
+13:00:27[i]: Puq run 18 of 110 (alpha-cut 0.9, run 8)...Done
+13:00:27[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:27[i]: Puq run 19 of 110 (alpha-cut 0.9, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#8.hdf5
+Start: Tue Jan  6 13:00:28 2015
+43/100 81/100 100/100
+End: Tue Jan  6 13:00:29 2015	Elapsed: 0:00:01.807000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1190.51214715
+StdDev = 183.559171852
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11155.2545907
+StdDev = 14885.5737248
+
+13:00:30[i]: Puq run 19 of 110 (alpha-cut 0.9, run 9)...Done
+13:00:30[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:30[i]: Puq run 20 of 110 (alpha-cut 0.9, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.9#9.hdf5
+Start: Tue Jan  6 13:00:31 2015
+45/100 88/100 100/100
+End: Tue Jan  6 13:00:33 2015	Elapsed: 0:00:01.749000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1277.08923954
+StdDev = 147.272275886
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14783.544403
+StdDev = 19837.0022752
+
+13:00:34[i]: Puq run 20 of 110 (alpha-cut 0.9, run 10)...Done
+13:00:34[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:34[i]: Puq run 21 of 110 (alpha-cut 0.8, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#0.hdf5
+Start: Tue Jan  6 13:00:34 2015
+48/100 93/100 100/100
+End: Tue Jan  6 13:00:36 2015	Elapsed: 0:00:01.689000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1296.12613926
+StdDev = 150.483643571
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12760.7417569
+StdDev = 16889.1378512
+
+13:00:37[i]: Puq run 21 of 110 (alpha-cut 0.8, run 1)...Done
+13:00:37[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:37[i]: Puq run 22 of 110 (alpha-cut 0.8, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#1.hdf5
+Start: Tue Jan  6 13:00:38 2015
+46/100 91/100 100/100
+End: Tue Jan  6 13:00:40 2015	Elapsed: 0:00:01.712000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1120.9799665
+StdDev = 139.054416676
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12781.2285124
+StdDev = 18622.3661306
+
+13:00:41[i]: Puq run 22 of 110 (alpha-cut 0.8, run 2)...Done
+13:00:41[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:41[i]: Puq run 23 of 110 (alpha-cut 0.8, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#2.hdf5
+Start: Tue Jan  6 13:00:41 2015
+44/100 85/100 100/100
+End: Tue Jan  6 13:00:43 2015	Elapsed: 0:00:01.902000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1213.14805711
+StdDev = 146.989218195
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 15823.5163481
+StdDev = 20366.400372
+
+13:00:44[i]: Puq run 23 of 110 (alpha-cut 0.8, run 3)...Done
+13:00:44[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:44[i]: Puq run 24 of 110 (alpha-cut 0.8, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#3.hdf5
+Start: Tue Jan  6 13:00:45 2015
+45/100 86/100 100/100
+End: Tue Jan  6 13:00:47 2015	Elapsed: 0:00:01.807000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1259.47223125
+StdDev = 138.897238294
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13029.223541
+StdDev = 19519.5138444
+
+13:00:48[i]: Puq run 24 of 110 (alpha-cut 0.8, run 4)...Done
+13:00:48[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:48[i]: Puq run 25 of 110 (alpha-cut 0.8, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#4.hdf5
+Start: Tue Jan  6 13:00:49 2015
+46/100 86/100 100/100
+End: Tue Jan  6 13:00:50 2015	Elapsed: 0:00:01.769000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1173.12069425
+StdDev = 149.035384676
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12020.1138158
+StdDev = 16156.2351049
+
+13:00:51[i]: Puq run 25 of 110 (alpha-cut 0.8, run 5)...Done
+13:00:51[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:51[i]: Puq run 26 of 110 (alpha-cut 0.8, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#5.hdf5
+Start: Tue Jan  6 13:00:52 2015
+46/100 91/100 100/100
+End: Tue Jan  6 13:00:54 2015	Elapsed: 0:00:01.736000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1129.52778662
+StdDev = 141.254396166
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14125.3232605
+StdDev = 19172.5033051
+
+13:00:55[i]: Puq run 26 of 110 (alpha-cut 0.8, run 6)...Done
+13:00:55[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:55[i]: Puq run 27 of 110 (alpha-cut 0.8, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#6.hdf5
+Start: Tue Jan  6 13:00:55 2015
+48/100 89/100 100/100
+End: Tue Jan  6 13:00:57 2015	Elapsed: 0:00:01.795000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1288.32128832
+StdDev = 149.681487937
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14856.1761954
+StdDev = 20072.2645325
+
+13:00:58[i]: Puq run 27 of 110 (alpha-cut 0.8, run 7)...Done
+13:00:58[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:00:58[i]: Puq run 28 of 110 (alpha-cut 0.8, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#7.hdf5
+Start: Tue Jan  6 13:00:59 2015
+42/100 77/100 100/100
+End: Tue Jan  6 13:01:01 2015	Elapsed: 0:00:01.915000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1398.07426941
+StdDev = 195.880858994
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13544.0323767
+StdDev = 19015.3053611
+
+13:01:02[i]: Puq run 28 of 110 (alpha-cut 0.8, run 8)...Done
+13:01:02[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:02[i]: Puq run 29 of 110 (alpha-cut 0.8, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#8.hdf5
+Start: Tue Jan  6 13:01:03 2015
+47/100 91/100 100/100
+End: Tue Jan  6 13:01:05 2015	Elapsed: 0:00:01.702000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1149.44940649
+StdDev = 151.040497096
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11098.6633874
+StdDev = 19272.7078288
+
+13:01:06[i]: Puq run 29 of 110 (alpha-cut 0.8, run 9)...Done
+13:01:06[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:06[i]: Puq run 30 of 110 (alpha-cut 0.8, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.8#9.hdf5
+Start: Tue Jan  6 13:01:06 2015
+45/100 89/100 100/100
+End: Tue Jan  6 13:01:08 2015	Elapsed: 0:00:01.744000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1402.05282763
+StdDev = 205.85299218
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12621.2724726
+StdDev = 17572.9920934
+
+13:01:09[i]: Puq run 30 of 110 (alpha-cut 0.8, run 10)...Done
+13:01:09[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:09[i]: Puq run 31 of 110 (alpha-cut 0.7, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#0.hdf5
+Start: Tue Jan  6 13:01:10 2015
+47/100 89/100 100/100
+End: Tue Jan  6 13:01:12 2015	Elapsed: 0:00:01.723000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1283.69396344
+StdDev = 156.342461623
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16207.8535247
+StdDev = 24460.497225
+
+13:01:13[i]: Puq run 31 of 110 (alpha-cut 0.7, run 1)...Done
+13:01:13[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:13[i]: Puq run 32 of 110 (alpha-cut 0.7, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#1.hdf5
+Start: Tue Jan  6 13:01:13 2015
+44/100 89/100 100/100
+End: Tue Jan  6 13:01:15 2015	Elapsed: 0:00:01.786000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1102.53239706
+StdDev = 160.273016383
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13321.0733215
+StdDev = 16047.5558251
+
+13:01:16[i]: Puq run 32 of 110 (alpha-cut 0.7, run 2)...Done
+13:01:16[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:16[i]: Puq run 33 of 110 (alpha-cut 0.7, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#2.hdf5
+Start: Tue Jan  6 13:01:17 2015
+47/100 91/100 100/100
+End: Tue Jan  6 13:01:19 2015	Elapsed: 0:00:01.725000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1210.63173207
+StdDev = 156.142423556
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11538.6198065
+StdDev = 15242.1503529
+
+13:01:20[i]: Puq run 33 of 110 (alpha-cut 0.7, run 3)...Done
+13:01:20[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:20[i]: Puq run 34 of 110 (alpha-cut 0.7, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#3.hdf5
+Start: Tue Jan  6 13:01:21 2015
+47/100 87/100 100/100
+End: Tue Jan  6 13:01:22 2015	Elapsed: 0:00:01.773000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1277.83676331
+StdDev = 153.471364866
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14229.5218202
+StdDev = 16468.5223929
+
+13:01:23[i]: Puq run 34 of 110 (alpha-cut 0.7, run 4)...Done
+13:01:23[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:23[i]: Puq run 35 of 110 (alpha-cut 0.7, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#4.hdf5
+Start: Tue Jan  6 13:01:24 2015
+40/100 84/100 100/100
+End: Tue Jan  6 13:01:26 2015	Elapsed: 0:00:01.812000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1148.32844727
+StdDev = 140.129984442
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11974.85157
+StdDev = 16287.8810815
+
+13:01:27[i]: Puq run 35 of 110 (alpha-cut 0.7, run 5)...Done
+13:01:27[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:27[i]: Puq run 36 of 110 (alpha-cut 0.7, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#5.hdf5
+Start: Tue Jan  6 13:01:28 2015
+38/100 81/100 100/100
+End: Tue Jan  6 13:01:30 2015	Elapsed: 0:00:01.836000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1250.94370894
+StdDev = 129.361473519
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10098.570289
+StdDev = 12439.7560541
+
+13:01:30[i]: Puq run 36 of 110 (alpha-cut 0.7, run 6)...Done
+13:01:31[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:31[i]: Puq run 37 of 110 (alpha-cut 0.7, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#6.hdf5
+Start: Tue Jan  6 13:01:31 2015
+45/100 91/100 100/100
+End: Tue Jan  6 13:01:33 2015	Elapsed: 0:00:01.748000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1274.03525403
+StdDev = 207.192089459
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12699.5096725
+StdDev = 15506.031388
+
+13:01:34[i]: Puq run 37 of 110 (alpha-cut 0.7, run 7)...Done
+13:01:34[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:34[i]: Puq run 38 of 110 (alpha-cut 0.7, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#7.hdf5
+Start: Tue Jan  6 13:01:35 2015
+46/100 89/100 100/100
+End: Tue Jan  6 13:01:36 2015	Elapsed: 0:00:01.721000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1292.50461085
+StdDev = 165.571026681
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14949.4768207
+StdDev = 20838.2788637
+
+13:01:37[i]: Puq run 38 of 110 (alpha-cut 0.7, run 8)...Done
+13:01:37[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:37[i]: Puq run 39 of 110 (alpha-cut 0.7, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#8.hdf5
+Start: Tue Jan  6 13:01:38 2015
+44/100 86/100 100/100
+End: Tue Jan  6 13:01:40 2015	Elapsed: 0:00:01.766000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1087.62706671
+StdDev = 129.829061468
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13844.2868298
+StdDev = 19377.8669267
+
+13:01:41[i]: Puq run 39 of 110 (alpha-cut 0.7, run 9)...Done
+13:01:41[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:41[i]: Puq run 40 of 110 (alpha-cut 0.7, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.7#9.hdf5
+Start: Tue Jan  6 13:01:42 2015
+46/100 84/100 100/100
+End: Tue Jan  6 13:01:43 2015	Elapsed: 0:00:01.777000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1325.91517548
+StdDev = 147.111753543
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12763.8276928
+StdDev = 18570.6105695
+
+13:01:44[i]: Puq run 40 of 110 (alpha-cut 0.7, run 10)...Done
+13:01:44[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:44[i]: Puq run 41 of 110 (alpha-cut 0.6, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#0.hdf5
+Start: Tue Jan  6 13:01:45 2015
+44/100 85/100 100/100
+End: Tue Jan  6 13:01:47 2015	Elapsed: 0:00:01.826000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1358.65853277
+StdDev = 165.919139874
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14843.0624435
+StdDev = 19843.929612
+
+13:01:48[i]: Puq run 41 of 110 (alpha-cut 0.6, run 1)...Done
+13:01:48[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:48[i]: Puq run 42 of 110 (alpha-cut 0.6, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#1.hdf5
+Start: Tue Jan  6 13:01:49 2015
+46/100 89/100 100/100
+End: Tue Jan  6 13:01:50 2015	Elapsed: 0:00:01.736000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1078.47720205
+StdDev = 137.106703441
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 9755.11022595
+StdDev = 13926.3823474
+
+13:01:51[i]: Puq run 42 of 110 (alpha-cut 0.6, run 2)...Done
+13:01:51[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:51[i]: Puq run 43 of 110 (alpha-cut 0.6, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#2.hdf5
+Start: Tue Jan  6 13:01:52 2015
+42/100 79/100 100/100
+End: Tue Jan  6 13:01:54 2015	Elapsed: 0:00:01.916000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1249.70656468
+StdDev = 147.465899648
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10275.60972
+StdDev = 14444.6647394
+
+13:01:55[i]: Puq run 43 of 110 (alpha-cut 0.6, run 3)...Done
+13:01:55[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:55[i]: Puq run 44 of 110 (alpha-cut 0.6, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#3.hdf5
+Start: Tue Jan  6 13:01:55 2015
+50/100 86/100 100/100
+End: Tue Jan  6 13:01:57 2015	Elapsed: 0:00:01.835000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1244.83323198
+StdDev = 141.974382827
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14479.1756092
+StdDev = 19161.4752104
+
+13:01:58[i]: Puq run 44 of 110 (alpha-cut 0.6, run 4)...Done
+13:01:58[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:01:58[i]: Puq run 45 of 110 (alpha-cut 0.6, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#4.hdf5
+Start: Tue Jan  6 13:01:59 2015
+34/100 69/100 100/100
+End: Tue Jan  6 13:02:01 2015	Elapsed: 0:00:01.997000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1171.37809066
+StdDev = 142.296031069
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12548.1580052
+StdDev = 17078.7362988
+
+13:02:02[i]: Puq run 45 of 110 (alpha-cut 0.6, run 5)...Done
+13:02:02[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:02[i]: Puq run 46 of 110 (alpha-cut 0.6, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#5.hdf5
+Start: Tue Jan  6 13:02:03 2015
+45/100 83/100 100/100
+End: Tue Jan  6 13:02:05 2015	Elapsed: 0:00:01.934000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1300.86270356
+StdDev = 173.778222555
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12774.0584436
+StdDev = 17797.8740592
+
+13:02:06[i]: Puq run 46 of 110 (alpha-cut 0.6, run 6)...Done
+13:02:06[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:06[i]: Puq run 47 of 110 (alpha-cut 0.6, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#6.hdf5
+Start: Tue Jan  6 13:02:07 2015
+47/100 91/100 100/100
+End: Tue Jan  6 13:02:08 2015	Elapsed: 0:00:01.719000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1263.88898102
+StdDev = 164.30337595
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10630.2383218
+StdDev = 16622.9503611
+
+13:02:09[i]: Puq run 47 of 110 (alpha-cut 0.6, run 7)...Done
+13:02:09[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:09[i]: Puq run 48 of 110 (alpha-cut 0.6, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#7.hdf5
+Start: Tue Jan  6 13:02:10 2015
+38/100 74/100 100/100
+End: Tue Jan  6 13:02:12 2015	Elapsed: 0:00:02.009000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1388.26689534
+StdDev = 188.065409067
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 15161.6784914
+StdDev = 18229.4152567
+
+13:02:13[i]: Puq run 48 of 110 (alpha-cut 0.6, run 8)...Done
+13:02:13[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:13[i]: Puq run 49 of 110 (alpha-cut 0.6, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#8.hdf5
+Start: Tue Jan  6 13:02:14 2015
+48/100 84/100 100/100
+End: Tue Jan  6 13:02:16 2015	Elapsed: 0:00:01.884000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1043.67757558
+StdDev = 155.943913405
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11645.3713505
+StdDev = 14472.2166555
+
+13:02:17[i]: Puq run 49 of 110 (alpha-cut 0.6, run 9)...Done
+13:02:17[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:17[i]: Puq run 50 of 110 (alpha-cut 0.6, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.6#9.hdf5
+Start: Tue Jan  6 13:02:17 2015
+45/100 87/100 100/100
+End: Tue Jan  6 13:02:19 2015	Elapsed: 0:00:01.741000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1247.87643172
+StdDev = 151.128848648
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13341.5484884
+StdDev = 16494.1557511
+
+13:02:20[i]: Puq run 50 of 110 (alpha-cut 0.6, run 10)...Done
+13:02:20[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:20[i]: Puq run 51 of 110 (alpha-cut 0.5, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#0.hdf5
+Start: Tue Jan  6 13:02:21 2015
+46/100 89/100 100/100
+End: Tue Jan  6 13:02:23 2015	Elapsed: 0:00:01.727000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1377.92755265
+StdDev = 150.089455201
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12415.1478047
+StdDev = 17724.8297045
+
+13:02:23[i]: Puq run 51 of 110 (alpha-cut 0.5, run 1)...Done
+13:02:24[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:24[i]: Puq run 52 of 110 (alpha-cut 0.5, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#1.hdf5
+Start: Tue Jan  6 13:02:24 2015
+36/100 74/100 100/100
+End: Tue Jan  6 13:02:26 2015	Elapsed: 0:00:01.955000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1056.97786624
+StdDev = 181.678257577
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10517.109463
+StdDev = 14506.4956002
+
+13:02:27[i]: Puq run 52 of 110 (alpha-cut 0.5, run 2)...Done
+13:02:27[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:27[i]: Puq run 53 of 110 (alpha-cut 0.5, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#2.hdf5
+Start: Tue Jan  6 13:02:28 2015
+44/100 87/100 100/100
+End: Tue Jan  6 13:02:30 2015	Elapsed: 0:00:01.757000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1260.07060335
+StdDev = 155.966137179
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16532.1381728
+StdDev = 21803.9031635
+
+13:02:31[i]: Puq run 53 of 110 (alpha-cut 0.5, run 3)...Done
+13:02:31[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:31[i]: Puq run 54 of 110 (alpha-cut 0.5, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#3.hdf5
+Start: Tue Jan  6 13:02:32 2015
+42/100 83/100 100/100
+End: Tue Jan  6 13:02:33 2015	Elapsed: 0:00:01.816000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1340.39738403
+StdDev = 231.782467601
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10092.0511689
+StdDev = 13957.7796789
+
+13:02:34[i]: Puq run 54 of 110 (alpha-cut 0.5, run 4)...Done
+13:02:34[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:34[i]: Puq run 55 of 110 (alpha-cut 0.5, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#4.hdf5
+Start: Tue Jan  6 13:02:35 2015
+40/100 81/100 100/100
+End: Tue Jan  6 13:02:37 2015	Elapsed: 0:00:01.824000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1208.39043933
+StdDev = 158.769439738
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12656.4626479
+StdDev = 18157.113282
+
+13:02:38[i]: Puq run 55 of 110 (alpha-cut 0.5, run 5)...Done
+13:02:38[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:38[i]: Puq run 56 of 110 (alpha-cut 0.5, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#5.hdf5
+Start: Tue Jan  6 13:02:39 2015
+49/100 93/100 100/100
+End: Tue Jan  6 13:02:40 2015	Elapsed: 0:00:01.699000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1146.77514731
+StdDev = 152.85375043
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10748.0150633
+StdDev = 16239.2681496
+
+13:02:41[i]: Puq run 56 of 110 (alpha-cut 0.5, run 6)...Done
+13:02:41[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:41[i]: Puq run 57 of 110 (alpha-cut 0.5, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#6.hdf5
+Start: Tue Jan  6 13:02:42 2015
+47/100 87/100 100/100
+End: Tue Jan  6 13:02:44 2015	Elapsed: 0:00:01.782000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1356.53307346
+StdDev = 195.162858452
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11892.8630444
+StdDev = 15761.4448641
+
+13:02:45[i]: Puq run 57 of 110 (alpha-cut 0.5, run 7)...Done
+13:02:45[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:45[i]: Puq run 58 of 110 (alpha-cut 0.5, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#7.hdf5
+Start: Tue Jan  6 13:02:45 2015
+48/100 89/100 100/100
+End: Tue Jan  6 13:02:47 2015	Elapsed: 0:00:01.757000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1198.00086452
+StdDev = 162.985514481
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14859.5237577
+StdDev = 22517.4475955
+
+13:02:48[i]: Puq run 58 of 110 (alpha-cut 0.5, run 8)...Done
+13:02:48[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:48[i]: Puq run 59 of 110 (alpha-cut 0.5, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#8.hdf5
+Start: Tue Jan  6 13:02:49 2015
+47/100 92/100 100/100
+End: Tue Jan  6 13:02:51 2015	Elapsed: 0:00:01.790000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1447.28728506
+StdDev = 198.02813895
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11520.4250125
+StdDev = 16600.3603283
+
+13:02:52[i]: Puq run 59 of 110 (alpha-cut 0.5, run 9)...Done
+13:02:52[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:52[i]: Puq run 60 of 110 (alpha-cut 0.5, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.5#9.hdf5
+Start: Tue Jan  6 13:02:52 2015
+46/100 90/100 100/100
+End: Tue Jan  6 13:02:54 2015	Elapsed: 0:00:01.715000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1071.21751836
+StdDev = 159.92047029
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13224.0889496
+StdDev = 20436.8324074
+
+13:02:55[i]: Puq run 60 of 110 (alpha-cut 0.5, run 10)...Done
+13:02:55[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:02:55[i]: Puq run 61 of 110 (alpha-cut 0.4, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#0.hdf5
+Start: Tue Jan  6 13:02:56 2015
+13/100 14/100 15/100 16/100 17/100 18/100 19/100 20/100 21/100 22/100 23/100 24/100 65/100 100/100
+End: Tue Jan  6 13:03:10 2015	Elapsed: 0:00:13.656000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1408.87014031
+StdDev = 150.429242389
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14723.2942508
+StdDev = 18826.4623078
+
+13:03:11[i]: Puq run 61 of 110 (alpha-cut 0.4, run 1)...Done
+13:03:11[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:11[i]: Puq run 62 of 110 (alpha-cut 0.4, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#1.hdf5
+Start: Tue Jan  6 13:03:12 2015
+48/100 91/100 100/100
+End: Tue Jan  6 13:03:13 2015	Elapsed: 0:00:01.719000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1027.43445455
+StdDev = 150.372385642
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12130.3246211
+StdDev = 18588.3277479
+
+13:03:14[i]: Puq run 62 of 110 (alpha-cut 0.4, run 2)...Done
+13:03:14[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:14[i]: Puq run 63 of 110 (alpha-cut 0.4, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#2.hdf5
+Start: Tue Jan  6 13:03:15 2015
+46/100 91/100 100/100
+End: Tue Jan  6 13:03:17 2015	Elapsed: 0:00:01.754000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1257.76607069
+StdDev = 151.142550439
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11565.9985171
+StdDev = 14436.4931497
+
+13:03:18[i]: Puq run 63 of 110 (alpha-cut 0.4, run 3)...Done
+13:03:18[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:18[i]: Puq run 64 of 110 (alpha-cut 0.4, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#3.hdf5
+Start: Tue Jan  6 13:03:19 2015
+45/100 86/100 100/100
+End: Tue Jan  6 13:03:20 2015	Elapsed: 0:00:01.766000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1287.30538293
+StdDev = 177.915513184
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 8379.89457953
+StdDev = 11545.9456657
+
+13:03:21[i]: Puq run 64 of 110 (alpha-cut 0.4, run 4)...Done
+13:03:21[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:21[i]: Puq run 65 of 110 (alpha-cut 0.4, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#4.hdf5
+Start: Tue Jan  6 13:03:22 2015
+47/100 94/100 100/100
+End: Tue Jan  6 13:03:24 2015	Elapsed: 0:00:01.679000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1237.79419971
+StdDev = 139.704459446
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13542.0031734
+StdDev = 21118.3881497
+
+13:03:25[i]: Puq run 65 of 110 (alpha-cut 0.4, run 5)...Done
+13:03:25[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:25[i]: Puq run 66 of 110 (alpha-cut 0.4, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#5.hdf5
+Start: Tue Jan  6 13:03:26 2015
+47/100 74/100 100/100
+End: Tue Jan  6 13:03:27 2015	Elapsed: 0:00:01.934000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1241.09008666
+StdDev = 208.725458032
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13553.9737967
+StdDev = 17914.9105048
+
+13:03:28[i]: Puq run 66 of 110 (alpha-cut 0.4, run 6)...Done
+13:03:28[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:28[i]: Puq run 67 of 110 (alpha-cut 0.4, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#6.hdf5
+Start: Tue Jan  6 13:03:29 2015
+45/100 89/100 100/100
+End: Tue Jan  6 13:03:31 2015	Elapsed: 0:00:01.794000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1215.33602794
+StdDev = 175.291364728
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11582.8169954
+StdDev = 14584.2552397
+
+13:03:32[i]: Puq run 67 of 110 (alpha-cut 0.4, run 7)...Done
+13:03:32[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:32[i]: Puq run 68 of 110 (alpha-cut 0.4, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#7.hdf5
+Start: Tue Jan  6 13:03:33 2015
+43/100 77/100 100/100
+End: Tue Jan  6 13:03:35 2015	Elapsed: 0:00:01.972000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1300.9831263
+StdDev = 161.909606998
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13074.1320749
+StdDev = 18323.3312502
+
+13:03:35[i]: Puq run 68 of 110 (alpha-cut 0.4, run 8)...Done
+13:03:36[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:36[i]: Puq run 69 of 110 (alpha-cut 0.4, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#8.hdf5
+Start: Tue Jan  6 13:03:36 2015
+46/100 91/100 100/100
+End: Tue Jan  6 13:03:38 2015	Elapsed: 0:00:01.729000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1230.02062006
+StdDev = 151.935993797
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12584.3056031
+StdDev = 20217.3994758
+
+13:03:39[i]: Puq run 69 of 110 (alpha-cut 0.4, run 9)...Done
+13:03:39[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:39[i]: Puq run 70 of 110 (alpha-cut 0.4, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.4#9.hdf5
+Start: Tue Jan  6 13:03:40 2015
+49/100 94/100 100/100
+End: Tue Jan  6 13:03:41 2015	Elapsed: 0:00:01.702000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1371.50512506
+StdDev = 151.135394388
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12584.7822198
+StdDev = 16512.8474286
+
+13:03:42[i]: Puq run 70 of 110 (alpha-cut 0.4, run 10)...Done
+13:03:42[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:42[i]: Puq run 71 of 110 (alpha-cut 0.3, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#0.hdf5
+Start: Tue Jan  6 13:03:43 2015
+47/100 92/100 100/100
+End: Tue Jan  6 13:03:45 2015	Elapsed: 0:00:01.718000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1435.00801428
+StdDev = 152.563023855
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14557.577138
+StdDev = 16990.5155123
+
+13:03:46[i]: Puq run 71 of 110 (alpha-cut 0.3, run 1)...Done
+13:03:46[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:46[i]: Puq run 72 of 110 (alpha-cut 0.3, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#1.hdf5
+Start: Tue Jan  6 13:03:46 2015
+46/100 88/100 100/100
+End: Tue Jan  6 13:03:48 2015	Elapsed: 0:00:01.755000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1044.8264163
+StdDev = 158.315897407
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11297.8796426
+StdDev = 14126.8648512
+
+13:03:49[i]: Puq run 72 of 110 (alpha-cut 0.3, run 2)...Done
+13:03:49[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:49[i]: Puq run 73 of 110 (alpha-cut 0.3, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#2.hdf5
+Start: Tue Jan  6 13:03:50 2015
+45/100 89/100 100/100
+End: Tue Jan  6 13:03:52 2015	Elapsed: 0:00:01.732000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1206.34870381
+StdDev = 154.743089635
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13669.4267505
+StdDev = 16196.5801132
+
+13:03:53[i]: Puq run 73 of 110 (alpha-cut 0.3, run 3)...Done
+13:03:53[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:53[i]: Puq run 74 of 110 (alpha-cut 0.3, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#3.hdf5
+Start: Tue Jan  6 13:03:54 2015
+46/100 86/100 100/100
+End: Tue Jan  6 13:03:55 2015	Elapsed: 0:00:01.753000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1335.35134612
+StdDev = 187.036538402
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12392.0237209
+StdDev = 16192.312276
+
+13:03:56[i]: Puq run 74 of 110 (alpha-cut 0.3, run 4)...Done
+13:03:56[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:03:56[i]: Puq run 75 of 110 (alpha-cut 0.3, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#4.hdf5
+Start: Tue Jan  6 13:03:57 2015
+47/100 94/100 100/100
+End: Tue Jan  6 13:03:59 2015	Elapsed: 0:00:01.749000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1216.55137828
+StdDev = 160.845754437
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14076.5797374
+StdDev = 19158.0957298
+
+13:04:00[i]: Puq run 75 of 110 (alpha-cut 0.3, run 5)...Done
+13:04:00[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:00[i]: Puq run 76 of 110 (alpha-cut 0.3, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#5.hdf5
+Start: Tue Jan  6 13:04:01 2015
+44/100 90/100 100/100
+End: Tue Jan  6 13:04:02 2015	Elapsed: 0:00:01.733000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1216.36193618
+StdDev = 151.20805709
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13602.4751587
+StdDev = 24343.3718576
+
+13:04:03[i]: Puq run 76 of 110 (alpha-cut 0.3, run 6)...Done
+13:04:03[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:03[i]: Puq run 77 of 110 (alpha-cut 0.3, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#6.hdf5
+Start: Tue Jan  6 13:04:04 2015
+42/100 89/100 100/100
+End: Tue Jan  6 13:04:06 2015	Elapsed: 0:00:01.790000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1179.54571507
+StdDev = 169.86849832
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12417.818092
+StdDev = 16846.3440413
+
+13:04:07[i]: Puq run 77 of 110 (alpha-cut 0.3, run 7)...Done
+13:04:07[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:07[i]: Puq run 78 of 110 (alpha-cut 0.3, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#7.hdf5
+Start: Tue Jan  6 13:04:08 2015
+44/100 80/100 100/100
+End: Tue Jan  6 13:04:10 2015	Elapsed: 0:00:01.852000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1319.91473116
+StdDev = 198.494486039
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14371.119745
+StdDev = 19421.8621595
+
+13:04:11[i]: Puq run 78 of 110 (alpha-cut 0.3, run 8)...Done
+13:04:11[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:11[i]: Puq run 79 of 110 (alpha-cut 0.3, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#8.hdf5
+Start: Tue Jan  6 13:04:11 2015
+46/100 78/100 100/100
+End: Tue Jan  6 13:04:13 2015	Elapsed: 0:00:01.993000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1425.01429823
+StdDev = 169.907401553
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13797.2730944
+StdDev = 20732.6851748
+
+13:04:14[i]: Puq run 79 of 110 (alpha-cut 0.3, run 9)...Done
+13:04:14[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:14[i]: Puq run 80 of 110 (alpha-cut 0.3, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.3#9.hdf5
+Start: Tue Jan  6 13:04:15 2015
+36/100 73/100 100/100
+End: Tue Jan  6 13:04:17 2015	Elapsed: 0:00:02.016000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1419.23281116
+StdDev = 168.716482277
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16078.4615922
+StdDev = 21232.0321654
+
+13:04:18[i]: Puq run 80 of 110 (alpha-cut 0.3, run 10)...Done
+13:04:18[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:18[i]: Puq run 81 of 110 (alpha-cut 0.2, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#0.hdf5
+Start: Tue Jan  6 13:04:19 2015
+45/100 85/100 100/100
+End: Tue Jan  6 13:04:21 2015	Elapsed: 0:00:01.863000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1407.63927776
+StdDev = 167.784208928
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16527.9970275
+StdDev = 19323.2260075
+
+13:04:22[i]: Puq run 81 of 110 (alpha-cut 0.2, run 1)...Done
+13:04:22[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:22[i]: Puq run 82 of 110 (alpha-cut 0.2, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#1.hdf5
+Start: Tue Jan  6 13:04:23 2015
+35/100 71/100 100/100
+End: Tue Jan  6 13:04:24 2015	Elapsed: 0:00:01.958000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1063.12509068
+StdDev = 158.106533365
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12624.5861887
+StdDev = 17270.3458295
+
+13:04:25[i]: Puq run 82 of 110 (alpha-cut 0.2, run 2)...Done
+13:04:26[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:26[i]: Puq run 83 of 110 (alpha-cut 0.2, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#2.hdf5
+Start: Tue Jan  6 13:04:26 2015
+39/100 75/100 100/100
+End: Tue Jan  6 13:04:28 2015	Elapsed: 0:00:01.885000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1340.04899191
+StdDev = 227.738180089
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11678.1101018
+StdDev = 18270.1054153
+
+13:04:29[i]: Puq run 83 of 110 (alpha-cut 0.2, run 3)...Done
+13:04:29[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:29[i]: Puq run 84 of 110 (alpha-cut 0.2, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#3.hdf5
+Start: Tue Jan  6 13:04:30 2015
+44/100 92/100 100/100
+End: Tue Jan  6 13:04:32 2015	Elapsed: 0:00:01.719000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1303.31939379
+StdDev = 153.90761668
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16780.9589872
+StdDev = 24238.1049251
+
+13:04:33[i]: Puq run 84 of 110 (alpha-cut 0.2, run 4)...Done
+13:04:33[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:33[i]: Puq run 85 of 110 (alpha-cut 0.2, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#4.hdf5
+Start: Tue Jan  6 13:04:34 2015
+37/100 71/100 100/100
+End: Tue Jan  6 13:04:36 2015	Elapsed: 0:00:01.988000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1219.65407473
+StdDev = 156.73711604
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14530.0559111
+StdDev = 20842.2763671
+
+13:04:37[i]: Puq run 85 of 110 (alpha-cut 0.2, run 5)...Done
+13:04:37[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:37[i]: Puq run 86 of 110 (alpha-cut 0.2, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#5.hdf5
+Start: Tue Jan  6 13:04:38 2015
+44/100 87/100 100/100
+End: Tue Jan  6 13:04:39 2015	Elapsed: 0:00:01.802000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1211.03651804
+StdDev = 145.971352931
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11728.3018149
+StdDev = 15084.1204072
+
+13:04:40[i]: Puq run 86 of 110 (alpha-cut 0.2, run 6)...Done
+13:04:40[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:40[i]: Puq run 87 of 110 (alpha-cut 0.2, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#6.hdf5
+Start: Tue Jan  6 13:04:41 2015
+31/100 58/100 91/100 100/100
+End: Tue Jan  6 13:04:44 2015	Elapsed: 0:00:02.298000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1159.71695978
+StdDev = 181.406813978
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12668.9203089
+StdDev = 21042.8909734
+
+13:04:45[i]: Puq run 87 of 110 (alpha-cut 0.2, run 7)...Done
+13:04:45[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:45[i]: Puq run 88 of 110 (alpha-cut 0.2, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#7.hdf5
+Start: Tue Jan  6 13:04:45 2015
+47/100 86/100 100/100
+End: Tue Jan  6 13:04:47 2015	Elapsed: 0:00:01.755000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1239.96974777
+StdDev = 153.715675286
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11951.2491349
+StdDev = 15246.3457463
+
+13:04:48[i]: Puq run 88 of 110 (alpha-cut 0.2, run 8)...Done
+13:04:48[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:48[i]: Puq run 89 of 110 (alpha-cut 0.2, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#8.hdf5
+Start: Tue Jan  6 13:04:49 2015
+44/100 89/100 100/100
+End: Tue Jan  6 13:04:51 2015	Elapsed: 0:00:01.719000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1486.79145403
+StdDev = 213.861493691
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12004.227379
+StdDev = 17337.611893
+
+13:04:52[i]: Puq run 89 of 110 (alpha-cut 0.2, run 9)...Done
+13:04:52[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:52[i]: Puq run 90 of 110 (alpha-cut 0.2, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.2#9.hdf5
+Start: Tue Jan  6 13:04:53 2015
+38/100 80/100 100/100
+End: Tue Jan  6 13:04:55 2015	Elapsed: 0:00:01.970000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1428.32582879
+StdDev = 161.532345708
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13370.7229024
+StdDev = 14730.3431321
+
+13:04:55[i]: Puq run 90 of 110 (alpha-cut 0.2, run 10)...Done
+13:04:55[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:55[i]: Puq run 91 of 110 (alpha-cut 0.1, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#0.hdf5
+Start: Tue Jan  6 13:04:56 2015
+31/100 76/100 100/100
+End: Tue Jan  6 13:04:58 2015	Elapsed: 0:00:01.965000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1419.59654571
+StdDev = 164.17052453
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13301.1069177
+StdDev = 17125.2284358
+
+13:04:59[i]: Puq run 91 of 110 (alpha-cut 0.1, run 1)...Done
+13:04:59[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:04:59[i]: Puq run 92 of 110 (alpha-cut 0.1, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#1.hdf5
+Start: Tue Jan  6 13:05:00 2015
+43/100 82/100 100/100
+End: Tue Jan  6 13:05:02 2015	Elapsed: 0:00:01.841000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 996.068998889
+StdDev = 170.339016342
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12959.2724931
+StdDev = 15782.7866152
+
+13:05:03[i]: Puq run 92 of 110 (alpha-cut 0.1, run 2)...Done
+13:05:03[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:03[i]: Puq run 93 of 110 (alpha-cut 0.1, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#2.hdf5
+Start: Tue Jan  6 13:05:03 2015
+43/100 85/100 100/100
+End: Tue Jan  6 13:05:05 2015	Elapsed: 0:00:01.864000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1212.59733995
+StdDev = 154.708119757
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12899.1580363
+StdDev = 18189.9064242
+
+13:05:06[i]: Puq run 93 of 110 (alpha-cut 0.1, run 3)...Done
+13:05:06[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:06[i]: Puq run 94 of 110 (alpha-cut 0.1, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#3.hdf5
+Start: Tue Jan  6 13:05:07 2015
+44/100 87/100 100/100
+End: Tue Jan  6 13:05:09 2015	Elapsed: 0:00:01.735000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1288.76021169
+StdDev = 171.550509618
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11076.5858123
+StdDev = 14258.5755184
+
+13:05:10[i]: Puq run 94 of 110 (alpha-cut 0.1, run 4)...Done
+13:05:10[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:10[i]: Puq run 95 of 110 (alpha-cut 0.1, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#4.hdf5
+Start: Tue Jan  6 13:05:10 2015
+47/100 90/100 100/100
+End: Tue Jan  6 13:05:12 2015	Elapsed: 0:00:01.733000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1196.75314093
+StdDev = 159.087747879
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14175.449905
+StdDev = 18494.2493102
+
+13:05:13[i]: Puq run 95 of 110 (alpha-cut 0.1, run 5)...Done
+13:05:13[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:13[i]: Puq run 96 of 110 (alpha-cut 0.1, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#5.hdf5
+Start: Tue Jan  6 13:05:14 2015
+43/100 86/100 100/100
+End: Tue Jan  6 13:05:16 2015	Elapsed: 0:00:01.779000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1098.39536279
+StdDev = 162.139153116
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10975.1117406
+StdDev = 14005.2148991
+
+13:05:17[i]: Puq run 96 of 110 (alpha-cut 0.1, run 6)...Done
+13:05:17[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:17[i]: Puq run 97 of 110 (alpha-cut 0.1, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#6.hdf5
+Start: Tue Jan  6 13:05:18 2015
+49/100 88/100 100/100
+End: Tue Jan  6 13:05:19 2015	Elapsed: 0:00:01.771000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1258.96222096
+StdDev = 165.040510012
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12155.159395
+StdDev = 14764.2950523
+
+13:05:20[i]: Puq run 97 of 110 (alpha-cut 0.1, run 7)...Done
+13:05:20[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:20[i]: Puq run 98 of 110 (alpha-cut 0.1, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#7.hdf5
+Start: Tue Jan  6 13:05:21 2015
+46/100 92/100 100/100
+End: Tue Jan  6 13:05:23 2015	Elapsed: 0:00:01.724000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1167.54438362
+StdDev = 162.339911439
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16006.4667741
+StdDev = 20384.8027212
+
+13:05:24[i]: Puq run 98 of 110 (alpha-cut 0.1, run 8)...Done
+13:05:24[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:24[i]: Puq run 99 of 110 (alpha-cut 0.1, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#8.hdf5
+Start: Tue Jan  6 13:05:25 2015
+44/100 89/100 100/100
+End: Tue Jan  6 13:05:27 2015	Elapsed: 0:00:01.845000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1401.09575971
+StdDev = 215.303158093
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14702.1924639
+StdDev = 18606.1811923
+
+13:05:28[i]: Puq run 99 of 110 (alpha-cut 0.1, run 9)...Done
+13:05:28[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:28[i]: Puq run 100 of 110 (alpha-cut 0.1, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.1#9.hdf5
+Start: Tue Jan  6 13:05:28 2015
+41/100 82/100 100/100
+End: Tue Jan  6 13:05:30 2015	Elapsed: 0:00:01.928000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1229.74197377
+StdDev = 149.518550399
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 16146.639893
+StdDev = 23360.009392
+
+13:05:31[i]: Puq run 100 of 110 (alpha-cut 0.1, run 10)...Done
+13:05:31[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:31[i]: Puq run 101 of 110 (alpha-cut 0.0, run 1)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#0.hdf5
+Start: Tue Jan  6 13:05:32 2015
+45/100 84/100 100/100
+End: Tue Jan  6 13:05:34 2015	Elapsed: 0:00:01.882000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1474.38479942
+StdDev = 131.268501363
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14084.9342907
+StdDev = 18601.4487489
+
+13:05:35[i]: Puq run 101 of 110 (alpha-cut 0.0, run 1)...Done
+13:05:35[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:35[i]: Puq run 102 of 110 (alpha-cut 0.0, run 2)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#1.hdf5
+Start: Tue Jan  6 13:05:35 2015
+39/100 76/100 100/100
+End: Tue Jan  6 13:05:37 2015	Elapsed: 0:00:01.932000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1024.0064248
+StdDev = 178.985566185
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12883.7817921
+StdDev = 20745.2121166
+
+13:05:38[i]: Puq run 102 of 110 (alpha-cut 0.0, run 2)...Done
+13:05:38[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:38[i]: Puq run 103 of 110 (alpha-cut 0.0, run 3)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#2.hdf5
+Start: Tue Jan  6 13:05:39 2015
+44/100 89/100 100/100
+End: Tue Jan  6 13:05:41 2015	Elapsed: 0:00:01.780000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1341.52576206
+StdDev = 225.689864518
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13051.4303261
+StdDev = 17219.0440546
+
+13:05:42[i]: Puq run 103 of 110 (alpha-cut 0.0, run 3)...Done
+13:05:42[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:42[i]: Puq run 104 of 110 (alpha-cut 0.0, run 4)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#3.hdf5
+Start: Tue Jan  6 13:05:43 2015
+42/100 82/100 100/100
+End: Tue Jan  6 13:05:45 2015	Elapsed: 0:00:01.837000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1385.46598746
+StdDev = 205.072377021
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 13171.803962
+StdDev = 18978.7419463
+
+13:05:45[i]: Puq run 104 of 110 (alpha-cut 0.0, run 4)...Done
+13:05:45[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:45[i]: Puq run 105 of 110 (alpha-cut 0.0, run 5)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#4.hdf5
+Start: Tue Jan  6 13:05:46 2015
+43/100 80/100 100/100
+End: Tue Jan  6 13:05:48 2015	Elapsed: 0:00:01.888000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1261.59412781
+StdDev = 159.752834998
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 12132.355073
+StdDev = 15249.5117958
+
+13:05:49[i]: Puq run 105 of 110 (alpha-cut 0.0, run 5)...Done
+13:05:49[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:49[i]: Puq run 106 of 110 (alpha-cut 0.0, run 6)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#5.hdf5
+Start: Tue Jan  6 13:05:50 2015
+44/100 88/100 100/100
+End: Tue Jan  6 13:05:52 2015	Elapsed: 0:00:01.765000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1088.01844519
+StdDev = 157.45665964
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11345.8710326
+StdDev = 18599.0515972
+
+13:05:53[i]: Puq run 106 of 110 (alpha-cut 0.0, run 6)...Done
+13:05:53[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:53[i]: Puq run 107 of 110 (alpha-cut 0.0, run 7)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#6.hdf5
+Start: Tue Jan  6 13:05:53 2015
+42/100 85/100 100/100
+End: Tue Jan  6 13:05:55 2015	Elapsed: 0:00:01.867000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1224.8972488
+StdDev = 169.174520951
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11265.8407833
+StdDev = 13344.5688388
+
+13:05:56[i]: Puq run 107 of 110 (alpha-cut 0.0, run 7)...Done
+13:05:56[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:05:56[i]: Puq run 108 of 110 (alpha-cut 0.0, run 8)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#7.hdf5
+Start: Tue Jan  6 13:05:57 2015
+47/100 94/100 100/100
+End: Tue Jan  6 13:05:59 2015	Elapsed: 0:00:01.717000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1211.51520958
+StdDev = 149.507069362
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 11077.2006822
+StdDev = 12348.4562016
+
+13:06:00[i]: Puq run 108 of 110 (alpha-cut 0.0, run 8)...Done
+13:06:00[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:06:00[i]: Puq run 109 of 110 (alpha-cut 0.0, run 9)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#8.hdf5
+Start: Tue Jan  6 13:06:00 2015
+49/100 94/100 100/100
+End: Tue Jan  6 13:06:02 2015	Elapsed: 0:00:01.685000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1297.66737872
+StdDev = 184.234501226
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 10079.302052
+StdDev = 13444.9719377
+
+13:06:03[i]: Puq run 109 of 110 (alpha-cut 0.0, run 9)...Done
+13:06:03[i]: overwrote given n_prob value (100) with one from objMgr (100)
+Warning: the number of parallel jobs requested is greater than the number of cpus on this machine
+13:06:03[i]: Puq run 110 of 110 (alpha-cut 0.0, run 10)...
+
+Saving run to 2015-01-06 12-59-11 @0.0#9.hdf5
+Start: Tue Jan  6 13:06:04 2015
+46/100 93/100 100/100
+End: Tue Jan  6 13:06:06 2015	Elapsed: 0:00:01.702000
+
+Processing <HDF5 dataset "A": shape (100,), type "<f8">
+Mean   = 1196.44476764
+StdDev = 165.660910117
+
+Processing <HDF5 dataset "P": shape (100,), type "<f8">
+Mean   = 14596.8642332
+StdDev = 17665.7486302
+
+13:06:07[i]: Puq run 110 of 110 (alpha-cut 0.0, run 10)...Done
+13:06:07[i]: overwrote given n_prob value (100) with one from objMgr (100)
+13:06:07[i]: Plotting results...
+13:06:07[i]: Type of run: probabilistic-fuzzy run
+13:06:07[i]: Current dir: P:\dissertation\4-research\1.my work\software\wiggly\examples\test_model\2015-01-06 12-59-11
+13:06:07[i]: processing output variable A
+13:06:09[i]: processing output variable P
+13:06:11[i]: Plotting results...Done
+
+
