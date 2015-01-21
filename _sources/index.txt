@@ -23,6 +23,7 @@ or use the links on the side to navigate
 	objectmanager
 	uq
 	sa
+	gis
 	gband
 	utilities
 	_distributions

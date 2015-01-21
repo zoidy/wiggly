@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>FuzzyObjects &mdash; Wiggly 0.1 documentation</title>
+  <title>gis.wiggly_qgis &mdash; Wiggly 0.1 documentation</title>
   
 
   
@@ -29,9 +29,9 @@
 
   
     <link rel="top" title="Wiggly 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="FuzzyObjects" href="../fuzzyobjects.html"/>
-        <link rel="next" title="FuzzyObjects.FuzzyObject" href="FuzzyObjects.FuzzyObject.html"/>
-        <link rel="prev" title="FuzzyObjects.VertexDefinedObject" href="FuzzyObjects.VertexDefinedObject.html"/> 
+        <link rel="up" title="GIS" href="../gis.html"/>
+        <link rel="next" title="GBand" href="../gband.html"/>
+        <link rel="prev" title="gis.wiggly_qgis" href=""/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -67,8 +67,8 @@
 <li class="toctree-l2"><a class="reference internal" href="CrispObjects.DeformableObject.html">CrispObjects.DeformableObject</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">FuzzyObjects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.html">FuzzyObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.FuzzyObject.html">FuzzyObjects.FuzzyObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.EdgeDefinedObject.html">FuzzyObjects.EdgeDefinedObject</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FuzzyObjects.VertexDefinedObject.html">FuzzyObjects.VertexDefinedObject</a></li>
@@ -89,8 +89,8 @@
 <li class="toctree-l2"><a class="reference internal" href="sa.SA.html">sa.SA</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../gis.html"><strong>GIS</strong></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gis.wiggly_qgis.html">gis.wiggly_qgis</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gis.html"><strong>GIS</strong></a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">gis.wiggly_qgis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gband.html"><strong>GBand</strong></a><ul>
@@ -128,12 +128,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../fuzzyobjects.html"><strong>FuzzyObjects</strong></a> &raquo;</li>
+          <li><a href="../gis.html"><strong>GIS</strong></a> &raquo;</li>
       
-    <li>FuzzyObjects</li>
+    <li>gis.wiggly_qgis</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/autosummary/FuzzyObjects.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/autosummary/gis.wiggly_qgis.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -141,33 +141,48 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-FuzzyObjects">
-<span id="fuzzyobjects"></span><h1>FuzzyObjects<a class="headerlink" href="#module-FuzzyObjects" title="Permalink to this headline">¶</a></h1>
-<p>This module contains all classes related to non-crisp objects.</p>
-<p class="rubric">Classes</p>
+  <div class="section" id="module-gis.wiggly_qgis">
+<span id="gis-wiggly-qgis"></span><h1>gis.wiggly_qgis<a class="headerlink" href="#module-gis.wiggly_qgis" title="Permalink to this headline">¶</a></h1>
+<p>Adapter which allows using QGIS scripts (including Processing scripts) as analysis models in Wiggly.</p>
+<dl class="docutils">
+<dt>Requirements:</dt>
+<dd>QGIS 2.4 or above
+A working Wiggly installation in the QGIS-bundled Python</dd>
+<dt>Usage:</dt>
+<dd>See the example in the examples directory.</dd>
+<dt>Notes:</dt>
+<dd><p class="first">Don&#8217;t name your Processing scripts &#8216;qgis.py&#8217; or &#8216;test.py&#8217; or anything too common as those
+kinds of names may interfere with QGIS and cause Wiggly not to work as expected.</p>
+<p class="last">Your processing scripts must contain a function which has the operations you wish to analyze.
+In order for your processing script to be runnable by processing as well as this library,
+it is recommended to place all script code in a function called go() which takes in as parameters
+any required inputs. See the qgis example for more details</p>
+</dd>
+</dl>
+<p class="rubric">Functions</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.EdgeDefinedObject" title="FuzzyObjects.EdgeDefinedObject"><tt class="xref py py-obj docutils literal"><span class="pre">EdgeDefinedObject</span></tt></a>(x,&nbsp;y,&nbsp;fuzzyEdges[,&nbsp;isClosed])</td>
-<td>Represents an Edge-defined fuzzy object.</td>
+<tr class="row-odd"><td><a class="reference internal" href="../gis.html#gis.wiggly_qgis.getProcessingUserScriptAsModule" title="gis.wiggly_qgis.getProcessingUserScriptAsModule"><tt class="xref py py-obj docutils literal"><span class="pre">getProcessingUserScriptAsModule</span></tt></a>(scriptname)</td>
+<td>Returns a reference to the module of the given Processing user script.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.EdgeDefinedObjectFromValues" title="FuzzyObjects.EdgeDefinedObjectFromValues"><tt class="xref py py-obj docutils literal"><span class="pre">EdgeDefinedObjectFromValues</span></tt></a>(x,&nbsp;y,&nbsp;isClosed,&nbsp;...)</td>
-<td>An Edge-defined object, constructed from previously generated values.</td>
+<tr class="row-even"><td><a class="reference internal" href="../gis.html#gis.wiggly_qgis.wigglyCtrlInit" title="gis.wiggly_qgis.wigglyCtrlInit"><tt class="xref py py-obj docutils literal"><span class="pre">wigglyCtrlInit</span></tt></a>()</td>
+<td>Initializes QGIS libraries for the subprocesses created by Wiggly.</td>
 </tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">FObject</span></tt>(x,&nbsp;y,&nbsp;isClosed)</td>
-<td>Base class for all F-Objects.</td>
+<tr class="row-odd"><td><a class="reference internal" href="../gis.html#gis.wiggly_qgis.wigglyInit" title="gis.wiggly_qgis.wigglyInit"><tt class="xref py py-obj docutils literal"><span class="pre">wigglyInit</span></tt></a>(initScriptFunc)</td>
+<td>Initializing routine before model execution.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.FuzzyObject" title="FuzzyObjects.FuzzyObject"><tt class="xref py py-obj docutils literal"><span class="pre">FuzzyObject</span></tt></a>(x,&nbsp;y,&nbsp;fuzzyVariables,&nbsp;isClosed)</td>
-<td>Base class for all fuzzy objects.</td>
+<tr class="row-even"><td><a class="reference internal" href="../gis.html#gis.wiggly_qgis.wigglyModelEnd" title="gis.wiggly_qgis.wigglyModelEnd"><tt class="xref py py-obj docutils literal"><span class="pre">wigglyModelEnd</span></tt></a>()</td>
+<td>Call this function on immmediately before the return statement of the analysis model&#8217;s       run(args=None,jobinfo=None)      function.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObject" title="FuzzyObjects.VertexDefinedObject"><tt class="xref py py-obj docutils literal"><span class="pre">VertexDefinedObject</span></tt></a>(x,&nbsp;y,&nbsp;fuzzyVertices_x,&nbsp;...)</td>
-<td>Represents a vertex-defined fuzzy object.</td>
+<tr class="row-odd"><td><a class="reference internal" href="../gis.html#gis.wiggly_qgis.wigglyModelStart" title="gis.wiggly_qgis.wigglyModelStart"><tt class="xref py py-obj docutils literal"><span class="pre">wigglyModelStart</span></tt></a>()</td>
+<td>Call this function on the first line of the analysis model&#8217;s       run(args=None,jobinfo=None)      function.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../fuzzyobjects.html#FuzzyObjects.VertexDefinedObjectFromValues" title="FuzzyObjects.VertexDefinedObjectFromValues"><tt class="xref py py-obj docutils literal"><span class="pre">VertexDefinedObjectFromValues</span></tt></a>(x,&nbsp;y,&nbsp;...)</td>
-<td>A vertex-defined object, constructed from previously generated values.</td>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">wigglyRun</span></tt>(*args,&nbsp;**kwargs)</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -179,10 +194,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="FuzzyObjects.FuzzyObject.html" class="btn btn-neutral float-right" title="FuzzyObjects.FuzzyObject">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../gband.html" class="btn btn-neutral float-right" title="GBand">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="FuzzyObjects.VertexDefinedObject.html" class="btn btn-neutral" title="FuzzyObjects.VertexDefinedObject"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="" class="btn btn-neutral" title="gis.wiggly_qgis"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

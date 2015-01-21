@@ -1,0 +1,27 @@
+gis.wiggly_qgis
+===============
+
+.. automodule:: gis.wiggly_qgis
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      getProcessingUserScriptAsModule
+      wigglyCtrlInit
+      wigglyInit
+      wigglyModelEnd
+      wigglyModelStart
+      wigglyRun
+   
+   
+
+   
+   
+   
+
+   
+   
+   

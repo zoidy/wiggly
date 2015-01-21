@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Wiggly 0.1 documentation</title>
+  <title>GIS &mdash; Wiggly 0.1 documentation</title>
   
 
   
@@ -28,7 +28,9 @@
   
 
   
-    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/> 
+    <link rel="top" title="Wiggly 0.1 documentation" href="index.html"/>
+        <link rel="next" title="gis.wiggly_qgis" href="autosummary/gis.wiggly_qgis.html"/>
+        <link rel="prev" title="sa.SA" href="autosummary/sa.SA.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -44,7 +46,7 @@
       <div class="wy-side-nav-search">
         <a href="index.html" class="fa fa-home"> Wiggly</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -55,7 +57,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="fobjects.html"><strong>F-Objects</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="crispobjects.html"><strong>Crisp Objects</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="autosummary/CrispObjects.html">CrispObjects</a></li>
@@ -86,7 +88,7 @@
 <li class="toctree-l2"><a class="reference internal" href="autosummary/sa.SA.html">sa.SA</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="gis.html"><strong>GIS</strong></a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href=""><strong>GIS</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="autosummary/gis.wiggly_qgis.html">gis.wiggly_qgis</a></li>
 </ul>
 </li>
@@ -125,8 +127,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li></li>
+    <li><strong>GIS</strong></li>
       <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/gis.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -134,22 +138,102 @@
 </div>
           <div role="main">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="gis">
+<h1><strong>GIS</strong><a class="headerlink" href="#gis" title="Permalink to this headline">¶</a></h1>
+<p>Modules and classes:</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-gis.wiggly_qgis" title="gis.wiggly_qgis"><tt class="xref py py-obj docutils literal"><span class="pre">gis.wiggly_qgis</span></tt></a></td>
+<td>Adapter which allows using QGIS scripts (including Processing scripts) as analysis models in Wiggly.</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-gis.wiggly_qgis"></span><p>Adapter which allows using QGIS scripts (including Processing scripts) as analysis models in Wiggly.</p>
+<dl class="docutils">
+<dt>Requirements:</dt>
+<dd>QGIS 2.4 or above
+A working Wiggly installation in the QGIS-bundled Python</dd>
+<dt>Usage:</dt>
+<dd>See the example in the examples directory.</dd>
+<dt>Notes:</dt>
+<dd><p class="first">Don&#8217;t name your Processing scripts &#8216;qgis.py&#8217; or &#8216;test.py&#8217; or anything too common as those
+kinds of names may interfere with QGIS and cause Wiggly not to work as expected.</p>
+<p class="last">Your processing scripts must contain a function which has the operations you wish to analyze.
+In order for your processing script to be runnable by processing as well as this library,
+it is recommended to place all script code in a function called go() which takes in as parameters
+any required inputs. See the qgis example for more details</p>
+</dd>
+</dl>
+<dl class="function">
+<dt id="gis.wiggly_qgis.getProcessingUserScriptAsModule">
+<tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">getProcessingUserScriptAsModule</tt><big>(</big><em>scriptname</em><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.getProcessingUserScriptAsModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the module of the given Processing user script. A
+user script is one located in the Processing toolbox under Scripts -&gt; User scripts.</p>
+<ul class="simple">
+<li><em>scriptname</em>: A string indicating the filename (no path or extension) of the script.
+E.g. &#8216;myscript&#8217;</li>
+</ul>
+</dd></dl>
 
-  
-  <div id="search-results">
-  
-  </div>
+<dl class="function">
+<dt id="gis.wiggly_qgis.wigglyCtrlInit">
+<tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">wigglyCtrlInit</tt><big>(</big><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.wigglyCtrlInit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes QGIS libraries for the subprocesses created by Wiggly.</p>
+<p>Since each subprocess is it&#8217;s own process, this function needs to be called from the file
+containing the analysis model. Furthermore, the function call must be protected by
+if __name__==&#8217;__parents_main__&#8217;.</p>
+<p>See the qgis example.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gis.wiggly_qgis.wigglyInit">
+<tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">wigglyInit</tt><big>(</big><em>initScriptFunc</em><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.wigglyInit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializing routine before model execution.</p>
+<ul class="simple">
+<li><em>initScriptFunc</em>: the function handle containing the control script which
+sets up the UQ/SA run.</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="gis.wiggly_qgis.wigglyModelEnd">
+<tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">wigglyModelEnd</tt><big>(</big><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.wigglyModelEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this function on immmediately before the return statement of the analysis model&#8217;s</p>
+<blockquote>
+<div>run(args=None,jobinfo=None)</div></blockquote>
+<p>function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gis.wiggly_qgis.wigglyModelStart">
+<tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">wigglyModelStart</tt><big>(</big><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.wigglyModelStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this function on the first line of the analysis model&#8217;s</p>
+<blockquote>
+<div>run(args=None,jobinfo=None)</div></blockquote>
+<p>function. If any exceptions occurred during the</p>
+<blockquote>
+<div>exec(wqgs.wigglyCtrlInit(),globals())</div></blockquote>
+<p>in the control script&#8217;s file, they will be thrown here.</p>
+</dd></dl>
+
+</div>
+
 
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="autosummary/gis.wiggly_qgis.html" class="btn btn-neutral float-right" title="gis.wiggly_qgis">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="autosummary/sa.SA.html" class="btn btn-neutral" title="sa.SA"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -185,7 +269,6 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="_static/searchtools.js"></script>
 
   
 
@@ -201,14 +284,7 @@
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
