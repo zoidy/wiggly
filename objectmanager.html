@@ -150,7 +150,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#module-objectmanager" title="objectmanager"><tt class="xref py py-obj docutils literal"><span class="pre">objectmanager</span></tt></a></td>
 <td>Contains functionality relate to interfacing wiggly and puq</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#objectmanager.ObjectManager" title="objectmanager.ObjectManager"><tt class="xref py py-obj docutils literal"><span class="pre">objectmanager.ObjectManager</span></tt></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#objectmanager.ObjectManager" title="objectmanager.ObjectManager"><tt class="xref py py-obj docutils literal"><span class="pre">objectmanager.ObjectManager</span></tt></a>([...])</td>
 <td>Manages Wiggly objects.</td>
 </tr>
 </tbody>
@@ -159,9 +159,41 @@
 <span class="target" id="module-objectmanager"></span><p>Contains functionality relate to interfacing wiggly and puq</p>
 <dl class="class">
 <dt id="objectmanager.ObjectManager">
-<em class="property">class </em><tt class="descclassname">objectmanager.</tt><tt class="descname">ObjectManager</tt><a class="headerlink" href="#objectmanager.ObjectManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">objectmanager.</tt><tt class="descname">ObjectManager</tt><big>(</big><em>ignore_certain_vertices=False</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Manages Wiggly objects.</p>
+<ul>
+<li><p class="first"><em>ignore_certain_vertices</em>: Used in the SA module to limit the number of runs required
+when there are partially certain objects.</p>
+<p>If True, then certain vertices (or edges) which would otherwise be added to puq as
+ConstantParameters are not added at all.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object Type</th>
+<th class="head">Behavior</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Rigid</td>
+<td>No effect. x,y,theta are included in the SA even if they are certain.</td>
+</tr>
+<tr class="row-odd"><td>deformable</td>
+<td>Non-uncertain vertices are not included in the SA</td>
+</tr>
+<tr class="row-even"><td>vertex-defined</td>
+<td>Non-uncertain vertices are not included in the SA (todo)</td>
+</tr>
+<tr class="row-odd"><td>edge-defined</td>
+<td>Non-uncertain edges are not included in the SA (todo)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 <dl class="method">
 <dt id="objectmanager.ObjectManager.addObject">
 <tt class="descname">addObject</tt><big>(</big><em>obj</em>, <em>name=None</em>, <em>data=None</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.addObject" title="Permalink to this definition">¶</a></dt>

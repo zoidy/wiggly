@@ -158,7 +158,7 @@
 <p><strong>Complete Listing:</strong></p>
 <span class="target" id="module-sa"></span><dl class="class">
 <dt id="sa.SA">
-<em class="property">class </em><tt class="descclassname">sa.</tt><tt class="descname">SA</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>num_trajectories=10</em>, <em>num_levels=5</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em><big>)</big><a class="headerlink" href="#sa.SA" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sa.</tt><tt class="descname">SA</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>num_trajectories=10</em>, <em>num_levels=4</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em>, <em>pool_recycle_every=60</em><big>)</big><a class="headerlink" href="#sa.SA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="uq.html#uq.UQ" title="uq.UQ"><tt class="xref py py-class docutils literal"><span class="pre">uq.UQ</span></tt></a></p>
 <p>Manages a SA run in a simplified way.</p>
 <p>Parameters are the same as <tt class="xref py py-class docutils literal"><span class="pre">UQ.uq</span></tt> except for num_trajectories and num_levels.</p>
@@ -191,7 +191,7 @@ not specified, the current python working directory is used.</p>
 
 <dl class="staticmethod">
 <dt id="sa.SA.get_results">
-<em class="property">static </em><tt class="descname">get_results</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em><big>)</big><a class="headerlink" href="#sa.SA.get_results" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">get_results</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#sa.SA.get_results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the results of the run in varying formats, without plotting.</p>
 <p>Parameters are the same as <tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt> (plotting-related parameters are excepted of course).</p>
 </dd></dl>
@@ -241,6 +241,9 @@ the sensitivity index. Default is 20.</li>
 isn&#8217;t automatically calculated. These numbers are the
 proportion of the axis limits which to make the bounding boxes.
 Default values are 0.05, 0.04 respectively.</li>
+<li><em>plot_top</em>: Only plots the top x entries.
+x=None (plot all, default), x&gt;0 (plot top x) x&lt;0 (plots the
+bottom x).</li>
 </ul>
 </div></blockquote>
 <p>Returns: a dictionary. The &#8216;shapesdata&#8217; key contains all
@@ -270,6 +273,8 @@ by. Must be a value contained in the <em>alphacuts</em> list. Defaults
 to the lowest available alpha level.</li>
 <li><em>print_alpha_rank</em>: prints the Morris indices at each alpha
 level to the console.</li>
+<li><em>morris_plots</em>: If False (default) does not show the morris
+plots at each alpha-cut.</li>
 <li><em>title_append</em>: a string to append to any plots generated.</li>
 <li><em>labels</em>: If True (default), plots data labels
 to identify the points.</li>
@@ -279,6 +284,9 @@ the sensitivity index. Default is 20.</li>
 isn&#8217;t automatically calculated. These numbers are the
 proportion of the axis limits which to make the bounding boxes.
 Default values are 0.05, 0.04 respectively.</li>
+<li><em>plot_top</em>: Only plots the top x entries.
+x=None (plot all, default), x&gt;0 (plot top x) x&lt;0 (plots the
+bottom x).</li>
 </ul>
 </div></blockquote>
 </td>
@@ -286,7 +294,8 @@ Default values are 0.05, 0.04 respectively.</li>
 <tr class="row-even"><td>dict of list</td>
 <td><p class="first">Probabilistic-fuzzy.
 The results are the same as the fuzzy case. The probabilistic and
-fuzzy variables are plotted together.</p>
+fuzzy variables are plotted together. Probabilistic are solid
+symbols, fuzzy are hollow.</p>
 <p class="last">Parameters are the same as the Fuzzy case.</p>
 </td>
 </tr>

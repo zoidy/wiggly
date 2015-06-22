@@ -145,11 +145,43 @@
 <h1>objectmanager.ObjectManager<a class="headerlink" href="#objectmanager-objectmanager" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="objectmanager.ObjectManager">
-<em class="property">class </em><tt class="descclassname">objectmanager.</tt><tt class="descname">ObjectManager</tt><a class="headerlink" href="#objectmanager.ObjectManager" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">objectmanager.</tt><tt class="descname">ObjectManager</tt><big>(</big><em>ignore_certain_vertices=False</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager" title="Permalink to this definition">¶</a></dt>
 <dd><p>Manages Wiggly objects.</p>
+<ul>
+<li><p class="first"><em>ignore_certain_vertices</em>: Used in the SA module to limit the number of runs required
+when there are partially certain objects.</p>
+<p>If True, then certain vertices (or edges) which would otherwise be added to puq as
+ConstantParameters are not added at all.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object Type</th>
+<th class="head">Behavior</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Rigid</td>
+<td>No effect. x,y,theta are included in the SA even if they are certain.</td>
+</tr>
+<tr class="row-odd"><td>deformable</td>
+<td>Non-uncertain vertices are not included in the SA</td>
+</tr>
+<tr class="row-even"><td>vertex-defined</td>
+<td>Non-uncertain vertices are not included in the SA (todo)</td>
+</tr>
+<tr class="row-odd"><td>edge-defined</td>
+<td>Non-uncertain edges are not included in the SA (todo)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 <dl class="method">
 <dt id="objectmanager.ObjectManager.__init__">
-<tt class="descname">__init__</tt><big>(</big><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>ignore_certain_vertices=False</em><big>)</big><a class="headerlink" href="#objectmanager.ObjectManager.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -159,7 +191,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#objectmanager.ObjectManager.__init__" title="objectmanager.ObjectManager.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#objectmanager.ObjectManager.__init__" title="objectmanager.ObjectManager.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>([ignore_certain_vertices])</td>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="../objectmanager.html#objectmanager.ObjectManager.addObject" title="objectmanager.ObjectManager.addObject"><tt class="xref py py-obj docutils literal"><span class="pre">addObject</span></tt></a>(obj[,&nbsp;name,&nbsp;data])</td>

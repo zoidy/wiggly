@@ -9,7 +9,9 @@
 Welcome to Wiggly's documentation!
 ==================================
 
-Wiggly implements an uncertainty representation and analysis framework for uncertain geometric objects.
+Wiggly implements an uncertainty representation and analysis framework for models with fuzzy-probabilistic uncertainty, focusing on GIS applications with uncertain points, lines or polygons. The source code is available at [https://github.com/zoidy/wiggly].
+
+This software is distributed under the LGPL v3.
 
 The table below summarizes the modules and classes in Wiggly. Click one for more details
 or use the links on the side to navigate

@@ -321,7 +321,7 @@ usees the elements in the upper triangular part</li>
 
 <dl class="function">
 <dt id="utilities.msg">
-<tt class="descclassname">utilities.</tt><tt class="descname">msg</tt><big>(</big><em>string</em>, <em>level='i'</em>, <em>indent=0</em>, <em>timelevel=True</em><big>)</big><a class="headerlink" href="#utilities.msg" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">utilities.</tt><tt class="descname">msg</tt><big>(</big><em>string</em>, <em>level='i'</em>, <em>indent=0</em>, <em>timelevel=True</em>, <em>newline=True</em><big>)</big><a class="headerlink" href="#utilities.msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints a message.</p>
 <ul>
 <li><p class="first"><em>indent</em>: set a particular indent level.</p>
@@ -357,6 +357,16 @@ usees the elements in the upper triangular part</li>
 <p>From top to bottom means lowest number to highest number of message output.</p>
 </li>
 </ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.normalRange2MeanSd">
+<tt class="descclassname">utilities.</tt><tt class="descname">normalRange2MeanSd</tt><big>(</big><em>pct_lower</em>, <em>pct_upper</em>, <em>pct=0.01</em>, <em>log=False</em><big>)</big><a class="headerlink" href="#utilities.normalRange2MeanSd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean and standard deviation of the normal distribution
+defined by the lower and upper percentiles defined by pct.</p>
+<p>E.g., if pct=0.01, then pct_lower corresponds to the 1% and pct_upper is 99%</p>
+<p>If log=True, then takes the log of pct_lower and pct_upper first. This essentially
+gets the mean and sd of the lognormal distribution with those percentiles.</p>
 </dd></dl>
 
 <dl class="function">
@@ -419,9 +429,44 @@ before plotting the data.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="utilities.plot_setFigFontAndProps">
+<tt class="descclassname">utilities.</tt><tt class="descname">plot_setFigFontAndProps</tt><big>(</big><em>fig_kwargs=None</em>, <em>axes=None</em><big>)</big><a class="headerlink" href="#utilities.plot_setFigFontAndProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies the given figures by increasing the font size and setting tight_layout.
+Also applies additional modifications given by fig_kwargs</p>
+<ul>
+<li><p class="first"><em>fig_kwargs</em>: dictionary. The keys are figure numbers. If a figure with that number
+doesn&#8217;t exist it is ignored. The values are dictionaries with kwargs to pass to
+plt.setp().</p>
+<blockquote>
+<div><p>{fig_num:{&#8216;prop1&#8217;:value, ...}}</p>
+</div></blockquote>
+<p>If fig_kwargs is set to None, all figurs are processed</p>
+</li>
+<li><p class="first"><em>axes</em>: if set, this should be a dictionary with the same keys as fig_kwargs.
+THe values are a list of integer which tells which axis setp should operate on.
+If not set, all axes of each figure are used.</p>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
 <dt id="utilities.plot_setFont">
 <tt class="descclassname">utilities.</tt><tt class="descname">plot_setFont</tt><big>(</big><em>ax, size=20, items=['title', 'xlabel', 'ylabel', 'xtick', 'ytick']</em><big>)</big><a class="headerlink" href="#utilities.plot_setFont" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the font size of the given items to the given value for the given axis</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="utilities.plot_tickAdjust">
+<tt class="descclassname">utilities.</tt><tt class="descname">plot_tickAdjust</tt><big>(</big><em>tick_adjust</em><big>)</big><a class="headerlink" href="#utilities.plot_tickAdjust" title="Permalink to this definition">¶</a></dt>
+<dd><p>adjust the tick spaciing for the given figs.</p>
+<p>tick_adjust is a dictionary</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>{fig_num:{&#8216;axes&#8217;:[list of axis numbers], &#8216;which&#8217;:[list of &#8216;x&#8217; or &#8216;y&#8217; axis],</dt>
+<dd>&#8216;keepevery&#8217;:[list of keep every nth tick for the corresponding axis],
+&#8216;keependpoints&#8217;:[list of bool (optional)]}}</dd>
+</dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">

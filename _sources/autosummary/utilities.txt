@@ -30,9 +30,12 @@ utilities
       makeSymmetric
       msg
       natural_keys
+      normalRange2MeanSd
       pairs
       plot_datalabels
+      plot_setFigFontAndProps
       plot_setFont
+      plot_tickAdjust
       pointslist2Shape
       puqParams_fromFile
       saveAllFigures

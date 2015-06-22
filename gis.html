@@ -157,6 +157,10 @@
 <dt>Requirements:</dt>
 <dd>QGIS 2.4 or above
 A working Wiggly installation in the QGIS-bundled Python</dd>
+<dt>QGIS setup:</dt>
+<dd>The current version of QGIS (2.4 as of this writing) ships with old versions of certain
+libraries, which must be updated prior to installing Wiggly into the QGIS Python.
+See the readme in the qgis example directory</dd>
 <dt>Usage:</dt>
 <dd>See the example in the examples directory.</dd>
 <dt>Notes:</dt>
@@ -184,8 +188,10 @@ E.g. &#8216;myscript&#8217;</li>
 <tt class="descclassname">gis.wiggly_qgis.</tt><tt class="descname">wigglyCtrlInit</tt><big>(</big><big>)</big><a class="headerlink" href="#gis.wiggly_qgis.wigglyCtrlInit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes QGIS libraries for the subprocesses created by Wiggly.</p>
 <p>Since each subprocess is it&#8217;s own process, this function needs to be called from the file
-containing the analysis model. Furthermore, the function call must be protected by
-if __name__==&#8217;__parents_main__&#8217;.</p>
+containing the control script using the command</p>
+<blockquote>
+<div>exec(wqgs.wigglyCtrlInit(),globals())</div></blockquote>
+<p>placed at the end of the control sccript file.</p>
 <p>See the qgis example.</p>
 </dd></dl>
 

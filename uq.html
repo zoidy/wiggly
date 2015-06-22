@@ -158,7 +158,7 @@
 <p><strong>Complete Listing:</strong></p>
 <span class="target" id="module-uq"></span><dl class="class">
 <dt id="uq.UQ">
-<em class="property">class </em><tt class="descclassname">uq.</tt><tt class="descname">UQ</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>n_prob=None</em>, <em>n_fuzzy=None</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em><big>)</big><a class="headerlink" href="#uq.UQ" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">uq.</tt><tt class="descname">UQ</tt><big>(</big><em>testProgScriptFile=None</em>, <em>testProgFunc=None</em>, <em>args=</em>, <span class="optional">[</span><span class="optional">]</span><em>testProgDesc=None</em>, <em>workingDir=None</em>, <em>objMgr=None</em>, <em>baseShapesName='shapes.json'</em>, <em>probVars={}</em>, <em>fuzzyVars={}</em>, <em>fuzzyVarACuts=</em>, <span class="optional">[</span><span class="optional">]</span><em>consts={}</em>, <em>n_prob=None</em>, <em>n_fuzzy=None</em>, <em>seed=None</em>, <em>outfiles=''</em>, <em>sweep_cb=None</em>, <em>pool_recycle_every=60</em><big>)</big><a class="headerlink" href="#uq.UQ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Manages a UQ run in a simplified way.</p>
 <ul>
@@ -181,18 +181,42 @@ a Python function may be passed instead, giving significantly better performance
 running models. Either this parameter or <em>testProgScriptFile</em> must be specified, but not both.</p>
 <p>The function must exist at the module level (not inside a class). The function must
 take two named arguments, args and jobinfo, and return the jobinfo argument without modifying
-it.  E.g., if the function is named f,:</p>
+it.</p>
+<p>The args parameter is a list of strings that can be parsed by the argparse module. It contains
+at least two arguments:</p>
+<blockquote>
+<div><p>&#8216;&#8211;paramsFile&#8217; and &#8216;&#8211;baseShapes&#8217;</p>
+</div></blockquote>
+<p>which are described above in the
+<em>testProgScriptFile</em> parameter. Additional arguments, along with their values may be
+specifed in the <em>args</em> parameter of this method.</p>
+<p>E.g., if the function is named f,:</p>
 <div class="highlight-python"><div class="highlight"><pre>def f(args=None, jobinfo=None):
+   try:
+      parser=argparse.ArgumentParser()
+      parser.add_argument(&quot;--paramsFile&quot;)
+      parser.add_argument(&quot;--baseShapes&quot;)
+      known_args,unknown_args=parser.parse_known_args(args)
+    except SystemExit:
+      raise Exception(&#39;There was an error parsing the &#39;&#39;args&#39;&#39; parameter.&#39;)
+
+    #access the values of the parsed args
+    var1=known_args.paramsFile
+    var2=known_args.baseShapes
+
     &lt;evaluate your model here&gt;
+
     return jobinfo
 </pre></div>
 </div>
-<p>The args parameter is a list of strings that can be parsed by the optparse module. It contains
-at least two arguments: &#8216;paramsFile&#8217; and &#8216;baseshapes&#8217; which are described above in the
-<em>testProgScriptFile</em> parameter. Additional arguments, along with their values may be
-specifed in the <em>args</em> parameter of this method.</p>
 </li>
-<li><p class="first"><em>args</em>: extra arguments to pass to <em>testProgScriptFile</em> or <em>testProgFunc</em>.</p>
+<li><p class="first"><em>args</em>: extra arguments to pass to <em>testProgScriptFile</em> or <em>testProgFunc</em>. For example,
+to pass an extra parameter with the name &#8216;param1&#8217; with value 2, <em>args</em> should be set to</p>
+<blockquote>
+<div><p>[&#8216;&#8211;param1=2&#8217;]</p>
+</div></blockquote>
+<p>Within the model, this parameter is accessed in the same way as shown in <em>testProgScriptFile</em>
+and <em>testProgScriptFile</em>.</p>
 </li>
 <li><p class="first"><em>workingDir</em>: the working directory where all scripts are located and where input and output
 files will be read/written.
@@ -211,7 +235,7 @@ See <tt class="xref py py-func docutils literal"><span class="pre">Objectmanager
 <blockquote>
 <div><ul class="simple">
 <li>Key &#8216;dist&#8217;: a string corresponding to some of the Parameter distribution types supported by puq.
-Valid values are: &#8216;uniform&#8217;, &#8216;normal&#8217;, &#8216;triangular&#8217;.</li>
+Valid values are: &#8216;uniform&#8217;, &#8216;normal&#8217;, &#8216;lognormal&#8217;, &#8216;triangular&#8217;.</li>
 <li>Key &#8216;desc&#8217;: a string description of the variable.</li>
 <li>Key &#8216;kwargs&#8217; is a dictionary specifying the parameters of the distribution selected in &#8216;dist&#8217;.
 See the puq reference for the Parameters class for the names of the kwargs for each distribution.</li>
@@ -265,6 +289,9 @@ be called multiple times. Ie. after each hdf5 file is generated.</p>
 </li>
 <li><p class="first"><em>outfiles</em>: a list of files outut by the testProgram which will be copied to the hdf5 file.</p>
 </li>
+<li><p class="first"><em>pool_recycle_every</em>: recycles the process pool every n runs of puq-wiggly (fuzzy and
+mixed analysis only). Default is 60.</p>
+</li>
 </ul>
 <dl class="attribute">
 <dt id="uq.UQ.basename">
@@ -295,7 +322,7 @@ not specified, the current python working directory is used.</p>
 
 <dl class="staticmethod">
 <dt id="uq.UQ.get_results">
-<em class="property">static </em><tt class="descname">get_results</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em><big>)</big><a class="headerlink" href="#uq.UQ.get_results" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><tt class="descname">get_results</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#uq.UQ.get_results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the results of the run in varying formats, without plotting.</p>
 <p>Parameters are the same as <a class="reference internal" href="#uq.UQ.plot" title="uq.UQ.plot"><tt class="xref py py-func docutils literal"><span class="pre">UQ.plot()</span></tt></a> (plotting-related parameters are excepted of course).</p>
 </dd></dl>
@@ -305,7 +332,8 @@ not specified, the current python working directory is used.</p>
 <em class="property">static </em><tt class="descname">plot</tt><big>(</big><em>hdf5</em>, <em>baseshapes_file='shapes.json'</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#uq.UQ.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots results, and also returns them in varying formats. See table below.</p>
 <ul>
-<li><p class="first"><em>hdf5</em>: The hdf5 files to plot.</p>
+<li><p class="first"><em>hdf5</em>: The hdf5 files to plot. Can pass in the result of
+<a class="reference internal" href="#uq.UQ.find_all_hdf5" title="uq.UQ.find_all_hdf5"><tt class="xref py py-func docutils literal"><span class="pre">UQ.find_all_hdf5()</span></tt></a>.</p>
 </li>
 <li><p class="first"><em>baseshapes_file</em>: The full path of the json file containing the
 baseshapes . If no path is specified, it will be taken from the <em>hdf5</em> parameter.
@@ -320,8 +348,8 @@ in cases where the model contains no shapes.</p>
 generating custom plots or perform additional analyses.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="17%" />
-<col width="83%" />
+<col width="15%" />
+<col width="85%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">type(hdf5)</th>
@@ -340,17 +368,15 @@ CDF and histogram plot for each output.</p>
 histogram. Default is True.</li>
 <li><em>nbins</em>: Number of bins to use for
 histogram. Default is None (auto).</li>
-<li><em>return_fullshapesdata</em>: If False, the &#8216;shapesdata&#8217;
-value will contain a
-list of Shapely shapes. See below. Default is False.</li>
+<li><em>return_fullshapesdata</em>: See below. Default is False.</li>
 </ul>
 </div></blockquote>
-<p>Returns: a dictionary. The &#8216;shapesdata&#8217; key contains all
-the shapely shapes generated in this run in the form of a list,
-[shpdata].</p>
+<p>Returns: a dictionary with keys equal to the names of the outputs</p>
 <blockquote>
 <div>{$outputName$:r_[samples (float)], ..., &#8216;shapesdata&#8217;:[shpdata] }</div></blockquote>
-<p>If <em>return_fullshapesdata</em> =True then [shpdata] becomes a dictionary:</p>
+<p>The &#8216;shapesdata&#8217; entry contains all the shapes generated in this
+run in the form of a list of Shapely objects. If
+<em>return_fullshapesdata</em> =True then the list item shpdata becomes a dictionary:</p>
 <blockquote class="last">
 <div>{&#8216;name&#8217;:&lt;string&gt;, &#8216;shp&#8217;:&lt;Shapely object&gt;, &#8216;desc&#8217;:&lt;string&gt;,
 &#8216;type&#8217;:&lt;string&gt;, &#8216;alphacut&#8217;:None, ...}</div></blockquote>
@@ -373,17 +399,22 @@ are processed.</li>
 True. If False grayscale is used. If it is float, it
 must be between 0.0 and 1.0, indicating a
 specific shade of grey.</li>
-<li><em>return_fullshapesdata</em>: If False, the &#8216;shapesdata&#8217;
-value will contain a
-list of Shapely shapes. See below. Default is False.</li>
+<li><em>return_fullshapesdata</em>: See below. Default is False.</li>
+<li><em>return_n_shapes</em>: If there are too many shapes to return,
+(eg., if there are too many shapes with too many points and
+too many realization), limits the number of shapes returned
+from each hdf5 file to this number. Default is None (return
+all shapes).</li>
 </ul>
 </div></blockquote>
-<p>Returns: a dictionary. The &#8216;shapesdata&#8217; key contains all
-the shapes for all alpha cuts.</p>
+<p>Returns: a dictionary with keys equal to the names of the outputs.
+Each value is a dictionary with keys equal to alpha cuts.</p>
 <blockquote>
 <div>{$outputName$:{$acut$:r_[samples (float)], ...}, ...,
 &#8216;shapesdata&#8217;:{$acut:[shpdata], ...}}</div></blockquote>
-<p>If <em>return_fullshapesdata</em> =True then [shpdata] is a dictionary:</p>
+<p>The &#8216;shapesdata&#8217; entry contains all the shapes generated in this
+run in the form of a list of Shapely objects. If
+<em>return_fullshapesdata</em> =True then the list item shpdata becomes a dictionary:</p>
 <blockquote class="last">
 <div>{&#8216;name&#8217;:&lt;string&gt;, &#8216;shp&#8217;:&lt;Shapely object&gt;, &#8216;desc&#8217;:&lt;string&gt;,
 &#8216;type&#8217;:&lt;string&gt;, &#8216;alphacut&#8217;:&lt;float&gt;, ...}</div></blockquote>
@@ -398,8 +429,7 @@ list contains files corresponding to a
 set of results at a particular alpha cut
 given by the key of the dict.</p>
 <p>Valid kwargs:</p>
-<blockquote class="last">
-<div><blockquote>
+<blockquote>
 <div><ul>
 <li><p class="first"><em>cdf_pdf</em>: String value.</p>
 <blockquote>
@@ -442,16 +472,39 @@ of numbers.</p>
 </div></blockquote>
 <p>Default value is None.</p>
 </li>
+<li><p class="first"><em>estimate_at_prob</em>: a dictionary. Same as <em>estimate_at_value</em>
+except 0 &lt;= yyy &lt;= 1 indicates a probability.</p>
+</li>
+<li><p class="first"><em>return_fullshapesdata</em>: See below. Default is False.</p>
+</li>
+<li><p class="first"><em>return_n_shapes</em>: If there are too many shapes to return,
+(eg., if there are too many shapes with too many points and
+too many realization), limits the number of shapes returned
+from each hdf5 file to this number. Default is None (return
+all shapes).</p>
+<p>e.g., if <em>return_n_shapes</em> =4, only the first 4 realizations
+of all shapes will be returned per hdf5 file. Since 1
+hdf5 file consists of a probabilistic run with the fuzzy
+variables held fixed, this paramtere only applies to
+probabilistic shapes.</p>
+</li>
 </ul>
 </div></blockquote>
-<p>Returns: dictionary.</p>
+<p>Returns: a dictionary with keys equal to the names of the outputs.</p>
 <blockquote>
-<div>{$outputName$:{$acut$:[mincdf,maxcdf], ...}, ...}</div></blockquote>
-<p>Mincdf and maxcdf are dictionaries containing the
+<div>{$outputName$:{$acut$:[mincdf,maxcdf], ...}, ...,
+&#8216;shapesdata&#8217;:{$acut:[shpdata], ...} }</div></blockquote>
+<p>Mincdf and maxcdf are dictionaries containing the x and y values of
 minimum and maximum cdfs at each alpha cut:</p>
 <blockquote>
 <div>{ &#8216;x&#8217;:r_[x-values], &#8216;y&#8217;:r_[y-values] }</div></blockquote>
-</div></blockquote>
+<p>The &#8216;shapesdata&#8217; entry contains all the shapes generated in this
+run in the form of a list of Shapely objects. If
+<em>return_fullshapesdata</em> =True then the list item shpdata becomes a dictionary:</p>
+<blockquote>
+<div>{&#8216;name&#8217;:&lt;string&gt;, &#8216;shp&#8217;:&lt;Shapely object&gt;, &#8216;desc&#8217;:&lt;string&gt;,
+&#8216;type&#8217;:&lt;string&gt;, &#8216;alphacut&#8217;:&lt;float&gt;, ...}</div></blockquote>
+<p class="last">For probabilistic shapes, only the set from the first fuzzy run are returned.</p>
 </td>
 </tr>
 </tbody>

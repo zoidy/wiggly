@@ -208,43 +208,52 @@
 <tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.makeSymmetric" title="utilities.makeSymmetric"><tt class="xref py py-obj docutils literal"><span class="pre">makeSymmetric</span></tt></a>(m[,&nbsp;lower2upper])</td>
 <td>Makes the square matrix m symmetric along the diagonal.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.msg" title="utilities.msg"><tt class="xref py py-obj docutils literal"><span class="pre">msg</span></tt></a>(string[,&nbsp;level,&nbsp;indent,&nbsp;timelevel])</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.msg" title="utilities.msg"><tt class="xref py py-obj docutils literal"><span class="pre">msg</span></tt></a>(string[,&nbsp;level,&nbsp;indent,&nbsp;timelevel,&nbsp;newline])</td>
 <td>Prints a message.</td>
 </tr>
 <tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">natural_keys</span></tt>(text)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.pairs" title="utilities.pairs"><tt class="xref py py-obj docutils literal"><span class="pre">pairs</span></tt></a>(data[,&nbsp;labels,&nbsp;figurenum,&nbsp;rankcorr])</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.normalRange2MeanSd" title="utilities.normalRange2MeanSd"><tt class="xref py py-obj docutils literal"><span class="pre">normalRange2MeanSd</span></tt></a>(pct_lower,&nbsp;pct_upper[,&nbsp;...])</td>
+<td>Returns the mean and standard deviation of the normal distribution defined by the lower and upper percentiles defined by pct.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.pairs" title="utilities.pairs"><tt class="xref py py-obj docutils literal"><span class="pre">pairs</span></tt></a>(data[,&nbsp;labels,&nbsp;figurenum,&nbsp;rankcorr])</td>
 <td>Generate something similar to R <cite>pairs</cite>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.plot_datalabels" title="utilities.plot_datalabels"><tt class="xref py py-obj docutils literal"><span class="pre">plot_datalabels</span></tt></a>(x_data,&nbsp;y_data,&nbsp;axis[,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.plot_datalabels" title="utilities.plot_datalabels"><tt class="xref py py-obj docutils literal"><span class="pre">plot_datalabels</span></tt></a>(x_data,&nbsp;y_data,&nbsp;axis[,&nbsp;...])</td>
 <td>Adds data labels to the specified axis.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.plot_setFigFontAndProps" title="utilities.plot_setFigFontAndProps"><tt class="xref py py-obj docutils literal"><span class="pre">plot_setFigFontAndProps</span></tt></a>([fig_kwargs,&nbsp;axes])</td>
+<td>Modifies the given figures by increasing the font size and setting tight_layout.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.plot_setFont" title="utilities.plot_setFont"><tt class="xref py py-obj docutils literal"><span class="pre">plot_setFont</span></tt></a>(ax[,&nbsp;size,&nbsp;items])</td>
 <td>Sets the font size of the given items to the given value for the given axis</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.pointslist2Shape" title="utilities.pointslist2Shape"><tt class="xref py py-obj docutils literal"><span class="pre">pointslist2Shape</span></tt></a>(pts_x,&nbsp;pts_y,&nbsp;isClosed)</td>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.plot_tickAdjust" title="utilities.plot_tickAdjust"><tt class="xref py py-obj docutils literal"><span class="pre">plot_tickAdjust</span></tt></a>(tick_adjust)</td>
+<td>adjust the tick spaciing for the given figs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.pointslist2Shape" title="utilities.pointslist2Shape"><tt class="xref py py-obj docutils literal"><span class="pre">pointslist2Shape</span></tt></a>(pts_x,&nbsp;pts_y,&nbsp;isClosed)</td>
 <td>Given point arrays, converts them to an appropriate Shapely shape.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.puqParams_fromFile" title="utilities.puqParams_fromFile"><tt class="xref py py-obj docutils literal"><span class="pre">puqParams_fromFile</span></tt></a>(filename)</td>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.puqParams_fromFile" title="utilities.puqParams_fromFile"><tt class="xref py py-obj docutils literal"><span class="pre">puqParams_fromFile</span></tt></a>(filename)</td>
 <td>Converts the file written by puq when paramsByFile is True for TestProgram.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.saveAllFigures" title="utilities.saveAllFigures"><tt class="xref py py-obj docutils literal"><span class="pre">saveAllFigures</span></tt></a>([fmt,&nbsp;appendtxt,&nbsp;fignum,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.saveAllFigures" title="utilities.saveAllFigures"><tt class="xref py py-obj docutils literal"><span class="pre">saveAllFigures</span></tt></a>([fmt,&nbsp;appendtxt,&nbsp;fignum,&nbsp;...])</td>
 <td>Saves all currently opened figures to the specified format.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.shape2Points" title="utilities.shape2Points"><tt class="xref py py-obj docutils literal"><span class="pre">shape2Points</span></tt></a>(shp)</td>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.shape2Points" title="utilities.shape2Points"><tt class="xref py py-obj docutils literal"><span class="pre">shape2Points</span></tt></a>(shp)</td>
 <td>Given a shapely shape, converts it to numpy arrays.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.tickLabels_keepEvery" title="utilities.tickLabels_keepEvery"><tt class="xref py py-obj docutils literal"><span class="pre">tickLabels_keepEvery</span></tt></a>(axis,&nbsp;xy,&nbsp;n[,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.tickLabels_keepEvery" title="utilities.tickLabels_keepEvery"><tt class="xref py py-obj docutils literal"><span class="pre">tickLabels_keepEvery</span></tt></a>(axis,&nbsp;xy,&nbsp;n[,&nbsp;...])</td>
 <td>For the given axis, keeps every nth tick label.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.transformPoints" title="utilities.transformPoints"><tt class="xref py py-obj docutils literal"><span class="pre">transformPoints</span></tt></a>(x,&nbsp;y,&nbsp;new_x,&nbsp;new_y,&nbsp;theta[,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.transformPoints" title="utilities.transformPoints"><tt class="xref py py-obj docutils literal"><span class="pre">transformPoints</span></tt></a>(x,&nbsp;y,&nbsp;new_x,&nbsp;new_y,&nbsp;theta[,&nbsp;...])</td>
 <td>Performs an affine transformation (translation &amp; rotation only) of x,y.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.unique_rows" title="utilities.unique_rows"><tt class="xref py py-obj docutils literal"><span class="pre">unique_rows</span></tt></a>(a)</td>
+<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.unique_rows" title="utilities.unique_rows"><tt class="xref py py-obj docutils literal"><span class="pre">unique_rows</span></tt></a>(a)</td>
 <td>Returns a numpy array containing the unique rows of <em>a</em>.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../utilities.html#utilities.varianceToIntervalUniform" title="utilities.varianceToIntervalUniform"><tt class="xref py py-obj docutils literal"><span class="pre">varianceToIntervalUniform</span></tt></a>(means,&nbsp;variances)</td>
+<tr class="row-odd"><td><a class="reference internal" href="../utilities.html#utilities.varianceToIntervalUniform" title="utilities.varianceToIntervalUniform"><tt class="xref py py-obj docutils literal"><span class="pre">varianceToIntervalUniform</span></tt></a>(means,&nbsp;variances)</td>
 <td>Given a variance, returns the lower and upper bound of the associated interval for a uniform distribution.</td>
 </tr>
 </tbody>
