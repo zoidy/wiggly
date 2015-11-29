@@ -4,6 +4,7 @@ wiggly
 See (http://zoidy.github.io/wiggly/)
 
 ### Dependencies
+Python 2.7
 * wiggly
   * puq-wiggly
     * jsonpickle 0.7.1
