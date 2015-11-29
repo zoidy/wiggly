@@ -17,13 +17,13 @@ class SA(uq.UQ):
     """
     def __init__(self,testProgScriptFile=None,testProgFunc=None,args=[],testProgDesc=None,workingDir=None,
                  objMgr=None,baseShapesName='shapes.json',probVars={},fuzzyVars={},
-                 fuzzyVarACuts=[],consts={},num_trajectories=10,num_levels=5,seed=None,
-                 outfiles='',sweep_cb=None):
+                 fuzzyVarACuts=[],consts={},num_trajectories=10,num_levels=4,seed=None,
+                 outfiles='',sweep_cb=None,pool_recycle_every=60):
 
         uq.UQ.__init__(self,testProgScriptFile,testProgFunc,args,testProgDesc,workingDir,
                  objMgr,baseShapesName,probVars,fuzzyVars,
                  fuzzyVarACuts,consts,n_prob=None,n_fuzzy=None,seed=seed,
-                 outfiles=outfiles,sweep_cb=sweep_cb)
+                 outfiles=outfiles,sweep_cb=sweep_cb,pool_recycle_every=pool_recycle_every)
 
         #get the filename of the calling script
         frame,filename,line_number,function_name,lines,index = inspect.stack()[1]
@@ -37,6 +37,9 @@ class SA(uq.UQ):
         #to follow the recommended delta = p/2 * 1/(p-1) from Saltelli.
         #SALib calculates delta = grid_jump * 1/(p-2).
         self.grid_jump=self._p/2.
+
+        if not self._objMgr._ignore_certain_vertices:
+            utilities.msg('objMgr should have ignore_certain_vertices=True! Else there may be too many parameters to test in the senstivity analysis','w')
 
 
     def _setup_parameters(self):
@@ -55,9 +58,19 @@ class SA(uq.UQ):
         #set up constants
         self._puqparams_const=[]
         for cname,data in self._consts.iteritems():
-            self._puqparams_const.append(puq.ConstantParameter(cname,data['desc'],
+            if 'desc' not in data:
+                raise Exception('{} is missing attribute "desc"'.format(cname))
+            if 'value' not in data:
+                raise Exception('{} is missing attribute "value"'.format(cname))
+            desc=data['desc']
+            value=data['value']
+            if desc=='' or desc==None:
+                desc='N/A' #there will be an error in objectmanager if this is blank
+            if value=='' or value==None:
+                raise Exception('"value" for {} cannot be None'.format(cname))
+            self._puqparams_const.append(puq.ConstantParameter(cname,desc,
                                                                attrs=[('uncert_type','const')],
-                                                               value=data['value']))
+                                                               value=value))
 
         #*********************************
         #set up fuzzy variables
@@ -100,8 +113,12 @@ class SA(uq.UQ):
 
                 cut=fn.alpha(acut)
 
+                desc=data['desc']
+                if desc=='' or desc==None:
+                    desc='N/A' #there will be an error in objectmanager if this is blank
+
                 #build a puq parameter for this alpha cut
-                param=puq.UniformParameter(fuzzyVar,data['desc'],
+                param=puq.UniformParameter(fuzzyVar,desc,
                                            attrs=[('uncert_type','fuzzy')],
                                            min=cut[0],max=cut[1])
 
@@ -117,17 +134,28 @@ class SA(uq.UQ):
 
         #setup scalar probabilistic vars
         for varname,data in self._probVars.iteritems():
+            if 'dist' not in data:
+                raise Exception('{} is missing the "dist" attribute'.format(varname))
+            if 'desc' not in data:
+                raise Exception('{} is missing the "desc" attribute'.format(varname))
+            desc=data['desc']
+            if desc=='' or desc==None:
+                desc='N/A' #there will be an error in objectmanager if this is blank
             if data['dist']=='normal':
                 p=puq.NormalParameter(varname,
-                                      data['desc'],attrs=[('uncert_type','prob')],
+                                      desc,attrs=[('uncert_type','prob')],
+                                      **data['kwargs'])
+            elif data['dist']=='lognormal':
+                p=puq.LognormalParameter(varname,
+                                      desc,attrs=[('uncert_type','prob')],
                                       **data['kwargs'])
             elif data['dist']=='uniform':
                 p=puq.UniformParameter(varname,
-                                       data['desc'],attrs=[('uncert_type','prob')],
+                                       desc,attrs=[('uncert_type','prob')],
                                        **data['kwargs'])
             elif data['dist']=='triangular':
                 p=puq.TriangParameter(varname,
-                                      data['desc'],attrs=[('uncert_type','prob')],
+                                      desc,attrs=[('uncert_type','prob')],
                                       **data['kwargs'])
             else:
                 raise Exception("'{}' distribution is not supported for variable {}".format(data['dist'],
@@ -229,11 +257,12 @@ class SA(uq.UQ):
         try:
             for i,acut in enumerate(sorted(self._acuts,reverse=True)):
                 pool=self._get_processPool(pool)
+                sweepid='@{:1.1f}'.format(acut)
                 params=self._puqparams_fuzzy[acut]['params']+self._puqparams_const
                 sweep=self._sweep_setup(params,
                                         self._r,self._p,self.grid_jump,
                                         'fuzzy run (alpha-cut {} from set {})'.format(acut,self._acuts),
-                                        pool)
+                                        pool,sweepid=sweepid)
 
                 ctypes.windll.kernel32.SetConsoleTitleA( \
                     '{} jobs in puq run {} of {} (a-cut {})'.format( self._r*(len(params)+1),
@@ -242,7 +271,7 @@ class SA(uq.UQ):
 
                 utilities.msg('Puq run {} of {} (alpha-cut {})...'.format(i+1,len(self._acuts),acut))
                 print('')
-                hdf5=self._hdf5_basename +' @{:1.1f}.hdf5'.format(acut)
+                hdf5=self._hdf5_basename +' ' +sweepid+'.hdf5'
                 if not sweep.run(hdf5,dryrun=self._dryrun):
                     raise Exception('error running sweep')
                 print('')
@@ -281,11 +310,12 @@ class SA(uq.UQ):
         try:
             for i,acut in enumerate(sorted(self._acuts,reverse=True)):
                 pool=self._get_processPool(pool)
+                sweepid='@{:1.1f}#0'.format(acut)
                 params=self._puqparams_fuzzy[acut]['params']+self._puqparams_prob+self._puqparams_const
                 sweep=self._sweep_setup(params,
                                         self._r,self._p,self.grid_jump,
                                         'probabilistic-fuzzy sweep (alpha-cut {} from set {})'.format(acut,self._acuts),
-                                        pool)
+                                        pool,sweepid=sweepid)
 
                 ctypes.windll.kernel32.SetConsoleTitleA( \
                     '{} jobs in puq run {} of {} (a-cut {})'.format( self._r*(len(params)+1),
@@ -294,7 +324,7 @@ class SA(uq.UQ):
 
                 utilities.msg('Puq run {} of {} (alpha-cut {})...'.format(i+1,len(self._acuts),acut))
                 print('')
-                hdf5=self._hdf5_basename +' @{:1.1f}#0.hdf5'.format(acut)
+                hdf5=self._hdf5_basename +' ' +sweepid+'.hdf5'
                 if not sweep.run(hdf5,dryrun=self._dryrun):
                     raise Exception('error running sweep')
                 print('')
@@ -310,7 +340,7 @@ class SA(uq.UQ):
 
         return ret
 
-    def _sweep_setup(self,puqparams,r,p,gj,desc='',proc_pool=None):
+    def _sweep_setup(self,puqparams,r,p,gj,desc='',proc_pool=None,sweepid=''):
         """
         Sets up a single sweep for the given parameters.
 
@@ -318,11 +348,14 @@ class SA(uq.UQ):
         - *n*: The number of runs.
         - *proc_pool*: an instance of multiprocessing.Pool. If not specified, a new Pool will
           be created.
+        - *sweepid*: extra info to identify this sweep as part of a particular hdf5 file.
+          Only fuzzy and mixed analyses will set this flag. Probabilistic runs only have 1
+          hdf5 file.
 
         Returns a Sweep object.
         """
         sa=puq.Morris(params=puqparams,numtrajectories=r,levels=p,gridjump=gj,iteration_cb=self._sweep_cb)
-        return self._sweep_setup_helper(sa,desc,proc_pool)
+        return self._sweep_setup_helper(sa,desc,proc_pool,sweepid)
 
     @staticmethod
     def plot(hdf5,baseshapes_file='shapes.json',**kwargs):
@@ -360,7 +393,10 @@ class SA(uq.UQ):
                              isn't automatically calculated. These numbers are the
                              proportion of the axis limits which to make the bounding boxes.
                              Default values are 0.05, 0.04 respectively.
-
+                           - *plot_top*: Only plots the top x entries.
+                             x=None (plot all, default), x>0 (plot top x) x<0 (plots the
+                             bottom x).
+                             
                        Returns: a dictionary. The 'shapesdata' key contains all
                        the shapely shapes generated in this run in the form of a list,
                        [shpdata].
@@ -387,6 +423,8 @@ class SA(uq.UQ):
                              to the lowest available alpha level.
                            - *print_alpha_rank*: prints the Morris indices at each alpha
                              level to the console.
+                           - *morris_plots*: If False (default) does not show the morris
+                             plots at each alpha-cut.
                            - *title_append*: a string to append to any plots generated.
                            - *labels*: If True (default), plots data labels
                              to identify the points.
@@ -396,9 +434,13 @@ class SA(uq.UQ):
                              isn't automatically calculated. These numbers are the
                              proportion of the axis limits which to make the bounding boxes.
                              Default values are 0.05, 0.04 respectively.
+                           - *plot_top*: Only plots the top x entries.
+                             x=None (plot all, default), x>0 (plot top x) x<0 (plots the
+                             bottom x).
         dict of list   Probabilistic-fuzzy.
                        The results are the same as the fuzzy case. The probabilistic and
-                       fuzzy variables are plotted together.
+                       fuzzy variables are plotted together. Probabilistic are solid
+                       symbols, fuzzy are hollow.
 
                        Parameters are the same as the Fuzzy case.
 
@@ -409,13 +451,16 @@ class SA(uq.UQ):
         return uq.UQ.plot(hdf5,baseshapes_file,**kwargs)
 
     @staticmethod
-    def _plot_probabilistic(hdf5,baseshapes_file,labels=True,labels_top=20,title_append='',plot=True,
+    def _plot_probabilistic(hdf5,baseshapes_file,plot_top=None,labels=True,labels_top=20,title_append='',plot=True,
                             labels_bbox_hgt=.05,labels_bbox_wdt=.04):
         """
         Plots the morris results and ranking of the Morris run. Ranking is in the form
         of a table with the top 20 entries ranked by u\*.
 
         - *hdf5*: a string indicating the name of the hdf5 file to process.
+        - *baseshapes_file*: The json file with the baseshapes
+        - *plot_top*: Only plots the top x entries.
+          x=None (plot all, default), x>0 (plot top x) x<0 (plots the bottom x).
         - *labels*: plots data labels.
         - *labels_top*: only displays the top n data labels, sorted by the sensitivity index. Default is 20.
         - *title_append*: Appends this text to the title of the plot.
@@ -456,17 +501,21 @@ class SA(uq.UQ):
             sens_data=SA._plot_sensdata2array(sens,hdf5)
             if plot:
                 SA._plot_morrisplot(sens_data,output + title_append,labels,labels_top,
-                                    labels_bbox_hgt,labels_bbox_wdt)
+                                    labels_bbox_hgt,labels_bbox_wdt,plot_top=plot_top)
 
             print('\tname\t\tmu*\t\tsigma\t\tmustar_conf')
             for row in sens_data:
                 print('\t{}\t\t{:.5e}\t{:.5e}\t{:.5e}'.format(row['name'],
                       row['mustar'],row['sigma'],row['mustar_conf']))
+            print('total number of parameters: {}'.format(len(sens_data)))
 
         return ret
 
     @staticmethod
     def _plot_sensdata2array(sens,hdf5):
+        """
+        returns an array of records of type sens_data_dtype
+        """
         sens_data_dtype=[('name','S20'),('mustar',float),('sigma',float),('mustar_conf',float),
                          ('is_shp',bool),('uncert_type','S15')]
 
@@ -525,7 +574,8 @@ class SA(uq.UQ):
 
     @staticmethod
     def _plot_morrisplot(sens_data,title='',labels=True,labels_top=20,
-                         labels_bbox_hgt=.05,labels_bbox_wdt=.04,marker_override=False):
+                         labels_bbox_hgt=.05,labels_bbox_wdt=.04,marker_override=False,
+                         plot_top=None):
         """
         Plots the traditional morris plot.
 
@@ -533,6 +583,14 @@ class SA(uq.UQ):
         able to differentiate fuzzy vs prob parameters at each alpha level.
         *marker_override* changes this behavior.
         """
+
+        if plot_top!=None and plot_top<0:
+            sens_data=np.sort(sens_data,order='mustar')[0:-plot_top][::-1]
+        elif plot_top!=None and plot_top>0:
+            sens_data=np.sort(sens_data,order='mustar')[::-1][0:plot_top]
+        else:
+            sens_data=np.sort(sens_data,order='mustar')[::-1]
+
         #put the parameters that are shapes and those that aren't into separate arrays
         #sens_data_nonshapes=sens_data[sens_data['is_shp']==False]
         #sens_data_shapes=sens_data[sens_data['is_shp']==True]
@@ -540,7 +598,7 @@ class SA(uq.UQ):
         sens_data_fill=SA._plot_morrisplot_markerfacecolor(sens_data)
 
         #get the top 20 values to show in the table
-        sens_data_top=np.sort(sens_data,order='mustar')[::-1][0:20]
+        sens_data_top=sens_data[0:20]
 
         gs=gridspec.GridSpec(1,2,width_ratios=[3.0,1.5])
         plt.figure()
@@ -552,9 +610,19 @@ class SA(uq.UQ):
             plt.scatter(sens_data['mustar'],sens_data['sigma'],marker='o',facecolors=sens_data_fill)
 
         if labels:
-            lbl=[l if (i-1)<=labels_top else '' for i,l in enumerate(sens_data['name'])]
-            utilities.plot_datalabels(sens_data['mustar']+np.random.random(len(sens_data['mustar']))*1e-5,
-                                      sens_data['sigma']+np.random.random(len(sens_data['mustar']))*1e-5,
+            lbl=[l if i<labels_top else '' for i,l in enumerate(sens_data['name'])]
+
+            sens_data_mustar=sens_data['mustar']
+            sens_data_sigma=sens_data['sigma']
+
+            if abs(labels_top)>plot_top and plot_top!=None:
+                labels_top=abs(plot_top)
+
+            sens_data_mustar=sens_data_mustar[0:labels_top]
+            sens_data_sigma=sens_data_sigma[0:labels_top]
+
+            utilities.plot_datalabels(sens_data_mustar+np.random.random(len(sens_data_mustar))*1e-5,
+                                      sens_data_sigma+np.random.random(len(sens_data_sigma))*1e-5,
                                       plt.gca(),lbl,labels_bbox_hgt,labels_bbox_wdt)
 
         plt.xlabel('$\\mu^*$',fontsize=16)
@@ -580,7 +648,8 @@ class SA(uq.UQ):
     @staticmethod
     def _plot_fuzzy(hdf5,baseshapes_file,alphacuts=None,alphacut_orderby=None,
                     print_alpha_rank=False,labels=True,labels_top=20,
-                    labels_bbox_hgt=.05,labels_bbox_wdt=.04,plot=True,title_append='',mixed=False):
+                    labels_bbox_hgt=.05,labels_bbox_wdt=.04,plot=True,title_append='',mixed=False,
+                    morris_plots=False,plot_top=None):
         """
         Plots the membership function of all outputs in a fuzzy run.
 
@@ -592,8 +661,13 @@ class SA(uq.UQ):
         - *labels*: plots data labels.
         - *labels_top*: only displays the top n data labels, sorted by the sensitivity index. Default is 20.
         - *plot*: If False, only returns data
+        - *morris_plots*: If False (default) does not show the morris plots at each alpha-cut. *Plot* must be
+          True for this option to have an effect)
         - *title_append*: appends this text to any plot title.
-        - *mixed*: used by :func:`UQ._plotprobfuzzy` ONLY.
+        - *mixed*: used by :func:`SA._plotprobfuzzy` ONLY.
+        - *plot_top*: Only plots the top x entries.
+          x=None (plot all, default), x>0 (plot top x) x<0 (plots the
+          bottom x).
 
         Returns the sensitivity indices in a dictionary of the form
 
@@ -657,17 +731,17 @@ class SA(uq.UQ):
                             nbins=None,title_append=title_append,plot=False,msg=False)['shapesdata']
                 plot_data['shapesdata'][acut]=data
 
-                if plot:
+                if plot and morris_plots:
                     SA._plot_morrisplot(sens_data,'{}, alpha:{}{}'.format(output,acut,title_append),labels,labels_top,
-                                        labels_bbox_hgt,labels_bbox_wdt,marker_override)
+                                        labels_bbox_hgt,labels_bbox_wdt,marker_override,plot_top=plot_top)
 
             if plot:
-                SA._plot_morris_summary(plot_data[output],alphacut_orderby,title=output+title_append)
+                SA._plot_morris_summary(plot_data[output],alphacut_orderby,title=output+title_append,plot_top=plot_top)
 
                 #plot summary graph
                 SA._plot_morris_rhoplot(plot_data[output],labels,labels_top,
                                         labels_bbox_hgt,labels_bbox_wdt,marker_override,
-                                        title=output+title_append)
+                                        title=output+title_append,plot_top=plot_top)
         #end for output in outputs
 
         #put the parameters that are shapes and those that aren't into separate arrays
@@ -680,9 +754,10 @@ class SA(uq.UQ):
         return plot_data
 
     @staticmethod
-    def _plot_probfuzzy(hdf5,alphacuts=None,alphacut_orderby=None,
+    def _plot_probfuzzy(hdf5,baseshapes_file,alphacuts=None,alphacut_orderby=None,
                     print_alpha_rank=False,labels=True,labels_top=20,
-                    labels_bbox_hgt=.05,labels_bbox_wdt=.04,title_append='',plot=True):
+                    labels_bbox_hgt=.05,labels_bbox_wdt=.04,title_append='',plot=True,
+                    morris_plots=False,plot_top=None):
         """
         Plots the membership function of all outputs in a fuzzy run.
 
@@ -705,10 +780,11 @@ class SA(uq.UQ):
         return SA._plot_fuzzy(hdf5_2,None,alphacuts=alphacuts,alphacut_orderby=alphacut_orderby,
                              print_alpha_rank=print_alpha_rank,labels=labels,labels_top=labels_top,
                              plot=plot,mixed=True, title_append=title_append,
-                             labels_bbox_hgt=labels_bbox_hgt,labels_bbox_wdt=labels_bbox_wdt)
+                             labels_bbox_hgt=labels_bbox_hgt,labels_bbox_wdt=labels_bbox_wdt,
+                             morris_plots=morris_plots,plot_top=plot_top)
 
     @staticmethod
-    def _plot_morris_summary(plot_data,alphacut_orderby,plot_grid_sz=4,title=''):
+    def _plot_morris_summary(plot_data,alphacut_orderby,plot_grid_sz=4,title='',plot_top=None):
         """
         Plots the morris indices for the first *plot_grid_sz* x *plot_grid_sz*
         parameters as a function of membership level.
@@ -718,6 +794,9 @@ class SA(uq.UQ):
         - *alphacut_orderby*: the alpha level to order the final results by. Must be a value
           contained in the keys of *plot_data*. Defaults to the lowest available alpha level.
         - *plot_grid_sz*: the number of rows and columns the plot will have.
+        - *plot_top*: plots only this number of variables. If >0 plots the top variables, <0
+          plots the bottom ones. The number of variables is limited to plot_grid_sz**2.
+          Default is None which sets plot_top=plot_grid_sz**2.
         """
         alphacuts=plot_data.keys()
 
@@ -730,7 +809,20 @@ class SA(uq.UQ):
                 raise Exception('alpha level {} not in the alphacuts list'.format(alphacut_orderby))
             plot_mustar_acut_sort=alphacut_orderby
 
-        sens_data_top=np.sort(plot_data[plot_mustar_acut_sort],order='mustar')[::-1][0:plot_grid_sz*plot_grid_sz]
+        #plot only the top or bottom n variables. n is given by plot_top
+        if plot_top!=None and plot_top<0:
+            #gets the bottom variables
+            plot_top*=-1
+            sens_data_top=np.sort(plot_data[plot_mustar_acut_sort],order='mustar')[0:plot_top]
+            plot_top=min(plot_top,plot_grid_sz*plot_grid_sz)
+            #gets the top ones out of those
+            sens_data_top=sens_data_top[::-1][0:plot_top]
+        elif plot_top!=None and plot_top>0:
+            plot_top=min(plot_top,plot_grid_sz*plot_grid_sz)
+            sens_data_top=np.sort(plot_data[plot_mustar_acut_sort],order='mustar')[::-1][0:plot_top]
+        else:
+            plot_top=plot_grid_sz*plot_grid_sz
+            sens_data_top=np.sort(plot_data[plot_mustar_acut_sort],order='mustar')[::-1][0:plot_top]
 
         plt.figure()
         gs=gridspec.GridSpec(plot_grid_sz,plot_grid_sz)
@@ -767,9 +859,7 @@ class SA(uq.UQ):
                 else:
                     markerfill[j]=(0,0,0,1)
 
-            #ax2.plot(alphacuts,mustar,'*k')
             ax2.scatter(alphacuts,mustar,marker='*',facecolors=markerfill,s=55)
-            #ax1.plot(alphacuts,sigma,'ok')
             ax1.scatter(alphacuts,sigma,marker='o',facecolors=markerfill)
 
             #plot the sort-by value in red
@@ -815,7 +905,7 @@ class SA(uq.UQ):
 
     @staticmethod
     def _plot_morris_rhoplot(plot_data,labels=True,labels_top=20,labels_bbox_hgt=.05,
-                             labels_bbox_wdt=.04,marker_override=False,title=''):
+                             labels_bbox_wdt=.04,marker_override=False,title='',plot_top=None):
         """
         Plots the std dev of mu* across all memb levels vs E(mu*) for each parameter.
 
@@ -876,11 +966,6 @@ class SA(uq.UQ):
 
         rankednames=rankings.keys()
 
-        #for marker fills, get the uncert_type from the first available acut.
-        #(the uncert_type wont change across memb levels.)
-        #e.g., a parameter may change from fuzzy to fuzzy-const but never to prob.)
-        markerfill=SA._plot_morrisplot_markerfacecolor(sens_data_0,rankednames)
-
         x=np.zeros(len(rankings))
         y=np.zeros(len(rankings))
         for i,ranks in enumerate(rankings.itervalues()):
@@ -907,14 +992,44 @@ class SA(uq.UQ):
 #                final_rank[i]=(1-1/(len(rankings)-1.)*(modes[i]-1))*modes[i] + (1-2/(len(rankings)-1.)*(modes[i]-1))*counts[i]
 #        x=final_rank
 
+        #sort_idx=np.argsort(final_rank)[::-1] #use this one when using the other ranking methods
+        sort_idx=np.argsort(x)[::-1] #use this one when ranking using mean and std
+        if rank_metric=='rank':
+            sort_idx=np.argsort(x)
+        sorted_ranks_x=[]
+        sorted_ranks_y=[]
+        sorted_vars=[]
+        print('name\tranking coeff.')
+        for i in sort_idx:
+            print('{}\t{}'.format(rankednames[i],x[i]))
+            sorted_ranks_x.append(x[i])
+            sorted_ranks_y.append(y[i])
+            sorted_vars.append(rankednames[i])
+        print('total number of parameters: {}'.format(len(sort_idx)))
+
+        if plot_top!=None and plot_top<0:
+            sorted_ranks_x=sorted_ranks_x[::-1][0:-plot_top]
+            sorted_ranks_y=sorted_ranks_y[::-1][0:-plot_top]
+            sorted_vars=sorted_vars[::-1][0:-plot_top]
+        elif plot_top!=None and plot_top>0:
+            sorted_ranks_x=sorted_ranks_x[0:plot_top]
+            sorted_ranks_y=sorted_ranks_y[0:plot_top]
+            sorted_vars=sorted_vars[0:plot_top]
+
+
+        #for marker fills, get the uncert_type from the first available acut.
+        #(the uncert_type wont change across memb levels.)
+        #e.g., a parameter may change from fuzzy to fuzzy-const but never to prob.)
+        markerfill=SA._plot_morrisplot_markerfacecolor(sens_data_0,sorted_vars)
+
         gs=gridspec.GridSpec(1,2,width_ratios=[3.0,1.5])
 
         plt.figure()
         plt.subplot(gs[0])
         if marker_override:
-            plt.plot(x,y,'ok')
+            plt.plot(sorted_ranks_x,sorted_ranks_y,'ok')
         else:
-            plt.scatter(x,y,marker='o',facecolor=markerfill)
+            plt.scatter(sorted_ranks_x,sorted_ranks_y,marker='o',facecolor=markerfill)
 
         if rank_metric=='mustar':
             plt.xlabel('$E(\\mu^*)$',fontsize=16)
@@ -929,31 +1044,33 @@ class SA(uq.UQ):
             plt.ylabel('$\\sigma(\\rho)$',fontsize=16)
             col_labels=['name','E(rho)']
             plt.gca().invert_xaxis()
-            plt.xlim(len(rankings)*1.05,-0.03)
+            plt.xlim(len(sorted_vars)*1.05,-0.03)
 
-        #sort_idx=np.argsort(final_rank)[::-1] #use this one when using the other ranking methods
-        sort_idx=np.argsort(x)[::-1] #use this one when ranking using mean and std
-        if rank_metric=='rank':
-            sort_idx=np.argsort(x)
-        sorted_ranks_x=[]
-        sorted_ranks_y=[]
-        sorted_vars=[]
-        print('name\tranking coeff.')
-        for i in sort_idx:
-            print('{}\t{}'.format(rankednames[i],x[i]))
-            sorted_ranks_x.append(x[i])
-            sorted_ranks_y.append(y[i])
-            sorted_vars.append(rankednames[i])
+
 
         #add small random offsets to avoid overlapping labels
         if labels:
+            if plot_top!=None and plot_top<0:
+                sorted_ranks_x=sorted_ranks_x[::-1]
+                sorted_ranks_y=sorted_ranks_y[::-1]
+                sorted_vars=sorted_vars[::-1]
+
             lbl=[l if (i-1)<=labels_top else '' for i,l in enumerate(sorted_vars)]
-            utilities.plot_datalabels(sorted_ranks_x+np.random.random(len(rankings))*1e-5,
-                                      sorted_ranks_y+np.random.random(len(rankings))*1e-5,plt.gca(),
+
+            if plot_top!=None and labels_top>abs(plot_top):
+                labels_top=abs(plot_top)
+
+            x=sorted_ranks_x[0:labels_top]
+            y=sorted_ranks_y[0:labels_top]
+
+            utilities.plot_datalabels(x+np.random.random(len(x))*1e-5,
+                                      y+np.random.random(len(y))*1e-5,plt.gca(),
                                       lbl,labels_bbox_hgt,labels_bbox_wdt)
 
+
         plt.subplot(gs[1])
-        #get only top 20
+
+        #get only top 20 for the table
         table_data=np.vstack((sorted_vars[0:20],
                               ['{:.2e}'.format(r) for r in sorted_ranks_x[0:20]])).T
 

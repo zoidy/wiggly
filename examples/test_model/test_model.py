@@ -6,7 +6,6 @@
 #################################################################
 import optparse
 import sys
-sys.path.append("P:\\dissertation\\4-research\\1.my work\\software")
 import wiggly as w
 from puqutil import dump_hdf5
 

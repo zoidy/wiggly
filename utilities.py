@@ -14,7 +14,7 @@ import os,time,re
 #:
 #: 5=error, 4=warning, 3=information (default), 2=verbose, 1=debug
 MESSAGE_LEVEL=3
-def msg(string,level='i',indent=0,timelevel=True):
+def msg(string,level='i',indent=0,timelevel=True,newline=True):
     """
     Prints a message.
 
@@ -32,6 +32,7 @@ def msg(string,level='i',indent=0,timelevel=True):
 
       From top to bottom means lowest number to highest number of message output.
     """
+    string=str(string)
     if level=='e':
         levelnum=1
     elif level=='w':
@@ -49,7 +50,8 @@ def msg(string,level='i',indent=0,timelevel=True):
 
     if levelnum<=MESSAGE_LEVEL:
         #print(time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()) + "["+level+"]: " + "\t"*indent + string)
-        print(timelevelstr + "\t"*indent + string)
+        if newline:     print(timelevelstr + "\t"*indent + string)
+        if not newline: print(timelevelstr + "\t"*indent + string),
 
 def clearall():
     """
@@ -135,6 +137,29 @@ def cor2cov(correlation,variances):
             cov[i,j] = correlation[i,j]*np.sqrt(variances[i])*np.sqrt(variances[j])
 
     return cov
+def normalRange2MeanSd(pct_lower,pct_upper,pct=0.01,log=False):
+    """
+    Returns the mean and standard deviation of the normal distribution
+    defined by the lower and upper percentiles defined by pct.
+
+    E.g., if pct=0.01, then pct_lower corresponds to the 1% and pct_upper is 99%
+
+    If log=True, then takes the log of pct_lower and pct_upper first. This essentially
+    gets the mean and sd of the lognormal distribution with those percentiles.
+    """
+    if log:
+        if pct_lower<=0 or pct_upper<=0:
+            raise Exception('pct_lower and pct_lower must be >0 if using option log=True')
+        pct_lower=np.log(pct_lower)
+        pct_upper=np.log(pct_upper)
+
+    avg=(pct_lower+pct_upper)/2.
+
+    #from definition of z-score
+    sd=abs((pct_lower-avg)/scipy.stats.norm().ppf(pct))
+
+    return avg,sd
+
 def fuzzyOffset2Absolute(fuzzyNumbers,referenceNumbers):
     """
     Converts a list of TrapezoidalFuzzyNumbers from offsets relative to some number to absolute fuzzy  numbers.
@@ -208,8 +233,17 @@ def puqParams_fromFile(filename):
 
     'desc', 'value' are the parameter name description and value respectively.
     """
+    # notfound1=''
+    # notfound2=''
+    # if not os.path.exists(filename):
+        # notfound1=filename
+    # if not os.path.exists(os.path.join(os.getcwd(),filename)):
+        # notfound2=os.path.join(os.getcwd(),filename)
+    # if notfound1!='' and notfound2!='':
+        # raise Exception('Could not find params named {} or {}'.format(notfound1,notfound2))
+
     #paramvalues is a list of tuples.
-    paramValues=np.loadtxt(filename,
+    paramValues=np.loadtxt(filename,ndmin=1,delimiter='\t',
                    dtype={"names":("p_name","p_val","p_desc"),
                           "formats":(np.object,np.float,np.object)})
     params={}
@@ -720,6 +754,34 @@ def tickLabels_keepEvery(axis,xy,n,keep_endpoints=False):
         curr_labels[0].set_visible(True)
         curr_labels[-1].set_visible(True)
 
+def plot_tickAdjust(tick_adjust):
+    """
+    adjust the tick spaciing for the given figs.
+
+    tick_adjust is a dictionary
+
+        {fig_num:{'axes':[list of axis numbers], 'which':[list of 'x' or 'y' axis],
+                  'keepevery':[list of keep every nth tick for the corresponding axis],
+                  'keependpoints':[list of bool (optional)]}}
+
+    """
+    for fig in tick_adjust:
+        if fig in plt.get_fignums():
+            plt.figure(fig)
+
+            for i,axnum in enumerate(tick_adjust[fig]['axes']):
+                ax=plt.gcf().axes[axnum]
+
+                if 'keependpoints' in tick_adjust[fig]:
+                    tickLabels_keepEvery(ax,xy=tick_adjust[fig]['which'][i],
+                                         n=tick_adjust[fig]['keepevery'][i],
+                                         keep_endpoints=tick_adjust[fig]['keependpoints'][i])
+                else:
+                    tickLabels_keepEvery(ax,xy=tick_adjust[fig]['which'][i],
+                                         n=tick_adjust[fig]['keepevery'][i])
+        #reset the tight layout
+        plt.tight_layout()
+
 def plot_setFont(ax,size=20,items=['title','xlabel','ylabel','xtick','ytick']):
     """
     Sets the font size of the given items to the given value for the given axis
@@ -739,6 +801,45 @@ def plot_setFont(ax,size=20,items=['title','xlabel','ylabel','xtick','ytick']):
     #http://stackoverflow.com/a/14971193
     for item in axis_items:
         item.set_fontsize(size)
+
+def plot_setFigFontAndProps(fig_kwargs=None,axes=None):
+    """
+    Modifies the given figures by increasing the font size and setting tight_layout.
+    Also applies additional modifications given by fig_kwargs
+
+    - *fig_kwargs*: dictionary. The keys are figure numbers. If a figure with that number
+      doesn't exist it is ignored. The values are dictionaries with kwargs to pass to
+      plt.setp().
+
+        {fig_num:{'prop1':value, ...}}
+
+      If fig_kwargs is set to None, all figurs are processed
+    - *axes*: if set, this should be a dictionary with the same keys as fig_kwargs.
+      THe values are a list of integer which tells which axis setp should operate on.
+      If not set, all axes of each figure are used.
+    """
+    if fig_kwargs==None:
+        fig_kwargs=dict([(fig,{}) for fig in plt.get_fignums()])
+    if axes!=None and len(axes)==0:
+        axes=None
+    for fig in fig_kwargs:
+        if fig in plt.get_fignums():
+            plt.figure(fig)
+
+            if axes!=None and fig in axes:
+                axnums=axes[fig]
+            else:
+                axnums=range(len(plt.gcf().axes))
+
+            for axnum in axnums:
+                ax=plt.gcf().axes[axnum]
+                if len(fig_kwargs[fig])>0:
+                    plt.setp(ax,**fig_kwargs[fig])
+                #increase font size
+                plot_setFont(ax)
+
+            #reset the tight layout
+            plt.tight_layout()
 
 def saveAllFigures(fmt='png',appendtxt='',fignum=None,dpi=125,outdir=None):
     """
@@ -770,24 +871,29 @@ def saveAllFigures(fmt='png',appendtxt='',fignum=None,dpi=125,outdir=None):
         os.chdir(outdir)
 
     msg('Saving figures to {}'.format(os.getcwd()))
+    lbls=[]
     try:
         for i in plt.get_fignums():
             lbl=plt.figure(i).get_label()
             if lbl=='':
                 lbl=str(i)
-
             s='fig {}{}.{}'.format(lbl,appendtxt,fmt)
             if fignum!=None:
                 if lbl in fignum:
                     msg("saving '{}'".format(s))
                     plt.savefig(s,dpi=dpi)
             else:
-                msg("saving '{}'".format(s))
-                plt.savefig(s,dpi=dpi)
+               msg("saving '{}'".format(s))
+               plt.savefig(s,dpi=dpi)
+
+            lbls.append(lbl)
+        msg('Currently opened figures: {}'.format(lbls))
     except Exception,e:
         msg('Could not save figures. {}.'.format(str(e)))
     finally:
         os.chdir(oldwd)
+
+
 
 def natural_keys(text):
     def atoi(text):

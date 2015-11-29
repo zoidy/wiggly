@@ -4,23 +4,34 @@
 #
 # The model consists of a mixture of shapes and non-shape
 # parameters, both probabilistic and fuzzy.
+#
+# Pay special attention to the comments labelled as MP.
 #################################################################
 
-#REQUIRED to protect code with __name__=='__main__'.
-#Since in this example, we will pass the test model as a function handle,
-#Wiggly will make use of multiprocessing. See the Python documentation
-#on multiprocessing for more details.
-if __name__=='__main__':
 
-    import random
-    import numpy as np
-    import matplotlib.pyplot as plt
-    import sys
-    sys.path.append("P:\\dissertation\\4-research\\1.my work\\software")
-    import wiggly as w
-    import test_model
+#MP
+#In this example, we will pass the test model as a function handle to the UA
+#engine. The function test_model.run() will be run in parallel using the
+#multiprocessing module. Therefore, according to the module's documentation,
+#the following conditions must be met for it work:
+#   1. The function to be run in parallel must exist at the module level,
+#      not as part of a class. (This condition is met by test_model.run)
+#   2. The parent modules must be importable by multiprocessing. This includes
+#      All modules imported by the parent modules as well.
 
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+import sys,os
+import wiggly as w
 
+#MP: satisfy requirement 2.
+#allow the child processes to find test_model
+_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(_dir)
+import test_model
+
+def go():
     plt.close('all')
 
     #the number of probabilistic and fuzzy samples to use.
@@ -124,7 +135,7 @@ if __name__=='__main__':
     #dictionaries.
     probVars={}
     consts={}
-        
+
     probVars['x']={'dist':'normal', 'kwargs':{'mean':0, 'dev':6}, 'desc':'normal, mu=0 sd=6'}
     probVars['y']={'dist':'uniform', 'kwargs':{'min':-3,'max':7.5}, 'desc':'uniform, min=-3, max=7.5'}
     consts['c']={'value':1.103, 'desc':'constant c'}
@@ -192,7 +203,7 @@ if __name__=='__main__':
 
     #set the working directory if desired. If None, it will use the current
     #Python working directory.
-    wdir=None
+    wdir=_dir
 
     #run the analysis. The output files will be saved in a subdirectory
     #of wdir, named using the current date and time.
@@ -206,3 +217,7 @@ if __name__=='__main__':
 
     #when we're finished, show the plots
     plt.show()
+
+#MP: Required to protect code with __name__=='__main__'.
+if __name__=='__main__':
+    go()

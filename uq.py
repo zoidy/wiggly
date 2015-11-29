@@ -36,17 +36,44 @@ class UQ(object):
 
       The function must exist at the module level (not inside a class). The function must
       take two named arguments, args and jobinfo, and return the jobinfo argument without modifying
-      it.  E.g., if the function is named f,::
+      it.
 
-          def f(args=None, jobinfo=None):
-              <evaluate your model here>
-              return jobinfo
+      The args parameter is a list of strings that can be parsed by the argparse module. It contains
+      at least two arguments:
 
-      The args parameter is a list of strings that can be parsed by the optparse module. It contains
-      at least two arguments: 'paramsFile' and 'baseshapes' which are described above in the
+          '--paramsFile' and '--baseShapes'
+
+      which are described above in the
       *testProgScriptFile* parameter. Additional arguments, along with their values may be
       specifed in the *args* parameter of this method.
-    - *args*: extra arguments to pass to *testProgScriptFile* or *testProgFunc*.
+
+      E.g., if the function is named f,::
+
+          def f(args=None, jobinfo=None):
+             try:
+                parser=argparse.ArgumentParser()
+                parser.add_argument("--paramsFile")
+                parser.add_argument("--baseShapes")
+                known_args,unknown_args=parser.parse_known_args(args)
+              except SystemExit:
+                raise Exception('There was an error parsing the ''args'' parameter.')
+
+              #access the values of the parsed args
+              var1=known_args.paramsFile
+              var2=known_args.baseShapes
+
+              <evaluate your model here>
+
+              return jobinfo
+
+
+    - *args*: extra arguments to pass to *testProgScriptFile* or *testProgFunc*. For example,
+      to pass an extra parameter with the name 'param1' with value 2, *args* should be set to
+
+          ['--param1=2']
+
+      Within the model, this parameter is accessed in the same way as shown in *testProgScriptFile*
+      and *testProgScriptFile*.
     - *workingDir*: the working directory where all scripts are located and where input and output
       files will be read/written.
       By default, its the current python working dir.
@@ -60,7 +87,7 @@ class UQ(object):
       The keys are the variable name. The value is a dictionaries which specifies the rest of the parameter.
 
           - Key 'dist': a string corresponding to some of the Parameter distribution types supported by puq.
-            Valid values are: 'uniform', 'normal', 'triangular'.
+            Valid values are: 'uniform', 'normal', 'lognormal', 'triangular'.
           - Key 'desc': a string description of the variable.
           - Key 'kwargs' is a dictionary specifying the parameters of the distribution selected in 'dist'.
             See the puq reference for the Parameters class for the names of the kwargs for each distribution.
@@ -103,11 +130,13 @@ class UQ(object):
       Note: since the callback is called after every sweep, for fuzzy and mixed runs, it will
       be called multiple times. Ie. after each hdf5 file is generated.
     - *outfiles*: a list of files outut by the testProgram which will be copied to the hdf5 file.
+    - *pool_recycle_every*: recycles the process pool every n runs of puq-wiggly (fuzzy and
+      mixed analysis only). Default is 60.
     """
     def __init__(self,testProgScriptFile=None,testProgFunc=None,args=[],testProgDesc=None,workingDir=None,
                  objMgr=None,baseShapesName='shapes.json',probVars={},fuzzyVars={},
                  fuzzyVarACuts=[],consts={},n_prob=None,n_fuzzy=None,seed=None,
-                 outfiles='',sweep_cb=None):
+                 outfiles='',sweep_cb=None,pool_recycle_every=60):
 
         if probVars==None:
             raise Exception('probVars cannot be None')
@@ -135,6 +164,7 @@ class UQ(object):
             raise Exception('No uncertain objects or parameters specified. Nothing to do!')
 
         self._extra_args=args
+        self._pool_recycle_every=pool_recycle_every
 
         if seed!=None:
             random.seed(seed)
@@ -157,6 +187,7 @@ class UQ(object):
             raise Exception('{} does not exist'.format(workingDir))
         self._oldwd=os.getcwd()
         self._workingDir=workingDir
+        utilities.msg('Working directory: {}'.format(self._workingDir))
 
         #build the path to the test program
         if testProgScriptFile!=None:
@@ -213,13 +244,21 @@ class UQ(object):
         #set up constants
         self._puqparams_const=[]
         for cname,data in self._consts.iteritems():
-            self._puqparams_const.append(puq.ConstantParameter(cname,data['desc'],
+            if 'desc' not in data:
+                raise Exception('{} is missing attribute "desc"'.format(cname))
+            if 'value' not in data:
+                raise Exception('{} is missing attribute "value"'.format(cname))
+            desc=data['desc']
+            value=data['value']
+            if desc=='' or desc==None:
+                desc='N/A' #there will be an error in objectmanager if this is blank
+            if value=='' or value==None:
+                raise Exception('"value" for {} cannot be None'.format(cname))
+            self._puqparams_const.append(puq.ConstantParameter(cname,desc,
                                                                attrs=[('uncert_type','const')],
-                                                               value=data['value']))
-
+                                                               value=value))
         #*********************************
         #set up fuzzy variables
-
         if self._objMgr!=None and len(self._objMgr.fuzzyObjects)>0:
             self._acuts=self._objMgr.fuzzyObjects[0].realizations.keys()
             if len(self._fuzzyVarAcuts)>0:
@@ -233,6 +272,9 @@ class UQ(object):
                 raise Exception('FuzzyVarACuts was specified therefore fuzzyVars must also be given')
             if len(self._fuzzyVarAcuts)==0 and len(self._fuzzyVars)==0:
                 #there are no fuzzy things of any kind
+                self._acuts=[]
+            elif self._n_fuzzyval==None and len(self._fuzzyVarAcuts)>0:
+                utilities.msgs('Alphacuts were specified but n_fuzzy was not given','w')
                 self._acuts=[]
             else:
                 if self._n_fuzzy==None:
@@ -260,14 +302,20 @@ class UQ(object):
         #add the non-shape fuzzy parameters
         for acut in self._acuts:
             for fuzzyVar,data in self._fuzzyVars.iteritems():
+
                 #build a new fuzzy number
                 fn=fuzz.TrapezoidalFuzzyNumber(kernel=(data['kl'],data['ku']),
                                                support=(data['sl'],data['su']))
 
                 cut=fn.alpha(acut)
 
+                desc=data['desc']
+                if desc=='' or desc==None:
+                    desc='N/A' #there will be an error in objectmanager if this is blank
+
+
                 #build a puq parameter for this alpha cut
-                param=puq.UniformParameter(fuzzyVar,data['desc'],
+                param=puq.UniformParameter(fuzzyVar,desc,
                                            attrs=[('uncert_type','fuzzy')],
                                            min=cut[0],max=cut[1])
 
@@ -313,17 +361,28 @@ class UQ(object):
 
         #setup scalar probabilistic vars
         for varname,data in self._probVars.iteritems():
+            if 'dist' not in data:
+                raise Exception('{} is missing the "dist" attribute'.format(varname))
+            if 'desc' not in data:
+                raise Exception('{} is missing the "desc" attribute'.format(varname))
+            desc=data['desc']
+            if desc=='' or desc==None:
+                desc='N/A' #there will be an error in objectmanager if this is blank
             if data['dist']=='normal':
                 p=puq.NormalParameter(varname,
-                                      data['desc'],attrs=[('uncert_type','prob')],
+                                      desc,attrs=[('uncert_type','prob')],
+                                      **data['kwargs'])
+            elif data['dist']=='lognormal':
+                p=puq.LognormalParameter(varname,
+                                      desc,attrs=[('uncert_type','prob')],
                                       **data['kwargs'])
             elif data['dist']=='uniform':
                 p=puq.UniformParameter(varname,
-                                       data['desc'],attrs=[('uncert_type','prob')],
+                                       desc,attrs=[('uncert_type','prob')],
                                        **data['kwargs'])
             elif data['dist']=='triangular':
                 p=puq.TriangParameter(varname,
-                                      data['desc'],attrs=[('uncert_type','prob')],
+                                      desc,attrs=[('uncert_type','prob')],
                                       **data['kwargs'])
             else:
                 raise Exception("'{}' distribution is not supported for variable {}".format(data['dist'],
@@ -421,10 +480,11 @@ class UQ(object):
         try:
             for i,acut in enumerate(sorted(self._acuts,reverse=True)):
                 pool=self._get_processPool(pool)
+                sweepid='@{:1.1f}'.format(acut)
                 sweep=self._sweep_setup(self._puqparams_fuzzy[acut]['params']+self._puqparams_const,
                                         self._n_fuzzy[acut],
                                         'fuzzy run (alpha-cut {} from set {})'.format(acut,self._acuts),
-                                        pool)
+                                        pool,sweepid=sweepid)
 
                 ctypes.windll.kernel32.SetConsoleTitleA( \
                     '{} jobs in puq run {} of {} (a-cut {})'.format(self._n_fuzzy[acut],
@@ -433,7 +493,7 @@ class UQ(object):
 
                 utilities.msg('Puq run {} of {} (alpha-cut {})...'.format(i+1,len(self._acuts),acut))
                 print('')
-                hdf5=self._hdf5_basename +' @{:1.1f}.hdf5'.format(acut)
+                hdf5=self._hdf5_basename +' ' +sweepid+'.hdf5'
                 if not sweep.run(hdf5,dryrun=self._dryrun):
                     raise Exception('error running sweep')
                 print('')
@@ -546,9 +606,10 @@ class UQ(object):
                         random.setstate(py_rndstate_probloop)
                         np.random.set_state(np_rndstate_probloop)
 
+                    sweepid='@{:1.1f}#{}'.format(acut,j)
                     sweep=self._sweep_setup(puq_fuzzy_consts+self._puqparams_prob+self._puqparams_const,
                                     self._n_prob,'probabilistic-fuzzy sweep, a-cut:{} run:{}'.format(acut,j+1),
-                                    proc_pool=pool)
+                                    proc_pool=pool,sweepid=sweepid)
 
                     cumpuqruns+=1
 
@@ -560,7 +621,7 @@ class UQ(object):
                     utilities.msg('Puq run {} of {} (alpha-cut {}, run {})...'.format(cumpuqruns,
                                       totalpuqruns,acut,j+1))
                     print('')
-                    hdf5=self._hdf5_basename +' @{:1.1f}#{}.hdf5'.format(acut,j)
+                    hdf5=self._hdf5_basename +' ' +sweepid+'.hdf5'
                     if not sweep.run(hdf5,dryrun=self._dryrun):
                         raise Exception('error running sweep')
                     ret[acut].append(os.path.join(os.getcwd(),hdf5))
@@ -591,7 +652,7 @@ class UQ(object):
 
         return ret
 
-    def _sweep_setup(self,puqparams,n,desc='',proc_pool=None):
+    def _sweep_setup(self,puqparams,n,desc='',proc_pool=None,sweepid=''):
         """
         Sets up a single sweep for the given parameters.
 
@@ -599,19 +660,24 @@ class UQ(object):
         - *n*: The number of runs.
         - *proc_pool*: an instance of multiprocessing.Pool. If not specified, a new Pool will
           be created.
+        - *sweepid*: extra info to identify this sweep as part of a particular hdf5 file.
+          Only fuzzy and mixed analyses will set this flag. Probabilistic runs only have 1
+          hdf5 file.
 
         Returns a Sweep object.
         """
         uq=puq.MonteCarlo(params=puqparams,num=n,response=False,iteration_cb=self._sweep_cb)
-        return self._sweep_setup_helper(uq,desc,proc_pool)
+        return self._sweep_setup_helper(uq,desc,proc_pool,sweepid)
 
-    def _sweep_setup_helper(self,sweep,desc='',proc_pool=None):
+    def _sweep_setup_helper(self,sweep,desc='',proc_pool=None,sweepid=''):
         utilities.msg('_sweep_setup() Called by module {}'.format(self._calling_script),'d')
 
         #if we are at a message level of verbose or debug,
         #enable extra output in puq.
         if utilities.MESSAGE_LEVEL>3:
             puq.options['verbose']=2
+        else:
+            puq.options['verbose']=1
 
         #set up the argument to pass to the test program. Use the file method of passing
         #arguments. This means that --paramsFile an --baseShapes are always required.
@@ -627,7 +693,7 @@ class UQ(object):
                                  newdir=True,paramsByFile=True,desc=self._testProgDesc,
                                  outfiles=self._outfiles)
             sweep=puq.Sweep(sweep,puq.InteractiveHost(cpus_per_node=self._parallel_jobs),prog,
-                            description='Wiggly UQ ' + desc)
+                            description='Wiggly UQ ' + desc,sweepid=sweepid)
         elif self._testProgFunc!=None:
             prog=puq.TestProgram(func=self._testProgFunc,
                                  func_args=args,
@@ -636,7 +702,7 @@ class UQ(object):
             sweep=puq.Sweep(sweep,puq.InteractiveHostMP(cpus_per_node=self._parallel_jobs,
                                                      proc_pool=proc_pool),
                             prog,
-                            description='Wiggly UQ ' + desc)
+                            description='Wiggly UQ ' + desc,sweepid=sweepid)
 
         sweep.input_script=self._calling_script
 
@@ -678,7 +744,7 @@ class UQ(object):
             utilities.msg('_get_processPool: create new pool {}'.format(repr(p)),'d')
         elif self._testProgFunc==None:
             p=None
-        elif self._get_processPool_counter>60 and self._testProgFunc!=None:
+        elif self._get_processPool_counter>self._pool_recycle_every and self._testProgFunc!=None:
             old_pool.close()
             old_pool.join()
             p=multiprocessing.Pool(processes=self._parallel_jobs)
@@ -691,7 +757,7 @@ class UQ(object):
         return p
 
     @staticmethod
-    def get_results(hdf5,baseshapes_file='shapes.json'):
+    def get_results(hdf5,baseshapes_file='shapes.json',**kwargs):
         """
         Returns the results of the run in varying formats, without plotting.
 
@@ -702,14 +768,14 @@ class UQ(object):
 
         ret=None
 
-        if type(hdf5) is str:
-            ret=UQ._plot_probabilistic(hdf5,baseshapes_file,plot=False)
+        if type(hdf5) is str or type(hdf5) is unicode:
+            ret=UQ._plot_probabilistic(hdf5,baseshapes_file,plot=False,**kwargs)
         elif type(hdf5) is dict:
             if len(hdf5)>0:
                 if type(hdf5[hdf5.keys()[0]]) is str:
-                    ret=UQ._plot_fuzzy(hdf5,baseshapes_file,plot=False)
+                    ret=UQ._plot_fuzzy(hdf5,baseshapes_file,plot=False,**kwargs)
                 elif type(hdf5[hdf5.keys()[0]]) is list:
-                    ret=UQ._plot_probfuzzy(hdf5,plot=False)
+                    ret=UQ._plot_probfuzzy(hdf5,baseshapes_file,plot=False,**kwargs)
                 else:
                     utilities.msg('Could not get results. hdf5 parameter dictionary must contain strings or lists of strings','e')
             else:
@@ -727,7 +793,8 @@ class UQ(object):
         """
         Plots results, and also returns them in varying formats. See table below.
 
-        - *hdf5*: The hdf5 files to plot.
+        - *hdf5*: The hdf5 files to plot. Can pass in the result of
+          :func:`UQ.find_all_hdf5`.
         - *baseshapes_file*: The full path of the json file containing the
           baseshapes . If no path is specified, it will be taken from the *hdf5* parameter.
           If that contains no path, then the current working directory is used.
@@ -739,9 +806,9 @@ class UQ(object):
         Returns the data used to generate each plot. This data can be used for
         generating custom plots or perform additional analyses.
 
-        ============== =================================================================
+        ============== =============================================================================
         type(hdf5)      plot type
-        ============== =================================================================
+        ============== =============================================================================
         string         Probabilistic.
                        CDF and histogram plot for each output.
 
@@ -753,17 +820,15 @@ class UQ(object):
                              histogram. Default is True.
                            - *nbins*: Number of bins to use for
                              histogram. Default is None (auto).
-                           - *return_fullshapesdata*: If False, the 'shapesdata'
-                             value will contain a
-                             list of Shapely shapes. See below. Default is False.
+                           - *return_fullshapesdata*: See below. Default is False.
 
-                       Returns: a dictionary. The 'shapesdata' key contains all
-                       the shapely shapes generated in this run in the form of a list,
-                       [shpdata].
+                       Returns: a dictionary with keys equal to the names of the outputs
 
                            {$outputName$:r_[samples (float)], ..., 'shapesdata':[shpdata] }
 
-                       If *return_fullshapesdata* =True then [shpdata] becomes a dictionary:
+                       The 'shapesdata' entry contains all the shapes generated in this
+                       run in the form of a list of Shapely objects. If
+                       *return_fullshapesdata* =True then the list item shpdata becomes a dictionary:
 
                            {'name':<string>, 'shp':<Shapely object>, 'desc':<string>,
                            'type':<string>, 'alphacut':None, ...}
@@ -785,17 +850,22 @@ class UQ(object):
                              True. If False grayscale is used. If it is float, it
                              must be between 0.0 and 1.0, indicating a
                              specific shade of grey.
-                           - *return_fullshapesdata*: If False, the 'shapesdata'
-                             value will contain a
-                             list of Shapely shapes. See below. Default is False.
+                           - *return_fullshapesdata*: See below. Default is False.
+                           - *return_n_shapes*: If there are too many shapes to return,
+                             (eg., if there are too many shapes with too many points and
+                             too many realization), limits the number of shapes returned
+                             from each hdf5 file to this number. Default is None (return
+                             all shapes).
 
-                       Returns: a dictionary. The 'shapesdata' key contains all
-                       the shapes for all alpha cuts.
+                       Returns: a dictionary with keys equal to the names of the outputs.
+                       Each value is a dictionary with keys equal to alpha cuts.
 
                            {$outputName$:{$acut$:r_[samples (float)], ...}, ...,
                            'shapesdata':{$acut:[shpdata], ...}}
 
-                       If *return_fullshapesdata* =True then [shpdata] is a dictionary:
+                       The 'shapesdata' entry contains all the shapes generated in this
+                       run in the form of a list of Shapely objects. If
+                       *return_fullshapesdata* =True then the list item shpdata becomes a dictionary:
 
                            {'name':<string>, 'shp':<Shapely object>, 'desc':<string>,
                            'type':<string>, 'alphacut':<float>, ...}
@@ -845,16 +915,40 @@ class UQ(object):
                                  {'X':yyy, ...}
 
                              Default value is None.
+                           - *estimate_at_prob*: a dictionary. Same as *estimate_at_value*
+                             except 0 <= yyy <= 1 indicates a probability.
+                           - *return_fullshapesdata*: See below. Default is False.
+                           - *return_n_shapes*: If there are too many shapes to return,
+                             (eg., if there are too many shapes with too many points and
+                             too many realization), limits the number of shapes returned
+                             from each hdf5 file to this number. Default is None (return
+                             all shapes).
 
-                        Returns: dictionary.
+                             e.g., if *return_n_shapes* =4, only the first 4 realizations
+                             of all shapes will be returned per hdf5 file. Since 1
+                             hdf5 file consists of a probabilistic run with the fuzzy
+                             variables held fixed, this paramtere only applies to
+                             probabilistic shapes.
 
-                            {$outputName$:{$acut$:[mincdf,maxcdf], ...}, ...}
+                       Returns: a dictionary with keys equal to the names of the outputs.
 
-                        Mincdf and maxcdf are dictionaries containing the
-                        minimum and maximum cdfs at each alpha cut:
+                            {$outputName$:{$acut$:[mincdf,maxcdf], ...}, ...,
+                            'shapesdata':{$acut:[shpdata], ...} }
+
+                       Mincdf and maxcdf are dictionaries containing the x and y values of
+                       minimum and maximum cdfs at each alpha cut:
 
                             { 'x':r_[x-values], 'y':r_[y-values] }
-        ============== =================================================================
+
+                       The 'shapesdata' entry contains all the shapes generated in this
+                       run in the form of a list of Shapely objects. If
+                       *return_fullshapesdata* =True then the list item shpdata becomes a dictionary:
+
+                           {'name':<string>, 'shp':<Shapely object>, 'desc':<string>,
+                           'type':<string>, 'alphacut':<float>, ...}
+
+                       For probabilistic shapes, only the set from the first fuzzy run are returned.
+        ============== =============================================================================
         """
 
         utilities.msg('Plotting results...')
@@ -867,14 +961,14 @@ class UQ(object):
         else:
             cls=UQ
 
-        if type(hdf5) is str:
+        if type(hdf5) is str or type(hdf5) is unicode:
             ret=cls._plot_probabilistic(hdf5,baseshapes_file,**kwargs)
         elif type(hdf5) is dict:
             if len(hdf5)>0:
                 if type(hdf5[hdf5.keys()[0]]) is str:
                     ret=cls._plot_fuzzy(hdf5,baseshapes_file,**kwargs)
                 elif type(hdf5[hdf5.keys()[0]]) is list:
-                    ret=cls._plot_probfuzzy(hdf5,**kwargs)
+                    ret=cls._plot_probfuzzy(hdf5,baseshapes_file,**kwargs)
                 else:
                     utilities.msg('Could not plot. hdf5 parameter dictionary must contain strings or lists of strings','e')
                     return None
@@ -894,8 +988,9 @@ class UQ(object):
         return ret
 
     @staticmethod
-    def _plot_probfuzzy(hdf5,cdf_pdf='cdf',cdfs_fuzzy3d=True,alphacuts=None,color=True,
-                        estimate_at_value=None,estimate_at_prob=None,plot=True):
+    def _plot_probfuzzy(hdf5,baseshapes_file,cdf_pdf='cdf',cdfs_fuzzy3d=True,alphacuts=None,color=True,
+                        estimate_at_value=None,estimate_at_prob=None,plot=True,return_fullshapesdata=False,
+                        return_n_shapes=None):
         """
         Plots a mixed probabilistic-fuzzy run. A plot is generated which shows
         A lower bound and upper bound CDF for each alpha cut.
@@ -917,6 +1012,7 @@ class UQ(object):
         - *estimate_at_prob*: a dictionary which indicates at which quantiles of the output variables the
           membership function will be calculated. Appears as a horizontal line on the cdf plots.
         - *plot*: If False only returns data (used by :func:`UQ.get_results`)
+        - *return_fullshapesdata*: see the doc for :func:`UQ.plot`.
         """
         utilities.msg('Type of run: probabilistic-fuzzy run')
 
@@ -1035,7 +1131,8 @@ class UQ(object):
             utilities.msg('\tTotal number of samples: {}'.format(total_numsamp),'v')
 
             #the final plots
-            if plot:
+            #if False:                               #fig5 on
+            if plot:                                #fig5 off
                 f1=plt.figure()
                 plt.xlabel('value')
                 plt.ylabel('probability')
@@ -1071,7 +1168,7 @@ class UQ(object):
                 plt.legend(title='membership',bbox_to_anchor=(1.05, -0.05), loc='lower right',
                            borderaxespad=0.)
                 plt.ylim(-0.005,1.005)
-                plt.tight_layout()
+                #plt.tight_layout()
 
 
                 #calcualate the memb func at a given value
@@ -1100,15 +1197,17 @@ class UQ(object):
                             plt.figure(f1.number)
                             plt.plot([value,value],[0,1],'--',color='0.5')
                     else:
-                        utilities.msg('Can''t estimate. {} not found in the list of outputs'.format(output))
+                        utilities.msg('Skipping estimate for {}'.format(output))
                 #end if estimate_at
                 if estimate_at_prob!=None and len(estimate_at_prob)>0:
-                    if output in estimate_at_value.keys():
+                    if output in estimate_at_prob.keys():
                         if not type(estimate_at_prob[output]) is list:
                             values=[estimate_at_prob[output]]
                         else:
                             values=estimate_at_prob[output]
                         for value in values:
+                            if value<0 or value>1:
+                                raise Exception('Quantile to estimate at must be between 0 and 1. Got {}'.format(value))
                             memb={}
                             for acut in sorted_acuts:
                                 memb[acut]=[np.interp(value,min_cdf[acut]['y'],min_cdf[acut]['x']),
@@ -1127,10 +1226,81 @@ class UQ(object):
                             plt.figure(f1.number)
                             plt.plot(plt.gca().get_xlim(),[value,value],'--',color='0.5')
                     else:
-                        utilities.msg('Can''t estimate. {} not found in the list of outputs'.format(output))
+                        utilities.msg('Skipping estimate for {}'.format(output))
                 #end if estimate_at
             #end if plot
         #end for output in outputs:
+
+        #plot the shapes, as obtained from the hdf5 files.
+        if baseshapes_file!=None:
+            utilities.msg('Getting shapes')
+
+            ret['shapesdata']={}
+
+            if hdf5_path!='' and os.path.dirname(baseshapes_file)=='':
+                baseshapes_file=os.path.join(hdf5_path,baseshapes_file)
+
+            if not os.path.isfile(baseshapes_file):
+                utilities.msg('File {} not found. No shapes to plot'.format(os.path.realpath(baseshapes_file)),'w')
+            else:
+                if plot:
+                    plt.figure()                                            #fig5 off
+                    plt.axis('equal')                                       #fig5 off
+                    if color==True:
+                        cm=plt.get_cmap('jet')
+                    elif color==False:
+                        cm=plt.get_cmap('binary')
+
+                utilities.msg('alpha cut:',newline=False)
+                for acut in sorted_acuts[::-1]:
+                    if acut in alphacuts:
+                        utilities.msg(acut,newline=False,timelevel=False)
+                        probshapes=None
+                        for puqrun in range(len(hdf5[acut])):
+                            #for the first hdf5 file of every outer fuzzy loop, get both prob and fuzzy
+                            #objects. Remember that for a single iteration of the outer loop, the fuzzy
+                            #vars are constant while the prob ones change.
+                            #
+                            #For subsequent iterations of the outer loop, get only the fuzzy vars.
+                            #Don't plot the prob vars again since it will slow things down too much.
+                            if puqrun==0:
+                                #for plotting, always get the full data since we need it to determine
+                                #whether an object is probabilistic or fuzzy.
+                                shapesdata=UQ._plot_getshapes(hdf5[acut][puqrun],baseshapes_file,'full',None,return_n_shapes)
+                            else:
+                                shapesdata=UQ._plot_getshapes(hdf5[acut][puqrun],baseshapes_file,'full','fuzzy',return_n_shapes)
+                            ret['shapesdata'][acut]=shapesdata
+                            if not return_fullshapesdata:
+                                #if the user only wants a list, give it to them
+                                shapes=[]
+                                for shpdt in shapesdata:
+                                    shapes.append(shpdt['shp'])
+                                ret['shapesdata'][acut]=shapes
+
+                            if plot:
+                                #the colormap value 1 maps to 0 so multiply so that it's never 1
+                                #also prevent the 0 ac from disappearing into white by setting it to 0.05
+                                ac=0.05 if float(acut)==0 else float(acut)
+                                for shpdt in shapesdata:
+                                    clr=str(color) if color>0 and color<1 else cm(ac*0.999999)
+                                    shp=shpdt['shp']
+                                    shpcoords=utilities.shape2Points(shp)
+                                    if np.size(shpcoords[:,0])==1:
+                                        sym='o'
+                                    else:
+                                        sym='-'
+                                    if shpdt['alphacut']==None:
+                                        #its probabilistic
+                                        clr='0.7'
+                                    plt.plot(shpcoords[:,0],shpcoords[:,1],sym,markeredgecolor='none',color=clr)
+                                #end for
+                            #end if plot
+                        #end for puqrun
+                    #end if acut in alphacuts
+                #end for
+            #end else
+            utilities.msg('',timelevel=False)
+        #end if
         return ret
 
     @staticmethod
@@ -1176,7 +1346,8 @@ class UQ(object):
                ~eq_indices*min2_indices*srt_samples2
 
     @staticmethod
-    def _plot_fuzzy(hdf5,baseshapes_file,return_fullshapesdata=False,alphacuts=None,color=True,plot=True):
+    def _plot_fuzzy(hdf5,baseshapes_file,return_fullshapesdata=False,alphacuts=None,color=True,plot=True,
+                    return_n_shapes=None):
         """
         Plots the membership function of all outputs in a fuzzy run.
 
@@ -1184,6 +1355,7 @@ class UQ(object):
         - *alphacuts*: processes only the alpha cuts in this list.
         - *color*: plots in color if True
         - *plot*: If False, only returns data (used by :func:`UQ.get_results`)
+        - *return_fullshapesdata*: see the doc for :func:`UQ.plot`.
         """
         utilities.msg('Type of run: fuzzy only')
 
@@ -1249,14 +1421,14 @@ class UQ(object):
 
         if plot:
             for outvar,data in plot_data.iteritems():
-                #note: point_to_poly_runner. comment out all lines tagged with fig5
-                plt.figure()                                        #fig5 off from here to plt.ylim()
-                plt_x,plt_y=UQ._plot_fixMembFcn(data)
-                plt.plot(plt_x,plt_y,'k-')
-                plt.xlabel('value')
-                plt.ylabel('membership')
-                plt.title(outvar)
-                plt.ylim(-0.005,1.1)
+                #note: point_to_poly_runner. comment out all lines tagged with fig5 off
+                plt.figure()                                        #fig5 off
+                plt_x,plt_y=UQ._plot_fixMembFcn(data)               #fig5 off
+                plt.plot(plt_x,plt_y,'k-')                          #fig5 off
+                plt.xlabel('value')                                 #fig5 off
+                plt.ylabel('membership')                            #fig5 off
+                plt.title(outvar)                                   #fig5 off
+                plt.ylim(-0.005,1.1)                                #fig5 off
                 plt.tight_layout()
 
                 utilities.msg('Figure {}'.format(plt.gcf().number),'v')
@@ -1272,47 +1444,50 @@ class UQ(object):
 
             if hdf5_path!='' and os.path.dirname(baseshapes_file)=='':
                 baseshapes_file=os.path.join(hdf5_path,baseshapes_file)
+
             if not os.path.isfile(baseshapes_file):
-                raise Exception('Base shapes file {} not found'.format(os.path.realpath(baseshapes_file)))
+                utilities.msg('File {} not found. No shapes to plot'.format(os.path.realpath(baseshapes_file)),'w')
+            else:
+                if plot:
+                    plt.figure()                                            #fig5 off
+                    plt.axis('equal')                                       #fig5 off
+                    if color==True:
+                        cm=plt.get_cmap('jet')
+                    elif color==False:
+                        cm=plt.get_cmap('binary')
 
-            if plot:
-                plt.figure()                                            #fig5 off
-                plt.axis('equal')                                       #fig5 off
-                if color==True:
-                    cm=plt.get_cmap('jet')
-                elif color==False:
-                    cm=plt.get_cmap('binary')
+                for acut in sorted_acuts[::-1]:
+                    if acut in alphacuts:
+                        if return_fullshapesdata:
+                            shapesdata=UQ._plot_getshapes(hdf5[acut],baseshapes_file,'full',None,return_n_shapes)
+                        else:
+                            shapesdata=UQ._plot_getshapes(hdf5[acut],baseshapes_file,'shapely',None,return_n_shapes)
+                        ret['shapesdata'][acut]=shapesdata
 
-            for acut in sorted_acuts[::-1]:
-                if acut in alphacuts:
-                    if return_fullshapesdata:
-                        shapesdata=UQ._plot_getshapes(hdf5[acut],baseshapes_file,'full')
-                    else:
-                        shapesdata=UQ._plot_getshapes(hdf5[acut],baseshapes_file,'shapely')
-                    ret['shapesdata'][acut]=shapesdata
-
-                    if plot:
-                        #the colormap value 1 maps to 0 so multiply so that it's never 1
-                        #also prevent the 0 ac from disappearing into white by setting it to 0.05
-                        ac=0.05 if float(acut)==0 else float(acut)
-                        clr=str(color) if color>0 and color<1 else cm(ac*0.999999)
-                        for shpdt in shapesdata:
-                            if return_fullshapesdata:
-                                shp=shpdt['shp']
-                            else:
-                                shp=shpdt
-                            shpcoords=utilities.shape2Points(shp)
-                            if np.size(shpcoords[:,0])==1:
-                                sym='o'
-                            else:
-                                sym='-'
-                            plt.plot(shpcoords[:,0],shpcoords[:,1],sym,markeredgecolor='none',color=clr)
-                        #end for
-                    #end if plot
-                #end if acut in alphacuts
-            #end for
+                        if plot:
+                            #the colormap value 1 maps to 0 so multiply so that it's never 1
+                            #also prevent the 0 ac from disappearing into white by setting it to 0.05
+                            ac=0.05 if float(acut)==0 else float(acut)
+                            clr=str(color) if color>0 and color<1 else cm(ac*0.999999)
+                            for shpdt in shapesdata:
+                                if return_fullshapesdata:
+                                    shp=shpdt['shp']
+                                else:
+                                    shp=shpdt
+                                shpcoords=utilities.shape2Points(shp)
+                                if np.size(shpcoords[:,0])==1:
+                                    sym='o'
+                                else:
+                                    sym='-'
+                                plt.plot(shpcoords[:,0],shpcoords[:,1],sym,markeredgecolor='none',color=clr)
+                            #end for
+                        #end if plot
+                    #end if acut in alphacuts
+                #end for
+            #end else
         #end if
-        plt.tight_layout()
+        if plot:
+            plt.tight_layout()
         return ret
 
     @staticmethod
@@ -1429,36 +1604,39 @@ class UQ(object):
 
             if hdf5_path!='' and os.path.dirname(baseshapes_file)=='':
                 baseshapes_file=os.path.join(hdf5_path,baseshapes_file)
+
             if not os.path.isfile(baseshapes_file):
-                raise Exception('Base shapes file {} not found'.format(os.path.realpath(baseshapes_file)))
-
-            if return_fullshapesdata:
-                shapesdata=UQ._plot_getshapes(hdf5,baseshapes_file,'full')
+                utilities.msg('File {} not found. No shapes to plot'.format(os.path.realpath(baseshapes_file)),'w')
             else:
-                shapesdata=UQ._plot_getshapes(hdf5,baseshapes_file,'shapely')
-            ret['shapesdata']=shapesdata
+                if return_fullshapesdata:
+                    shapesdata=UQ._plot_getshapes(hdf5,baseshapes_file,'full')
+                else:
+                    shapesdata=UQ._plot_getshapes(hdf5,baseshapes_file,'shapely')
+                ret['shapesdata']=shapesdata
 
-            if plot:
-                plt.figure()
-                for shpdt in shapesdata:
-                    if return_fullshapesdata:
-                        shp=shpdt['shp']
-                    else:
-                        shp=shpdt
-                    shpcoords=utilities.shape2Points(shp)
-                    if np.size(shpcoords[:,0])==1:
-                        sym='o'
-                    else:
-                        sym='-'
-                    plt.plot(shpcoords[:,0],shpcoords[:,1],sym,color='0.7')
-                plt.axis('equal')
+                if plot:
+                    plt.figure()
+                    for shpdt in shapesdata:
+                        if return_fullshapesdata:
+                            shp=shpdt['shp']
+                        else:
+                            shp=shpdt
+                        shpcoords=utilities.shape2Points(shp)
+                        if np.size(shpcoords[:,0])==1:
+                            sym='o'
+                        else:
+                            sym='-'
+                        plt.plot(shpcoords[:,0],shpcoords[:,1],sym,color='0.7')
+                    plt.axis('equal')
+                #end if plot
+            #end else
         #end if baseshapes_file
 
         return ret
 
 
     @staticmethod
-    def _plot_getshapes(hdf5,baseshapes_file,returntype='coords'):
+    def _plot_getshapes(hdf5,baseshapes_file,returntype='coords',returnonly=None,return_n_shapes=None):
         """
         Gets all the shapes from the given hdf5 file and returns them in the form of a list.
 
@@ -1475,20 +1653,57 @@ class UQ(object):
                  'type':<string>, 'alphacut':<float or None>, ...}
 
               which is similar in format to the return value of :func:`ObjectManager.puq2Shapes`.
+
+        - *returnonly*: returns only shapes of a certain kind. Can be 'prob' or 'fuzzy'.
+          If set to None, returns all kinds of shapes.
+        - *return_n_shapes*: limit the number of shapes returned to this number (for performance)
         """
         params_hdf5=puq.hdf.get_params(hdf5)
 
         #use the first input parameter to get the number of realizations
         n=np.size(params_hdf5[0].values)
+        if return_n_shapes!=None:
+            n=return_n_shapes
 
         retlist=[]
 
+        #build a list of parameter types to process (probabilistic or fuzzy) according to
+        #the value of returnonly. if returnonly is None, processes everything
+        params_const={}
+        params_to_process=[]
+        for param in params_hdf5:
+            param_type=None
+            return_thisone=False
+            if hasattr(param,'attrs') and returnonly!=None:
+                uncert_type_attr_found=False
+                for attr in param.attrs:
+                    if attr[0]=='uncert_type':
+                        uncert_type_attr_found=True
+                        if attr[1].startswith(returnonly):
+                            return_thisone=True
+                        if 'const' in attr[1]:
+                            #if the particular parameter is constant, add it to this array
+                            #so that we only add it to the processing list once, since it isn't changing
+                            #inside of the current hdf5 file.
+                            params_const[param.name]=0
+                if not uncert_type_attr_found:
+                    utilities.msg('_plot_getshapes: filter {} requested but parameter did not have the uncert_type attribute'.format(returnonly),'w')
+                    return_thisone=True
+            else:
+                return_thisone=True
+            if return_thisone: params_to_process.append(param)
+
         for i in range(n):
             params=[]
-            for param in params_hdf5:
+            for param in params_to_process:
                 if objectmanager.ObjectManager.isShapeParam(param.name) or \
                     objectmanager.ObjectManager.isShapeParamLegacy(param.name):
-                    params.append(dict(name=param.name, desc=param.description,value=param.values[i]))
+                    if not param.name in params_const:
+                        params.append(dict(name=param.name, desc=param.description,value=param.values[i]))
+                    else:
+                        if params_const[param.name]==0:
+                            params.append(dict(name=param.name, desc=param.description,value=param.values[i]))
+                            params_const[param.name]=1
 
             shapes=objectmanager.ObjectManager.puq2Shapes(baseshapes_file,params=params)
 

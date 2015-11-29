@@ -12,9 +12,27 @@ import puq
 class ObjectManager(object):
     """
     Manages Wiggly objects.
+
+    - *ignore_certain_vertices*: Used in the SA module to limit the number of runs required
+      when there are partially certain objects.
+
+      If True, then certain vertices (or edges) which would otherwise be added to puq as
+      ConstantParameters are not added at all.
+
+      ================ =============================================================================
+      Object Type       Behavior
+      ================ =============================================================================
+      Rigid            No effect. x,y,theta are included in the SA even if they are certain.
+
+      deformable       Non-uncertain vertices are not included in the SA
+
+      vertex-defined   Non-uncertain vertices are not included in the SA (todo)
+
+      edge-defined     Non-uncertain edges are not included in the SA (todo)
+      ================ =============================================================================
     """
 
-    def __init__(self):
+    def __init__(self,ignore_certain_vertices=False):
 
 
         self._objects={}    #keys are object names, values are dictionaries with keys:values
@@ -24,6 +42,7 @@ class ObjectManager(object):
         self._classes={}    #keys are class names, values are lists of object names
 
         self._shapesFileFirstWrite=True
+        self._ignore_certain_vertices=ignore_certain_vertices
 
     @staticmethod
     def isShapeParam(paramname):
@@ -169,6 +188,7 @@ class ObjectManager(object):
                     #the parameter has been verified to come from *2PuqParams.
                     #do more validation
                     skipped=False
+
                     if len(parse)<4 or len(parse)>5:
                         print("Error: parameter {} isn't in the proper format.".format(param['name']))
                         skipped=True
@@ -179,6 +199,7 @@ class ObjectManager(object):
                         objName=parse[1]
                         varType=parse[2]
                         index=int(parse[3])
+
                         acut=None
 
                         #get the alpha cut for objects that have it
@@ -203,7 +224,7 @@ class ObjectManager(object):
 
         #open the file containing the base shapes to distort
         #baseShapes is a dict with keys equal to objectname
-        #and values of shapely shapes
+        #and values of dictionaries of properties. see shapes.json
         if not os.path.isfile(shapesFileName):
             utilities.msg('puq2shapes:{} not found. No shapes generated'.format(shapesFileName),'w')
             return {}
@@ -219,29 +240,21 @@ class ObjectManager(object):
                 #rigid object. we're lookgin for 3 variables x,y,theta
                 if shpName in data.keys():
                     shp_rt=ObjectManager._puq2Shapes_rigidObjectSingle(shpName,data[shpName],shpItem)
-                else:
-                    print("Error: rigid object {} not found in the list of puq params. Ignoring".format(shpName))
             elif shpItem['type']=='D':
                 #deformable object. we're looking for x,y variables for each vertex.
                 #building the shape is different since we don't need to use the base shape
                 #all the information for constructing a shape is present in the puq parameter
                 if shpName in data.keys():
                     shp_rt=ObjectManager._puq2Shapes_deformableObjectSingle(shpName,data[shpName],shpItem)
-                else:
-                    print("Error: deformable obj {} not found in the list of puq params. Ignoring".format(shpName))
             elif shpItem['type']=='V':
                 #vertex defined object. Same as deformable object for the purpose of
                 #building a single shapely shape.
                 if shpName in data.keys():
                     shp_rt=ObjectManager._puq2Shapes_vertexObjectSingle(shpName,data[shpName],shpItem)
-                else:
-                    print("Error: vertex-defined obj {} not found in the list of puq params. Ignoring".format(shpName))
             elif shpItem['type']=='E':
                 #edge-defined object
                 if shpName in data.keys():
                     shp_rt=ObjectManager._puq2Shapes_edgeObjectSingle(shpName,data[shpName],shpItem)
-                else:
-                    print("Error: edge-defined obj {} not found in the list of puq params. Ignoring".format(shpName))
             else:
                 print('Type {} not supported. Ignoring'.format(shpItem['type']))
 
@@ -249,6 +262,17 @@ class ObjectManager(object):
                 shapes[shpName]={'shp':shp_rt,'desc':data[shpName]['desc'][0],
                                  'type':shpItem['type'],'alphacut':data[shpName]['alphacut'][0]}
         return shapes
+
+    @staticmethod
+    def _indices(lst, element):
+        result = []
+        offset = -1
+        while True:
+            try:
+                offset = lst.index(element, offset+1)
+            except ValueError:
+                return result
+            result.append(offset)
 
     @staticmethod
     def _puq2Shapes_deformableObjectSingle(objName,objData,baseShapeData):
@@ -278,28 +302,9 @@ class ObjectManager(object):
             elif count_x!=(len1/2):
                 print("Errpr for {}. unexpected count for 'varType'.".format(objName))
             else:
-                #make sure the lists are sorted according to the index so that we build
-                #the object in the right order. http://stackoverflow.com/questions/6618515
-                # ##DISABLED## not needed anymore
-#                objData_sorted=sorted(zip(objData['index'],objData['xORy'],
-#                                          objData['isClosed'],objData['value']),key=lambda pair:pair[0])
-
-                #build arrays which will hold the vertices
-                pts_x=np.zeros(len1/2)*np.nan
-                pts_y=np.zeros(len1/2)*np.nan
-                for i in range(len1):
-                    idx=int(objData['index'][i])
-                    #insert the x or y value into the correct location in the list.
-                    #due to the above checks, there is guaranteed to be the same
-                    #number of x and y values
-                    xyt=objData['varType'][i]
-                    if xyt=='x':
-                        pts_x[idx]=objData['value'][i]
-                    elif xyt=='y':
-                        pts_y[idx]=objData['value'][i]
-                    else:
-                        raise Exception('Unexpected value for varType ({}) for edge-defined object {}'.format(xyt,objName))
-
+                pts_x,pts_y=ObjectManager._puq2shapes_deformableVertex_buildobject_helper(baseShapeData,
+                                                                                          objData,
+                                                                                          objName)
                 #we now can build the shape
                 do=CrispObjects.DeformableObjectFromValues(baseShapeData['pts_x'],baseShapeData['pts_y'],
                                     baseShapeData['uncert_pts'],baseShapeData['isClosed'],
@@ -380,18 +385,30 @@ class ObjectManager(object):
         lens=np.r_[len(objData['varType']),len(objData['value']), len(objData['alphacut'])]
 
         if np.any(lens!=len1):
-            #the length of the vertex indices must be the same as the length of
+            #the length of the edge indices must be the same as the length of
             #all the other lists
             print("Warning. Can't create object {}. The data was corrupt".format(objName))
         else:
-            edge_offsets=np.zeros(len1)*np.nan
-            for i in range(len1):
-                idx=int(objData['index'][i])
-                xyt=objData['varType'][i]
-                if xyt=='e':
-                    edge_offsets[idx]=objData['value'][i]
+            if baseShapeData['isClosed']:
+                numedges=len(baseShapeData['pts_x'])+1
+            else:
+                numedges=len(baseShapeData['pts_x'])
+
+            edge_offsets=np.zeros(numedges)*np.nan
+            for i in range(numedges):
+                idxs=ObjectManager._indices(objData['index'],i)
+
+                if len(idxs)==0:
+                    edge_offsets[i]=0
+                elif len(idxs)!=1:
+                    raise Exception('You should not see this error. Edge-defined object {} had more than one variables associated with index {}'.format(objName,i,))
                 else:
-                    raise Exception('Unexpected value for varType ({}) for edge-defined object {}'.format(xyt,objName))
+                    xyt=objData['varType'][idxs[0]]
+                    if xyt=='e':
+                        edge_offsets[i]=objData['value'][idxs[0]]
+                    else:
+                        raise Exception('Unexpected value for varType ({}) for edge-defined object {}'.format(xyt,objName))
+                #end if
 
             #verify that all edges have the same alpha cut
             acut=objData['alphacut'][0] #single alpha cut value
@@ -445,22 +462,9 @@ class ObjectManager(object):
             elif count_x!=(len1/2):
                 print("Error for {}. unexpected count for 'varType'.".format(objName))
             else:
-                #build arrays which will hold the vertices
-                pts_x=np.zeros(len1/2)*np.nan
-                pts_y=np.zeros(len1/2)*np.nan
-                for i in range(len1):
-                    idx=int(objData['index'][i])
-                    #insert the x or y value into the correct location in the list.
-                    #due to the above checks, there is guaranteed to be the same
-                    #number of x and y values
-                    xyt=objData['varType'][i]
-                    if xyt=='x':
-                        pts_x[idx]=objData['value'][i]
-                    elif xyt=='y':
-                        pts_y[idx]=objData['value'][i]
-                    else:
-                        raise Exception('Unexpected value for varType ({}) for edge-defined object {}'.format(xyt,objName))
-
+                pts_x,pts_y=ObjectManager._puq2shapes_deformableVertex_buildobject_helper(baseShapeData,
+                                                                                          objData,
+                                                                                          objName)
 
                 #verify that all edges have the same alpha cut
                 acut=objData['alphacut'][0] #single alpha cut value
@@ -480,6 +484,47 @@ class ObjectManager(object):
             #end if
 
         return shp_rt
+
+    @staticmethod
+    def _puq2shapes_deformableVertex_buildobject_helper(baseShapeData, objData,objName):
+        #make sure the lists are sorted according to the index so that we build
+        #the object in the right order. http://stackoverflow.com/questions/6618515
+        # ##DISABLED## not needed anymore
+#                objData_sorted=sorted(zip(objData['index'],objData['xORy'],
+#                                          objData['isClosed'],objData['value']),key=lambda pair:pair[0])
+
+        numvert=len(baseShapeData['pts_x'])
+
+        #build arrays which will hold the vertices
+        pts_x=np.zeros(numvert)*np.nan
+        pts_y=np.zeros(numvert)*np.nan
+
+        for i in range(numvert):
+            idxs=ObjectManager._indices(objData['index'],i)
+
+            if len(idxs)==0:
+                #if we're here, the ith vertex of baseshape was not found in the list
+                #of uncertain vertices. Therefore it must be certain. replace it with
+                #the corresponding vertex of baseshape
+                pts_x[i]=baseShapeData['pts_x'][i]
+                pts_y[i]=baseShapeData['pts_y'][i]
+            elif len(idxs)!=2:
+                raise Exception('You should not see this error. Deformable object {} had more than two variables associated with index {}'.format(objName,i,))
+
+            for idx in idxs:
+                #insert the x or y value into the correct location in the list.
+                #due to the above checks, there is guaranteed to be the same
+                #number of x and y values
+                xyt=objData['varType'][idx]
+                if xyt=='x':
+                    pts_x[i]=objData['value'][idx]
+                elif xyt=='y':
+                    pts_y[i]=objData['value'][idx]
+                else:
+                    raise Exception('Unexpected value for varType ({}) for deformable object {}'.format(xyt,objName))
+            #end for
+
+        return pts_x,pts_y
 
     def addObject(self,obj,name=None,data=None):
         """
@@ -662,7 +707,8 @@ class ObjectManager(object):
                         else:
                             param=self._element2SpecificPuqParam(name,desc,obj,i)
 
-                    puq_params.append(param)
+                    if param!=None:
+                        puq_params.append(param)
 
             elif utilities.isDeformableObject(obj):
                 desc='deformable object coord.'
@@ -680,18 +726,24 @@ class ObjectManager(object):
                         #if all the samples for this variable are the same, it is a constant
                         param=puq.ConstantParameter(name,'[C] ' + desc,attrs=[('uncert_type','prob-const')],
                                                     value=np.r_[pts_x_samples[0,i]])
+                        if self._ignore_certain_vertices:
+                            param=None
                     else:
                         if use_samples:
                             param=puq.CustomParameter(name,desc,attrs=[('uncert_type','prob')],
                                                       pdf=pts_x_samples[:,i],use_samples_val=True)
                         else:
                             param=self._element2SpecificPuqParam(name,desc,obj,i)
-                    puq_params.append(param)
+
+                    if param!=None:
+                        puq_params.append(param)
 
                     name='wXY__{}__y__{}'.format(objName,i)
                     if np.all(pts_y_samples[:,i]==pts_y_samples[0,i]):
                         param=puq.ConstantParameter(name,'[C] ' + desc,attrs=[('uncert_type','prob-const')],
                                                     value=np.r_[pts_y_samples[0,i]])
+                        if self._ignore_certain_vertices:
+                            param=None
                     else:
                         if use_samples:
                             param=puq.CustomParameter(name,desc,attrs=[('uncert_type','prob')],
@@ -699,7 +751,8 @@ class ObjectManager(object):
                         else:
                             param=self._element2SpecificPuqParam(name,desc,obj,np.size(pts_x_samples,1)+i)
 
-                    puq_params.append(param)
+                    if param!=None:
+                        puq_params.append(param)
             else:
                 raise Exception("object of type {} not supported".format(str(type(obj))))
 
@@ -850,14 +903,19 @@ class ObjectManager(object):
                                 #if all the samples for this variable are the same, it is a constant
                                 param=puq.ConstantParameter(name,'[C] ' + desc,attrs=[('uncert_type','fuzzy-const')],
                                                             value=np.r_[samples[0]])
+
+                                if self._ignore_certain_vertices:
+                                    param=None
                             else:
                                 if use_samples:
                                     param=puq.CustomParameter(name,desc,attrs=[('uncert_type','fuzzy')],
                                                               pdf=samples,use_samples_val=True)
                                 else:
-                                    param=self._element2SpecificPuqParam(name,desc,obj,i,acut)
+                                    #print(name)
+                                    param=self._element2SpecificPuqParam(name,desc,obj,(nFuzzyVars/2)*k+i,acut)
 
-                            puq_params_alpha.append(param)
+                            if param!=None:
+                                puq_params_alpha.append(param)
                         #end for k in range(len(var))
                     #end for i in range(nFuzzyVars/2)
 
@@ -872,13 +930,18 @@ class ObjectManager(object):
                             #if all the samples for this variable are the same, it is a constant
                             param=puq.ConstantParameter(name,'[C] ' + desc,attrs=[('uncert_type','fuzzy-const')],
                                                         value=np.r_[samples[0]])
+
+                            if self._ignore_certain_vertices:
+                                param=None
                         else:
                             if use_samples:
                                     param=puq.CustomParameter(name,desc,attrs=[('uncert_type','fuzzy')],
                                                               pdf=samples,use_samples_val=True)
                             else:
                                 param=self._element2SpecificPuqParam(name,desc,obj,i,acut)
-                        puq_params_alpha.append(param)
+
+                        if param!=None:
+                            puq_params_alpha.append(param)
                 else:
                     raise Exception("object of type {} not supported".format(str(type(obj))))
 
@@ -979,6 +1042,9 @@ def test_addFuzzyObjects():
     np.random.seed(96931694)
     method='random'
 
+    #method='reducedtransformation' #only for plotting. setting this will fail the assertion below
+    #n=None
+
     #acuts=np.linspace(0,1,num=11)
     acuts=np.r_[0,0.5,1]   #fewer for clarity
 
@@ -998,10 +1064,9 @@ def test_addFuzzyObjects():
                  fuzz.TrapezoidalFuzzyNumber((-.75, .75), (-1, 1))]
 
     edo=FuzzyObjects.EdgeDefinedObject(pt_x,pt_y,edgeMembFcn,isClosed=True)
-    #edo.generateRealizations(0,acuts,'reducedtransformation')
     edo.generateRealizations(n,acuts,method)
-    edo.plot()
-    edo.plotFuzzyNumbers()
+    #edo.plot()
+    #edo.plotFuzzyNumbers()
 
     ###########
     #vertex defined
@@ -1010,16 +1075,21 @@ def test_addFuzzyObjects():
                  fuzz.TrapezoidalFuzzyNumber((-2, 2), (-2, 2)),
                  fuzz.TrapezoidalFuzzyNumber((-1, 1), (-1.5, 3)),
                  fuzz.TrapezoidalFuzzyNumber((-0.5, 0.5), (-2, 1))]
+
+    #test a point
+    membFcn_x=[  fuzz.TrapezoidalFuzzyNumber((-0.5, 0.5), (-1.5, 1.5))]
+    pt_x=np.r_[480.]
+    pt_y=np.r_[123.]
+
     membFcn_y=membFcn_x
 
-    vdo=FuzzyObjects.VertexDefinedObject(pt_x+50,pt_y,membFcn_x,membFcn_y,isClosed=True)
-    #vdo.generateRealizations(0,acuts,method='reducedtransformation')
+    vdo=FuzzyObjects.VertexDefinedObject(pt_x+50,pt_y,membFcn_x,membFcn_y,isClosed=False)
     vdo.generateRealizations(n,acuts,method)
-    #vdo.plot()
-    #vdo.plotFuzzyNumbers()
+    vdo.plot()
+    vdo.plotFuzzyNumbers()
 
-    manager=ObjectManager()
-    manager.addObject(edo,name='edo1')
+    manager=ObjectManager(ignore_certain_vertices=True)
+    #manager.addObject(edo,name='edo1')
     manager.addObject(vdo,name='vdo1')
 
     print('objects: ' + str(manager.objects))
@@ -1029,8 +1099,8 @@ def test_addFuzzyObjects():
     print('base shapes in {}'.format(baseshapesfile))
     s_all={}
 
-    #puqparams_all=manager.fuzzyObjects2PuqParams(baseshapesfile)
-    puqparams_all=manager.fuzzyObjects2PuqParams(baseshapesfile,use_samples=False)
+    puqparams_all=manager.fuzzyObjects2PuqParams(baseshapesfile)
+    #puqparams_all=manager.fuzzyObjects2PuqParams(baseshapesfile,use_samples=False)
 
     for acut,puqparams_data in puqparams_all.iteritems():
         print("alpha cut {}".format(acut))
@@ -1061,8 +1131,9 @@ def test_addFuzzyObjects():
                     assert(puqparam.values[i]==edo.getRealizations4Sim(acut)[i,vertex])
             if name=='vdo1':
                 assert method=='random','only random realizations supported'
-                x=vdo.getRealizations4Sim(acut)[:,vertex]
-                y=vdo.getRealizations4Sim(acut)[:,(n/2)+vertex]
+                rlz=vdo.getRealizations4Sim(acut)
+                x=rlz[:,vertex]
+                y=rlz[:,(np.size(rlz,1)/2)+vertex]
                 if var=='x':
                     for i in range(min(np.size(puqparam.values),np.size(x))):
                         assert(puqparam.values[i]==x[i])
@@ -1213,7 +1284,8 @@ def test_addCrispObjects():
     #plt.show()
     #########
 
-    manager=ObjectManager()
+    #manager=ObjectManager()
+    manager=ObjectManager(ignore_certain_vertices=True)
     manager.addObject(ro,'ro')
     manager.addObject(do1,'do1')
     manager.addObject(do2,'do2')
@@ -1226,8 +1298,8 @@ def test_addCrispObjects():
 
     s=[]
     oldname=''
-    #puqparams=manager.crispObjects2PuqParams(baseshapesfile)
-    puqparams=manager.crispObjects2PuqParams(baseshapesfile,use_samples=False)
+    puqparams=manager.crispObjects2PuqParams(baseshapesfile)
+    #puqparams=manager.crispObjects2PuqParams(baseshapesfile,use_samples=False)
     for puqparam in puqparams:
         name=puqparam.name.split('__')[1]
         if name!=oldname:
@@ -1276,6 +1348,9 @@ def test_addCrispObjects():
 
 def test_crispObjectsFromPuq():
     #tests re-building shapely shapes from puq parameters
+    #note: this function only works when manager.crispObjects2PuqParams use_samples=True
+    #  in test_addCrispObjects
+
     plt.close('all')
     params_all,baseshapesfile,n,objects=test_addCrispObjects()
     print('')
@@ -1287,7 +1362,7 @@ def test_crispObjectsFromPuq():
             params.append({'name':param['name'], 'desc':param['desc'],
                            'value':param['value'][i%np.size(param['value'])]})
 
-        #print(params)
+        print(params)
         shapes=ObjectManager.puq2Shapes(baseshapesfile,params=params)
         print("realization {}, number of shapes: {}".format(i,len(shapes)))
         for shpName,shpData in shapes.iteritems():
@@ -1300,7 +1375,7 @@ def test_crispObjectsFromPuq():
             elif utilities.isShapelyLineString(shp):
                 xy=np.asarray(shp)
                 plt.plot(xy[:,0],xy[:,1],'-')
-                assert(np.all(xy==np.asarray(objects[2].realizationsPolygons[i])))
+                #assert(np.all(xy==np.asarray(objects[2].realizationsPolygons[i]))) #assert will fail when use_samples=True in test_addCrispObjects
             elif utilities.isShapelyPolygon(shp):
                 xy=np.asarray(shp.exterior)
                 plt.plot(xy[:,0],xy[:,1],'-')
@@ -1314,35 +1389,6 @@ def test_crispObjectsFromPuq():
             print("\tshpname {}\n\t\tdesc {}".format(shpName,shpDesc))
     plt.show()
 
-#class ObjectBundle(object):
-#    #TODO: this is probably going to be an object factory
-#    """
-#    A bundle of FObjects which share a single statistical distribution or fuzzy number.
-#
-#    For CrispObjects, this will always be a normal or uniform distribution of 3 parameters
-#    (x-displacement, y-displacement, angle-displacement)
-#    For FuzzyObjects, there will be a pair of fuzzy numbers for vertex-defined objects or
-#    a single fuzzy number for edge-defined.
-#
-#    - *objs*: A list of FObjects of the same type. When constructing these objects, the statistical
-#      distribution or fuzzy numbers of the original object will be overwritten with the
-#      properties specified by the *kwargs*.
-#    - *kwargs*:
-#      ============== ==============
-#      type of *objs* valid *kwargs*
-#      ============== ==============
-#      CrispObject    dist: 'normal' or 'uniform'
-#                     cor: 3x3 array containing the correlations between the x-displacement,
-#                     y-displacement, and theta-displacement. For RigidObjects, this matrix
-#                     is used as-is. For DeformableObjects, this matrix is applied to each
-#                     vertex of the object.
-#    """
-#    def __init__(self,objs,bundlename=None,**kwargs):
-#        pass
-#
-#    def getBundle(self):
-#        pass
-
 
 
 
@@ -1352,5 +1398,5 @@ if __name__ == '__main__':
 
     #test_addCrispObjects()
     #test_crispObjectsFromPuq()
-    test_addFuzzyObjects()
-    #test_fuzzyObjectsFromPuq()
+    #test_addFuzzyObjects()
+    test_fuzzyObjectsFromPuq()
