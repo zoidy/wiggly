@@ -261,13 +261,15 @@ class FuzzyObject(FObject):
         """
         #After this function runs, _realizations will contain a dictionary with
         #keys of alphacut values and values of numpy arrays
-
+        alphaCuts=np.asarray(alphaCuts)
         if np.size(alphaCuts)<1:
             raise Exception("need at least 1 alpha cut")
         if np.any(alphaCuts>1) or np.any(alphaCuts<0):
-            raise Exception("Alpha cuts must be in the interval [0,1]")
+            raise Exception("{}. Alpha cuts must be in the interval [0,1]".format(alphaCuts))
         if n<2 and method!='reducedtransformation':
-            raise Exception('need at least 2 realizations!')
+            raise Exception('need at least 2 realizations for method {}!'.format(method))
+        if method=='reducedtransformation' and n!=None:
+            raise Exception('Parameter n and method=reducedtransformation cannot both be specified in generateRealizations')
 
         self._lastDistr=None
         self._lastMethod=None
@@ -510,7 +512,7 @@ class FuzzyObject(FObject):
                 realizations[:,i]=samples
             #end for
         elif method=='reducedtransformation':
-            return self._realizations_generateRealizations_reducedTrans(alphaCuts,fuzzyNumbers,False,0)
+            return self._realizations_generateRealizations_reducedTrans(alphaCuts,fuzzyNumbers,False,None)
         elif method=='reducedtransformation-subset':
             return self._realizations_generateRealizations_reducedTrans(alphaCuts,fuzzyNumbers,True,n)
         else:
@@ -588,7 +590,7 @@ class FuzzyObject(FObject):
         #over all variables.
         returnDictionary={}
 
-        if n<2 and not subset:
+        if n!=None and n<2 and not subset:
             n=2
             print("reducedTransformation: the number of requested realizations was less than 2. It was reset to 2")
 

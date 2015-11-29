@@ -244,13 +244,21 @@ class CrispObject(FObjects.FObject):
         print("Statistics for the first {} points".format(numpointstoplot))
         print("means {}:".format(labels))
         print(np.mean(data,axis=0)) #calculate the mean along the rows (ie down the columns)
-        print("correlation (columns/rows are {}".format(labels))
-        print(np.corrcoef(data,rowvar=0))
+        cor_err=False
+        try:
+            print("corr & cov (columns/rows are {}".format(labels))
+            print(np.corrcoef(data,rowvar=0))
+        except:
+            print('Warning: Couldn\'t compute correlation coefficients. Probably not all vertices are uncertain')
+            cor_err=True
         print("covariance matrix")
         print(np.cov(data,rowvar=0))
 
         #plot
-        utilities.pairs(data=data,figurenum=fignum,labels=labels)
+        if not cor_err:
+            utilities.pairs(data=data,figurenum=fignum,labels=labels,rankcorr=True)
+        else:
+            print('Error: can\'t make pairs plot since at least one vertex has covariance of zero')
 
 class RigidObject(CrispObject):
     """
@@ -751,7 +759,7 @@ def _testDeformable():
 
     do=DeformableObject(x=pt_x,y=pt_y,cov=cov,unc_pts=uncertain_pts,isClosed=False)
 
-    do.generateNormal(n=1000)     #first generate normally distributed uncertainty
+    do.generateNormal(n=5)     #first generate normally distributed uncertainty
     do.plot(fignum=1,n=200)         #plot realizations
     do.plotStats(fignum=2)
     plt.figure(1)                   #plot the original object
@@ -769,5 +777,5 @@ def _testDeformable():
 if __name__ == '__main__':
     #utilities.clearall()
 
-    _testRigid()
-    #_testDeformable()
+    #_testRigid()
+    _testDeformable()

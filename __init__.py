@@ -2,7 +2,8 @@ import sys, os
 
 #important so sub packages can be used from wiggly folder
 parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(1, parent_dir+'\wiggly')
+if not parent_dir+'\wiggly' in sys.path:
+    sys.path.insert(1, parent_dir+'\wiggly')
 
 #allow accessing these things when you import wiggly
 import utilities
