@@ -17,7 +17,7 @@ See (http://zoidy.github.io/wiggly/)
   * scipy 0.13.0
     
 QGIS 2.6:
-*need to update QGIS Python numpy version to at least 1.7.1 and scipy 0.13
+* need to update QGIS Python numpy version to at least 1.7.1 and scipy 0.13
         (can do it manually, just delete old numpy and scipy dir and egg-info files
         and replace with new ones). Also need all of their dependencies.
 * need to update shapely to at least 1.5.1
